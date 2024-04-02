@@ -4,34 +4,34 @@
         perks: [
             {
                 rank: 1,
-                name: 'Iron Fist',
-                img: 'iron-fist.png',
+                name: 'Big Leagues',
+                img: 'big-leagues.png',
                 ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Channel your chi to unleash devastating fury! Punching attacks now do 20% more damage.'
+                        description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
                     },
                     {
                         rank: 2,
-                        level: 9,
-                        description: 'Punching attacks now do 40% more damage and can disarm your opponent.'
+                        level: 12,
+                        description: 'You do 25% with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
                     },
                     {
                         rank: 3,
-                        level: 18,
-                        description: 'Punching attacks now do 60% more damage. Unarmed Power Attacks have a chance to cripple one of your opponent\'s limbs.'
+                        level: 30,
+                        description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
                     },
                     {
                         rank: 4,
-                        level: 31,
-                        description: 'Attacks made with fists or weapons worn on the hands 80% more damage. Unarmed Power Attacks have an increased chance to cripple one of your opponent\'s limbs.'
+                        level: 50,
+                        description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!.'
                     },
                     {
                         rank: 5,
                         level: 46,
-                        description: 'Attacks made with fists or weapons worn on the hands inflict 100% more damage. Criticals in V.A.T.S. will paralyse your opponents.'
+                        description: 'You do 55% more damage with unarmed and blunt melee weapons.'
                     }
                 ]
             },
