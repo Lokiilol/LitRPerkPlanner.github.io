@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>True Perks Character Planner</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 </head>
@@ -30,84 +30,24 @@
                 <h3>S.P.E.C.I.A.L.</h3>
                 <span class="bold points-left"></span> points left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-weight:normal;"><input type="checkbox" class="include-bobbleheads" /> Include bobbleheads/You're S.P.E.C.I.A.L.</label>
                 <ul class="list-group list-special">
-                    <li data-special="st" class="list-group-item clearfix">
-                        STRENGTH
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="pe" class="list-group-item clearfix">
-                        PERCEPTION
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="en" class="list-group-item clearfix">
-                        ENDURANCE
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ch" class="list-group-item clearfix">
-                        CHARISMA
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="in" class="list-group-item clearfix">
-                        INTELLIGENCE
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ag" class="list-group-item clearfix">
-                        AGILITY
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="lu" class="list-group-item clearfix">
-                        LUCK
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
+                    <!-- List items for S.P.E.C.I.A.L. attributes -->
                 </ul>
                 <h4>Summary:</h4>
                 Required level: <span class="required-level">1</span>
                 <ul class="summary">
-
+                    <!-- Summary items -->
                 </ul>
             </div>
             <div class="col-md-9">
                 <h3>Perks</h3>
-                <table class="table"></table>
+                <table class="table">
+                    <!-- Perks table content -->
+                </table>
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-h5SYvVHYdU7zZAGUr5wqF5yQpnb5V0/2TzKRjj9l3tg8FBf5ay7Jw9YG0mffO4qt" crossorigin="anonymous"></script>
     <script src="js/perks.js"></script>
     <script src="js/scripts.js"></script>
 </body>
