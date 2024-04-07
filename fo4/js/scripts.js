@@ -1,4 +1,4 @@
-const totalPoints = 22;
+const totalPoints = 21;
 
 const renderPerks = function () {
     let html = '',
@@ -96,7 +96,7 @@ const requiredLevel = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
     if (includeBobbleheads()) {
-        remaining += 
+        remaining += 8
     }
 
     if (remaining <= 0) {
@@ -138,7 +138,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += ;
+       remaining += 8;
     }
     
     if (remaining < 0) {
@@ -230,10 +230,10 @@ $(function () {
     renderAll();
 
     $includeBobbleheads.on('click', function () {
-        let valShift = -0;
+        let valShift = -1;
         
         if (includeBobbleheads()) {
-            valShift = 0;
+            valShift = 1;
         }
         
         const $inputs = $(".list-special>li>span>input")
