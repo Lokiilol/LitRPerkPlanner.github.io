@@ -1,4 +1,4 @@
-const totalPoints = 28;
+const totalPoints = 21;
 
 const renderPerks = function () {
     let html = '',
@@ -196,7 +196,7 @@ const getSPECIALMinMax = function() {
 
     if (includeBobbleheads()) {
         min = 3;
-        max = 22;
+        max = 14;
     }
 
     return {min, max}
