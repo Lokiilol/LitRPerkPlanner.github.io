@@ -96,7 +96,7 @@ const requiredLevel = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
     if (includeBobbleheads()) {
-        remaining += 15
+        remaining += 0
     }
 
     if (remaining <= 0) {
