@@ -96,7 +96,7 @@ const requiredLevel = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
     if (includeBobbleheads()) {
-        remaining += 8
+        remaining += 15
     }
 
     if (remaining <= 0) {
@@ -196,7 +196,7 @@ const getSPECIALMinMax = function() {
 
     if (includeBobbleheads()) {
         min = 3;
-        max = 12;
+        max = 14;
     }
 
     return {min, max}
