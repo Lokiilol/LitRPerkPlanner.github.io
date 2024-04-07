@@ -192,7 +192,7 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 20;
+    let max = 12;
 
     if (includeBobbleheads()) {
         min = 3;
