@@ -145,7 +145,6 @@ const calculatePoints = function () {
         remaining = 0;
     }
     
-    $pointsLeft.text(remaining);
 }
 
 const getAllocatedPoints = function () {
