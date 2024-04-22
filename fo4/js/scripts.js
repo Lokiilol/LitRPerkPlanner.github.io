@@ -1,10 +1,8 @@
-// Replace const totalPoints = 28; with your desired total points variable
 let totalPoints = 28;
 
-// Replace the existing renderPerks function with the modified one
 const renderPerks = function () {
     let html = '',
-    special = getSPECIAL();
+        special = getSPECIAL();
 
     html += '<tr>';
 
@@ -16,7 +14,7 @@ const renderPerks = function () {
 
     for (let i = 0; i <= 9; ++i) {
         html += '<tr>';
-        
+
         for (let j = 0; j < perks.length; ++j) {
             let perk = perks[j].perks[i],
                 className = i > special[j].value - 1 ? ' unavailable' : '';
@@ -27,23 +25,23 @@ const renderPerks = function () {
 
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
-                let description = 'Rank ' + rank.rank + ' (' + rank.level + '): ' + rank.description;
+                let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
 
-                // Check if the rank has a required attribute
+                if (rank.str) {
+                    description += ' (Strength ' + rank.str + ')';
+                }
+
                 if (rank.requiredAttribute && rank.requiredAttributeValue) {
                     description += ' (Requires ' + rank.requiredAttribute + ' ' + rank.requiredAttributeValue + ')';
                 }
 
-                // Check if the rank requires a specific strength level
-                if (rank.str) {
-                    description += ' (Strength ' + rank.str + ')';
-                }
+                description += ' ' + rank.description; 
 
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
             html += '<td><div data-placement="left" data-trigger="hover" data-original-title="' + perk.name + '" rel="popover" data-html="true" data-content="' + title + '" data-i="' + i + '" data-j="' + j + '" class="perk' + className + '" style="background-image:url(\'img/' + perk.img + '\');">';
-           
+
             if (className !== ' unavailable') {
                 html += '<div class="overlay"><button class="btn btn-xs btn-danger btn-dec-perk"><i class="glyphicon glyphicon-minus"></i></button>&nbsp;' + perk.currentRank + '/' + perk.ranks + '&nbsp;<button class="btn btn-xs btn-success btn-inc-perk"><i class="glyphicon glyphicon-plus"></i></button></div>';
             }
@@ -55,6 +53,7 @@ const renderPerks = function () {
 
     $('.table').html(html);
 }
+
 
 
 const getJSON = function () {
