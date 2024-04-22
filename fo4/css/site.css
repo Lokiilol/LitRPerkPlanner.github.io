@@ -1,41 +1,29 @@
-/* Base styles */
 body {
-    background-color: #121212; /* Dark background color */
-    color: #fff; /* Light text color */
+    background-color: #121212;
+    color: #fff;
 }
 
 .navbar-default {
-    background-color: #333; /* Dark background color for navbar */
+    background-color: #333;
 }
 
-.navbar-default .navbar-brand {
-    color: #fff; /* Light text color for navbar brand */
-}
-
+.navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
-    color: #fff; /* Light text color for navbar links */
-}
-
-.list-special .list-group-item::first-letter {
-    font-weight: bold;
+    color: #fff;
 }
 
 .list-special input {
     display: inline-block;
     width: 60px;
-    background-color: #333; /* Dark background color for input */
-    color: #fff; /* Light text color for input */
-    border: 1px solid #fff; /* White border */
-}
-
-.unavailable {
-    opacity: 0.4;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
 }
 
 .perk {
     width: 86px;
     height: 86px;
-    border: 1px solid #fff; /* White border for perks */
+    border: 1px solid #fff;
     position: relative;
 }
 
@@ -46,7 +34,7 @@ body {
     text-align: center;
     color: #FFF;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.6); /* 40% opaque black */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .has-rank {
@@ -55,10 +43,6 @@ body {
     padding: 3px;
     border-radius: 3px;
     color: #fff;
-}
-
-.no-rank {
-    font-size: 12px;
 }
 
 .checkbox input[type="checkbox"] {
@@ -83,4 +67,14 @@ input[type=number] {
     margin-right: 5px;
     font-size: 12px;
     font-family: Arial, sans-serif;
+}
+
+.perk-description {
+    background-color: #333;
+    color: #fff;
+}
+
+.list-group {
+    background-color: #333;
+    color: #fff;
 }
