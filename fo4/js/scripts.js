@@ -1,5 +1,7 @@
-const totalPoints = 28;
+// Replace const totalPoints = 28; with your desired total points variable
+let totalPoints = 28;
 
+// Replace the existing renderPerks function with the modified one
 const renderPerks = function () {
     let html = '',
     special = getSPECIAL();
@@ -25,7 +27,19 @@ const renderPerks = function () {
 
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
-                return '<p class=' + rankClass + '>Rank ' + rank.rank + ' (' + rank.level + '): ' + rank.description + '</p>';
+                let description = 'Rank ' + rank.rank + ' (' + rank.level + '): ' + rank.description;
+
+                // Check if the rank has a required attribute
+                if (rank.requiredAttribute && rank.requiredAttributeValue) {
+                    description += ' (Requires ' + rank.requiredAttribute + ' ' + rank.requiredAttributeValue + ')';
+                }
+
+                // Check if the rank requires a specific strength level
+                if (rank.str) {
+                    description += ' (Strength ' + rank.str + ')';
+                }
+
+                return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
             html += '<td><div data-placement="left" data-trigger="hover" data-original-title="' + perk.name + '" rel="popover" data-html="true" data-content="' + title + '" data-i="' + i + '" data-j="' + j + '" class="perk' + className + '" style="background-image:url(\'img/' + perk.img + '\');">';
@@ -41,6 +55,7 @@ const renderPerks = function () {
 
     $('.table').html(html);
 }
+
 
 const getJSON = function () {
     return btoa(JSON.stringify({
