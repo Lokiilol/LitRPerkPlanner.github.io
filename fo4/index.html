@@ -70,6 +70,11 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        
+        /* Move the buttons to the side */
+        .pull-right .btn {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -95,9 +100,9 @@
                 <h3>S.P.E.C.I.A.L.</h3>
                 <span class="bold points-left"></span> points left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-weight:normal;"><input type="checkbox" class="include-bobbleheads" /> Include "You're S.P.E.C.I.A.L." book.</label>
 
-
+                <ul class="list-group list-special">
                     <li data-special="st" class="list-group-item clearfix">
-                        STRENGTH
+                        <span>STRENGTH</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -106,7 +111,7 @@
                         </span>
                     </li>
                     <li data-special="pe" class="list-group-item clearfix">
-                        PERCEPTION
+                        <span>PERCEPTION</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -115,7 +120,7 @@
                         </span>
                     </li>
                     <li data-special="en" class="list-group-item clearfix">
-                        ENDURANCE
+                        <span>ENDURANCE</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -124,7 +129,7 @@
                         </span>
                     </li>
                     <li data-special="ch" class="list-group-item clearfix">
-                        CHARISMA
+                        <span>CHARISMA</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -133,7 +138,7 @@
                         </span>
                     </li>
                     <li data-special="in" class="list-group-item clearfix">
-                        INTELLIGENCE
+                        <span>INTELLIGENCE</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -142,7 +147,7 @@
                         </span>
                     </li>
                     <li data-special="ag" class="list-group-item clearfix">
-                        AGILITY
+                        <span>AGILITY</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -151,7 +156,7 @@
                         </span>
                     </li>
                     <li data-special="lu" class="list-group-item clearfix">
-                        LUCK
+                        <span>LUCK</span>
 
                         <span class="pull-right">
                             <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
@@ -159,7 +164,6 @@
                             <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
                         </span>
                     </li>
-                    <!-- End of attributes -->
                 </ul>
                 <h4>Summary:</h4>
                 Required level: <span class="required-level">1</span>
