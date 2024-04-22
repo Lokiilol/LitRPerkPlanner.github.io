@@ -1,183 +1,375 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Life in the Ruins Perk Planner</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/site.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <style>
-        .list-special .list-group-item::first-letter {
-            font-weight: bold;
-        }
+let totalPoints = 28;
+let extraPointsEnabled = false;
 
-        .list-special input {
-            display: inline-block;
-            width: 60px;
-        }
+const attributeShorthands = {
+    "Strength": "Str",
+    "Perception": "Per",
+    "Endurance": "End",
+    "Intelligence": "Int",
+    "Charisma": "Cha",
+    "Agility": "Agi",
+    "Luck": "Lck"
+};
 
-        .unavailable {
-            opacity: 0.4;
-            filter: alpha(opacity=40);
-        }
+const toShorthand = function (fullAttributeName) {
+    return attributeShorthands[fullAttributeName] || fullAttributeName;
+};
 
-        .perk {
-            width: 86px;
-            height: 86px;
-            border: 1px solid black;
-            position: relative;
-        }
+const renderPerks = function () {
+    let html = '',
+        special = getSPECIAL();
 
-        .overlay {
-            bottom: 10px;
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            color: #FFF;
-            font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
+    html += '<tr>';
 
-        .has-rank {
-            font-size: 12px;
-            background-color: rgba(92, 184, 92, 0.80);
-            padding: 3px;
-            border-radius: 3px;
-            color: #fff;
-        }
+    // List of valid attributes
+    const validAttributes = ["Strength", "Perception", "Intelligence", "Endurance", "Agility", "Charisma", "Luck"];
 
-        .no-rank {
-            font-size: 12px;
+    // Render only the valid attributes
+    for (let i = 0; i < special.length; ++i) {
+        const attribute = special[i].special;
+        if (validAttributes.includes(attribute)) {
+            html += '<th>' + toShorthand(attribute) + ': ' + special[i].value + '</th>';
         }
+    }
 
-        /* Add the new checkbox styling here */
-        .checkbox input[type="checkbox"] {
-            margin-right: 5px;
+    html += '</tr>';
+
+    for (let i = 0; i <= 9; ++i) {
+        html += '<tr>';
+
+        for (let j = 0; j < perks.length; ++j) {
+            let perk = perks[j].perks[i],
+                className = i > special[j].value - 1 ? ' unavailable' : '';
+
+            if (!perk.currentRank) {
+                perk.currentRank = 0;
+            }
+
+            const title = perk.ranked.map(function (rank) {
+                const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
+                let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
+
+                if (rank.str) {
+                    description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
+                }
+
+                if (rank.requiredAttribute && rank.requiredAttributeValue) {
+                    description += ' (Requires ' + toShorthand(rank.requiredAttribute) + ' ' + rank.requiredAttributeValue + ')';
+                }
+
+                description += ' ' + rank.description;
+
+                return '<p class=' + rankClass + '>' + description + '</p>';
+            }).join('');
+
+            html += '<td><div data-placement="left" data-trigger="hover" data-original-title="' + perk.name + '" rel="popover" data-html="true" data-content="' + title + '" data-i="' + i + '" data-j="' + j + '" class="perk' + className + '" style="background-image:url(\'img/' + perk.img + '\');">';
+
+            if (className !== ' unavailable') {
+                html += '<div class="overlay"><button class="btn btn-xs btn-danger btn-dec-perk"><i class="glyphicon glyphicon-minus"></i></button>&nbsp;' + perk.currentRank + '/' + perk.ranks + '&nbsp;<button class="btn btn-xs btn-success btn-inc-perk"><i class="glyphicon glyphicon-plus"></i></button></div>';
+            }
+
+            html += '</td>';
         }
+        html += '</tr>';
+    }
 
-        .checkbox label {
-            font-weight: normal;
+    $('.table').html(html);
+};
+
+const getJSON = function () {
+    return btoa(JSON.stringify({
+        s: getSPECIALShort(),
+        r: getRanks()
+    }));
+};
+
+const getRanks = function () {
+    const ranks = [];
+    
+    for (let i = 0; i < perks.length; ++i) {
+        for (let j = 0; j < perks[i].perks.length; ++j) {
+            const perk = perks[i].perks[j];
+            if (perk.currentRank && perk.currentRank > 0) {
+                const item = {};
+                item[perk.name] = perk.currentRank;
+                ranks.push(item);
+            }
         }
+    }
 
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+    return ranks;
+};
+
+const getSPECIALShort = function () {
+    const specs = [];
+
+    $('input[type="number"]').each(function () {
+        specs.push($(this).val());
+    });
+
+    return specs;
+};
+
+const getSPECIAL = function () {
+    return $('[data-special]').map(function () {
+        return {
+            special: $(this).data('special'),
+            value: $(this).find('input').val()
+        };
+    });
+};
+
+const requiredLevel = function () {
+    let total = 0;
+    for (let i = 0; i < perks.length; ++i) {
+        for (let j = 0; j < perks[i].perks.length; ++j) {
+            total += perks[i].perks[j].currentRank;
         }
+    }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
+    let remaining = totalPoints - getAllocatedPoints();
+
+    if (includeBobbleheads()) {
+        remaining += 8
+    }
+
+    if (remaining <= 0) {
+        total += 1 + remaining * -1;
+    }
+
+    let maxLevel = 0;
+    
+    for (let i = 0; i < perks.length; ++i) {
+        for (let j = 0; j < perks[i].perks.length; ++j) {
+            for (let k = 0; k < perks[i].perks[j].currentRank; ++k) {
+                if (perks[i].perks[j].ranked[k].level > maxLevel) {
+                    maxLevel = perks[i].perks[j].ranked[k].level;
+                }
+            }
+        }
+    }
+
+    if (maxLevel > total) {
+        total = maxLevel;
+    }
+
+    return total;
+};
+
+const renderRequiredLevel = function () {
+    $('.required-level').text(requiredLevel());
+};
+
+const renderAll = function () {
+    renderPerks();
+    calculatePoints();
+    renderRequiredLevel();
+    renderSummary();
+    window.location.hash = '#' + getJSON();
+};
+
+const calculatePoints = function () {
+    let remaining = totalPoints - getAllocatedPoints();
+    
+    if (includeBobbleheads()) {
+       remaining += 1;
+    }
+    
+    if (!extraPointsEnabled) {
+        if (remaining < 0) {
+            remaining = 0;
+        }
+    }
+    
+    $pointsLeft.text(remaining); 
+};
+
+const getAllocatedPoints = function () {
+    return $('[data-special] input').map(function () {
+        return parseInt($(this).val());
+    }).get().reduce(function (prev, curr) {
+        return prev + curr;
+    });
+};
+
+const $pointsLeft = $('.points-left');
+const $includeBobbleheads = $('.include-bobbleheads');
+const $extraPointsCheckbox = $('#extra-points-checkbox');
+
+const includeBobbleheads = function () {
+    return $includeBobbleheads.is(':checked');
+};
+
+const pointsRemaining = function () {
+    return parseInt($pointsLeft.text());
+};
+
+const renderSummary = function () {
+    let html = '';
+
+    for (let i = 0; i < perks.length; ++i) {
+        for (let j = 0; j < perks[i].perks.length; ++j) {
+            const perk = perks[i].perks[j];
+            if (perk.currentRank && perk.currentRank > 0) {
+                html += '<li>' + perk.name + ': ' + perk.currentRank + '/' + perk.ranks + '</li>';
+                html += '<ul>';
+
+                for (let k = 0; k < perk.currentRank; ++k) {
+                    let description = perk.ranked[k].description;
+                    
+                    // Add attribute requirements to the description
+                    if (perk.ranked[k].str) {
+                        description += ' (Strength ' + perk.ranked[k].str + ')';
+                    }
+                    if (perk.ranked[k].per) {
+                        description += ' (Perception ' + perk.ranked[k].per + ')';
+                    }
+                    if (perk.ranked[k].end) {
+                        description += ' (Endurance ' + perk.ranked[k].end + ')';
+                    }
+                    if (perk.ranked[k].int) {
+                        description += ' (Intelligence ' + perk.ranked[k].int + ')';
+                    }
+                    if (perk.ranked[k].cha) {
+                        description += ' (Charisma ' + perk.ranked[k].cha + ')';
+                    }
+                    if (perk.ranked[k].agi) {
+                        description += ' (Agility ' + perk.ranked[k].agi + ')';
+                    }
+                    if (perk.ranked[k].lck) {
+                        description += ' (Luck ' + perk.ranked[k].lck + ')';
+                    }
+                    
+                    html += '<li>' + description + '</li>';
+                }
+
+                html += '</ul>';
+            }
+        }
+    }
+
+    $('.summary').html(html);
+    $('[rel="popover"]').popover();
+};
+
+const getSPECIALMinMax = function() {
+    let min = 1;
+    let max = 13;
+
+    if (includeBobbleheads()) {
+        min = 1;
+        max = 13;
+    }
+
+    return {min, max};
+};
+
+$(function () {
+    const hash = window.location.hash.replace('#', '');
+    
+    if (hash.length > 0) {
+        const load = JSON.parse(atob(hash));
+        
+        $('input[type=number]').each(function (index) {
+            $(this).val(load.s[index]);
+        });
+
+        for (let i = 0; i < load.r.length; ++i) {
+            const key = Object.keys(load.r[i])[0], value = load.r[i][key];
+
+            for (let j = 0; j < perks.length; ++j) {
+                for (let k = 0; k < perks[j].perks.length; ++k) {
+                    let perk = perks[j].perks[k];
+                    
+                    if (perk.name === key) {
+                        perk.currentRank = value;
+                    }
+                }
+            }
+        }
+    }
+
+    renderAll();
+
+    $includeBobbleheads.on('click', function () {
+        let valShift = -0;
+        
+        if (includeBobbleheads()) {
+            valShift = 0;
         }
         
-        /* Move the buttons to the side */
-        .pull-right .btn {
-            margin-left: 5px;
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val( function(i, val) {
+            return parseInt(val, 10) + valShift;
+        });
+
+        renderAll();
+    });
+
+    $extraPointsCheckbox.on('click', function () {
+        extraPointsEnabled = $extraPointsCheckbox.is(':checked');
+        renderAll();
+    });
+
+    $('.btn-inc').on('click', function () {
+        const remainingPoints = pointsRemaining();
+        const { max } = getSPECIALMinMax();
+        const $li = $(this).parent().parent();
+        const $input = $li.find('input');
+        const value = parseInt($input.val());
+
+        if (remainingPoints > 0 && value < max) {
+            $input.val(value + 1);
         }
-    </style>
-</head>
-<body>
-    <a href="https://github.com/Lokiilol/LitRPerkPlanner.github.io"><img style="z-index:999;position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="img/brand.jpg" style="height:20px;width:20px;">
-                </a>
-                <a class="navbar-brand" href="#">
-                    Life in the Ruins Perk Planner
-                </a>
-                <form class="navbar-form navbar-left">
-                    <a href="/LitRPerkPlanner.github.io/fo4" class="btn btn-danger">Reset</a>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <h3>S.P.E.C.I.A.L.</h3>
-                <span class="bold points-left"></span> points left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-weight:normal;"><input type="checkbox" class="include-bobbleheads" /> Include "You're S.P.E.C.I.A.L." book.</label>
 
-                <ul class="list-group list-special">
-                    <li data-special="st" class="list-group-item clearfix">
-                        <span>STRENGTH</span>
+        renderAll();
+    });
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="pe" class="list-group-item clearfix">
-                        <span>PERCEPTION</span>
+    $('.btn-dec').on('click', function () {
+        const {min} = getSPECIALMinMax()
+        const $li = $(this).parent().parent(),
+              $input = $li.find('input'),
+              value = parseInt($input.val()),
+              special = $li.data('special');
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="en" class="list-group-item clearfix">
-                        <span>ENDURANCE</span>
+        if (value > min) {
+            $input.val(value - 1);
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ch" class="list-group-item clearfix">
-                        <span>CHARISMA</span>
+            for (let i = 0; i < perks.length; ++i) {
+                if (perks[i].special === special) {
+                    for (let j = value - 1; j < perks[i].perks.length; ++j) {
+                        perks[i].perks[j].currentRank = 0;
+                    }
+                }
+            }
+        }
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="in" class="list-group-item clearfix">
-                        <span>INTELLIGENCE</span>
+        renderAll();
+    });
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ag" class="list-group-item clearfix">
-                        <span>AGILITY</span>
+    $('body').on('click', '.btn-inc-perk, .btn-dec-perk', function () {
+        const $container = $(this).parent().parent(),
+              i = parseInt($container.data('i')),
+              j = parseInt($container.data('j')),
+              perk = perks[j].perks[i],
+              incrementing = $(this).hasClass('btn-inc-perk');
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="lu" class="list-group-item clearfix">
-                        <span>LUCK</span>
+        if (!perk.currentRank) {
+            perk.currentRank = 0;
+        }
 
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                </ul>
-                <h4>Summary:</h4>
-                Required level: <span class="required-level">1</span>
-                <ul class="summary"></ul>
-            </div>
-            <div class="col-md-9">
-                <h3>Perks</h3>
-                <table class="table"></table>
-            </div>
-        </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/perks.js"></script>
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+        if (incrementing) {
+            if (perk.currentRank < perk.ranks) {
+                perk.currentRank += 1;
+            }
+        } else {
+            if (perk.currentRank > 0) {
+                perk.currentRank -= 1;
+            }
+        }
+
+        renderAll();
+    });
+});
