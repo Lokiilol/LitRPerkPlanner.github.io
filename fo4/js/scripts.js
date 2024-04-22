@@ -257,7 +257,6 @@ $(function () {
     }
 
     renderAll();
-});
     });
 
     $('.btn-dec').on('click', function () {
