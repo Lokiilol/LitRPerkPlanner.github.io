@@ -1,5 +1,6 @@
 /* Contents of css/site.css */
 
+/* General styles */
 body {
     background-color: #121212;
     color: #fff;
@@ -22,6 +23,7 @@ body {
     border: 1px solid #fff;
 }
 
+/* Perk styles */
 .perk {
     width: 86px;
     height: 86px;
@@ -34,9 +36,9 @@ body {
     position: absolute;
     width: 100%;
     text-align: center;
-    color: #FFF;
+    color: #FFF; /* White text color */
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
 }
 
 .has-rank {
@@ -71,33 +73,15 @@ input[type=number] {
     font-family: Arial, sans-serif;
 }
 
-.perk-description {
-    background-color: #333;
-    color: #fff;
-}
-
-.list-group {
-    background-color: #333;
-    color: #fff;
-}
-
+/* Dark mode styles */
 .perk:hover {
     background-color: #121212;
 }
 
 .perk:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.perk:hover .overlay span {
-    color: #fff;
-}
-
-/* Dark mode styles for description on mouseover */
-.perk .overlay {
     background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
 }
 
-.perk .overlay span {
-    color: #FFF !important; /* White text color on mouseover */
+.perk:hover .overlay span {
+    color: #FFF; /* White text color on mouseover */
 }
