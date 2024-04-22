@@ -1,4 +1,5 @@
 let totalPoints = 28;
+let extraPointsEnabled = false;
 
 const attributeShorthands = {
     "Strength": "Str",
@@ -66,19 +67,14 @@ const renderPerks = function () {
     }
 
     $('.table').html(html);
-}
-
-
-
-
-
+};
 
 const getJSON = function () {
     return btoa(JSON.stringify({
         s: getSPECIALShort(),
         r: getRanks()
     }));
-}
+};
 
 const getRanks = function () {
     const ranks = [];
@@ -95,7 +91,7 @@ const getRanks = function () {
     }
 
     return ranks;
-}
+};
 
 const getSPECIALShort = function () {
     const specs = [];
@@ -151,11 +147,11 @@ const requiredLevel = function () {
     }
 
     return total;
-}
+};
 
 const renderRequiredLevel = function () {
     $('.required-level').text(requiredLevel());
-}
+};
 
 const renderAll = function () {
     renderPerks();
@@ -163,7 +159,7 @@ const renderAll = function () {
     renderRequiredLevel();
     renderSummary();
     window.location.hash = '#' + getJSON();
-}
+};
 
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
@@ -172,11 +168,14 @@ const calculatePoints = function () {
        remaining += 1;
     }
     
-    if (remaining < 0) {
-        remaining = 0;
+    if (!extraPointsEnabled) {
+        if (remaining < 0) {
+            remaining = 0;
+        }
     }
-      $pointsLeft.text(remaining); 
-}
+    
+    $pointsLeft.text(remaining); 
+};
 
 const getAllocatedPoints = function () {
     return $('[data-special] input').map(function () {
@@ -184,18 +183,19 @@ const getAllocatedPoints = function () {
     }).get().reduce(function (prev, curr) {
         return prev + curr;
     });
-}
+};
 
 const $pointsLeft = $('.points-left');
-    $includeBobbleheads = $('.include-bobbleheads');
+const $includeBobbleheads = $('.include-bobbleheads');
+const $extraPointsCheckbox = $('#extra-points-checkbox');
 
 const includeBobbleheads = function () {
-   return $includeBobbleheads.is(':checked');
-}
+    return $includeBobbleheads.is(':checked');
+};
 
 const pointsRemaining = function () {
     return parseInt($pointsLeft.text());
-}
+};
 
 const renderSummary = function () {
     let html = '';
@@ -208,7 +208,32 @@ const renderSummary = function () {
                 html += '<ul>';
 
                 for (let k = 0; k < perk.currentRank; ++k) {
-                    html += '<li>' + perk.ranked[k].description + '</li>';
+                    let description = perk.ranked[k].description;
+                    
+                    // Add attribute requirements to the description
+                    if (perk.ranked[k].str) {
+                        description += ' (Strength ' + perk.ranked[k].str + ')';
+                    }
+                    if (perk.ranked[k].per) {
+                        description += ' (Perception ' + perk.ranked[k].per + ')';
+                    }
+                    if (perk.ranked[k].end) {
+                        description += ' (Endurance ' + perk.ranked[k].end + ')';
+                    }
+                    if (perk.ranked[k].int) {
+                        description += ' (Intelligence ' + perk.ranked[k].int + ')';
+                    }
+                    if (perk.ranked[k].cha) {
+                        description += ' (Charisma ' + perk.ranked[k].cha + ')';
+                    }
+                    if (perk.ranked[k].agi) {
+                        description += ' (Agility ' + perk.ranked[k].agi + ')';
+                    }
+                    if (perk.ranked[k].lck) {
+                        description += ' (Luck ' + perk.ranked[k].lck + ')';
+                    }
+                    
+                    html += '<li>' + description + '</li>';
                 }
 
                 html += '</ul>';
@@ -218,7 +243,7 @@ const renderSummary = function () {
 
     $('.summary').html(html);
     $('[rel="popover"]').popover();
-}
+};
 
 const getSPECIALMinMax = function() {
     let min = 1;
@@ -229,8 +254,8 @@ const getSPECIALMinMax = function() {
         max = 13;
     }
 
-    return {min, max}
-}
+    return {min, max};
+};
 
 $(function () {
     const hash = window.location.hash.replace('#', '');
@@ -276,18 +301,23 @@ $(function () {
         renderAll();
     });
 
-  $('.btn-inc').on('click', function () {
-    const remainingPoints = pointsRemaining();
-    const { max } = getSPECIALMinMax();
-    const $li = $(this).parent().parent();
-    const $input = $li.find('input');
-    const value = parseInt($input.val());
+    $extraPointsCheckbox.on('click', function () {
+        extraPointsEnabled = $extraPointsCheckbox.is(':checked');
+        renderAll();
+    });
 
-    if (remainingPoints > 0 && value < max) {
-        $input.val(value + 1);
-    }
+    $('.btn-inc').on('click', function () {
+        const remainingPoints = pointsRemaining();
+        const { max } = getSPECIALMinMax();
+        const $li = $(this).parent().parent();
+        const $input = $li.find('input');
+        const value = parseInt($input.val());
 
-    renderAll();
+        if (remainingPoints > 0 && value < max) {
+            $input.val(value + 1);
+        }
+
+        renderAll();
     });
 
     $('.btn-dec').on('click', function () {
