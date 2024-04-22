@@ -1,3 +1,5 @@
+/* Contents of css/site.css */
+
 body {
     background-color: #121212;
     color: #fff;
@@ -89,4 +91,13 @@ input[type=number] {
 
 .perk:hover .overlay span {
     color: #fff;
+}
+
+/* Dark mode styles for description on mouseover */
+.perk .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
+}
+
+.perk .overlay span {
+    color: #FFF !important; /* White text color on mouseover */
 }
