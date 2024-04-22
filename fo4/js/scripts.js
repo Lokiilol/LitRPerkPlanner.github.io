@@ -1,4 +1,4 @@
-const totalPoints = 21;
+const totalPoints = 28;
 
 const renderPerks = function () {
     let html = '',
@@ -96,7 +96,7 @@ const requiredLevel = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
     if (includeBobbleheads()) {
-        remaining += 0
+        remaining += 8
     }
 
     if (remaining <= 0) {
@@ -138,7 +138,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 8;
+       remaining += 15;
     }
     
     if (remaining < 0) {
@@ -191,11 +191,11 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 12;
+    let max = 10;
 
     if (includeBobbleheads()) {
-        min = 3;
-        max = 13;
+        min = 2;
+        max = 11;
     }
 
     return {min, max}
