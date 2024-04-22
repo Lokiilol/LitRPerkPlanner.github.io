@@ -1,4 +1,4 @@
-const totalPoints = 28;
+const totalPoints = 21;
 
 const renderPerks = function () {
     let html = '',
