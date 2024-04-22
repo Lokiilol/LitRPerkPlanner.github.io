@@ -138,7 +138,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 1;
+       remaining += 15;
     }
     
     if (remaining < 0) {
