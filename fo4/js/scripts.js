@@ -21,8 +21,15 @@ const renderPerks = function () {
 
     html += '<tr>';
 
+    // List of valid attributes
+    const validAttributes = ["Strength", "Perception", "Intelligence", "Endurance", "Agility", "Charisma", "Luck"];
+
+    // Render only the valid attributes
     for (let i = 0; i < special.length; ++i) {
-        html += '<th>' + toShorthand(special[i].special) + ': ' + special[i].value + '</th>';
+        const attribute = special[i].special;
+        if (validAttributes.includes(attribute)) {
+            html += '<th>' + toShorthand(attribute) + ': ' + special[i].value + '</th>';
+        }
     }
 
     html += '</tr>';
