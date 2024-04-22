@@ -15,41 +15,49 @@
 .perk {
     width: 86px;
     height: 86px;
-    border:1px solid black;
-    position:relative;
+    border: 1px solid black;
+    position: relative;
 }
 
 .overlay {
-    bottom:10px;
-    position:absolute;
-    width:100%;
-    text-align:center;
-    color:#FFF;
-    font-weight:bold;
-    background-color: rgba(0,0,0, 0.6)    /* 40% opaque red */  
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6); /* 40% opaque red */
 }
 
 .has-rank {
-    font-size:12px;
-    background-color:rgba(92,184,92, 0.80);
-    padding:3px;
-    border-radius:3px;
-    color:#fff;
+    font-size: 12px;
+    background-color: rgba(92, 184, 92, 0.80);
+    padding: 3px;
+    border-radius: 3px;
+    color: #fff;
 }
 
 .no-rank {
-    font-size:12px;
+    font-size: 12px;
 }
 
+/* Add the new checkbox styling here */
+.checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox label {
+    font-weight: normal;
+}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
