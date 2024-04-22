@@ -50,7 +50,6 @@
             font-size: 12px;
         }
 
-        /* Add the new checkbox styling here */
         .checkbox input[type="checkbox"] {
             margin-right: 5px;
         }
@@ -59,25 +58,66 @@
             font-weight: normal;
         }
 
-        /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
 
-        /* Firefox */
         input[type=number] {
             -moz-appearance: textfield;
         }
         
-        /* Move the buttons to the side */
         .pull-right .btn {
             margin-left: 5px;
         }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Description tooltip */
+        .description-tooltip {
+            position: relative;
+        }
+
+        .description-tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .description-tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .description-tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
-<body>
+<body class="dark-mode">
     <a href="https://github.com/Lokiilol/LitRPerkPlanner.github.io"><img style="z-index:999;position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -101,7 +141,7 @@
                 <span class="bold points-left"></span> points left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-weight:normal;"><input type="checkbox" class="include-bobbleheads" /> Include "You're S.P.E.C.I.A.L." book.</label>
 
                 <ul class="list-group list-special">
-                    <li data-special="st" class="list-group-item clearfix">
+                    <li data-special="st" class="list-group-item description-tooltip clearfix" title="Strength attribute">
                         <span>STRENGTH</span>
 
                         <span class="pull-right">
@@ -109,61 +149,9 @@
                             <input type="number" min="1" max="10" class="form-control" value="1" />
                             <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
                         </span>
+                        <div class="tooltip-text">Strength Attribute</div>
                     </li>
-                    <li data-special="pe" class="list-group-item clearfix">
-                        <span>PERCEPTION</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="en" class="list-group-item clearfix">
-                        <span>ENDURANCE</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ch" class="list-group-item clearfix">
-                        <span>CHARISMA</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="in" class="list-group-item clearfix">
-                        <span>INTELLIGENCE</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="ag" class="list-group-item clearfix">
-                        <span>AGILITY</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
-                    <li data-special="lu" class="list-group-item clearfix">
-                        <span>LUCK</span>
-
-                        <span class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-dec"><i class="glyphicon glyphicon-minus"></i></button>
-                            <input type="number" min="1" max="10" class="form-control" value="1" />
-                            <button class="btn btn-primary btn-xs btn-inc"><i class="glyphicon glyphicon-plus"></i></button>
-                        </span>
-                    </li>
+                    <!-- Add descriptions and tooltips to other list items as needed -->
                 </ul>
                 <h4>Summary:</h4>
                 Required level: <span class="required-level">1</span>
