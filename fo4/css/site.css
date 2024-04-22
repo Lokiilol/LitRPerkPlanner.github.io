@@ -1,14 +1,31 @@
+/* Base styles */
+body {
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+.navbar-default {
+    background-color: #333; /* Dark background color for navbar */
+}
+
+.navbar-default .navbar-brand {
+    color: #fff; /* Light text color for navbar brand */
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff; /* Light text color for navbar links */
+}
+
 .list-special .list-group-item::first-letter {
     font-weight: bold;
-    color: #ffcc00; /* Yellow */
 }
 
 .list-special input {
     display: inline-block;
     width: 60px;
-    background-color: #333; /* Dark gray */
-    color: #fff; /* White */
-    border: 1px solid #555; /* Dark gray border */
+    background-color: #333; /* Dark background color for input */
+    color: #fff; /* Light text color for input */
+    border: 1px solid #fff; /* White border */
 }
 
 .unavailable {
@@ -18,7 +35,7 @@
 .perk {
     width: 86px;
     height: 86px;
-    border: 1px solid #444; /* Dark gray border */
+    border: 1px solid #fff; /* White border for perks */
     position: relative;
 }
 
@@ -34,10 +51,10 @@
 
 .has-rank {
     font-size: 12px;
-    background-color: rgba(92, 184, 92, 0.80); /* Light green */
+    background-color: rgba(92, 184, 92, 0.80);
     padding: 3px;
     border-radius: 3px;
-    color: #fff; /* White */
+    color: #fff;
 }
 
 .no-rank {
@@ -50,7 +67,6 @@
 
 .checkbox label {
     font-weight: normal;
-    color: #fff; /* White */
 }
 
 input::-webkit-outer-spin-button,
@@ -61,14 +77,10 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
-    background-color: #333; /* Dark gray */
-    color: #fff; /* White */
-    border: 1px solid #555; /* Dark gray border */
 }
 
 .checkbox .include-extra-points {
     margin-right: 5px;
     font-size: 12px;
     font-family: Arial, sans-serif;
-    color: #fff; /* White */
 }
