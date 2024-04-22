@@ -1,10 +1,14 @@
 .list-special .list-group-item::first-letter {
     font-weight: bold;
+    color: #ffcc00; /* Yellow */
 }
 
 .list-special input {
     display: inline-block;
     width: 60px;
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White */
+    border: 1px solid #555; /* Dark gray border */
 }
 
 .unavailable {
@@ -14,7 +18,7 @@
 .perk {
     width: 86px;
     height: 86px;
-    border: 1px solid black;
+    border: 1px solid #444; /* Dark gray border */
     position: relative;
 }
 
@@ -25,15 +29,15 @@
     text-align: center;
     color: #FFF;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.6); /* 40% opaque red */
+    background-color: rgba(0, 0, 0, 0.6); /* 40% opaque black */
 }
 
 .has-rank {
     font-size: 12px;
-    background-color: rgba(92, 184, 92, 0.80);
+    background-color: rgba(92, 184, 92, 0.80); /* Light green */
     padding: 3px;
     border-radius: 3px;
-    color: #fff;
+    color: #fff; /* White */
 }
 
 .no-rank {
@@ -46,6 +50,7 @@
 
 .checkbox label {
     font-weight: normal;
+    color: #fff; /* White */
 }
 
 input::-webkit-outer-spin-button,
@@ -56,10 +61,14 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White */
+    border: 1px solid #555; /* Dark gray border */
 }
 
 .checkbox .include-extra-points {
     margin-right: 5px;
     font-size: 12px;
     font-family: Arial, sans-serif;
+    color: #fff; /* White */
 }
