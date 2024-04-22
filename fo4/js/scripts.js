@@ -195,7 +195,7 @@ const getSPECIALMinMax = function() {
 
     if (includeBobbleheads()) {
         min = 3;
-        max = 21;
+        max = 13;
     }
 
     return {min, max}
