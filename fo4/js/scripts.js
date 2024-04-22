@@ -1,5 +1,19 @@
 let totalPoints = 28;
 
+const attributeShorthands = {
+    "Strength": "Str",
+    "Perception": "Per",
+    "Endurance": "End",
+    "Intelligence": "Int",
+    "Charisma": "Cha",
+    "Agility": "Agi",
+    "Luck": "Lck"
+};
+
+const toShorthand = function (fullAttributeName) {
+    return attributeShorthands[fullAttributeName] || fullAttributeName;
+};
+
 const renderPerks = function () {
     let html = '',
         special = getSPECIAL();
@@ -7,7 +21,7 @@ const renderPerks = function () {
     html += '<tr>';
 
     for (let i = 0; i < special.length; ++i) {
-        html += '<th>' + special[i].special.toUpperCase() + ': ' + special[i].value + '</th>';
+        html += '<th>' + toShorthand(special[i].special) + ': ' + special[i].value + '</th>';
     }
 
     html += '</tr>';
@@ -28,14 +42,14 @@ const renderPerks = function () {
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
 
                 if (rank.str) {
-                    description += ' (Strength ' + rank.str + ')';
+                    description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
                 }
 
                 if (rank.requiredAttribute && rank.requiredAttributeValue) {
-                    description += ' (Requires ' + rank.requiredAttribute + ' ' + rank.requiredAttributeValue + ')';
+                    description += ' (Requires ' + toShorthand(rank.requiredAttribute) + ' ' + rank.requiredAttributeValue + ')';
                 }
 
-                description += ' ' + rank.description; 
+                description += ' ' + rank.description;
 
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
@@ -53,6 +67,9 @@ const renderPerks = function () {
 
     $('.table').html(html);
 }
+
+
+
 
 
 
