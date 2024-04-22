@@ -11,6 +11,7 @@
                     {
                         rank: 1,
                         level: 0,
+                        str: 5,
                         description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
                     },
                     {
