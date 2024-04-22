@@ -245,17 +245,19 @@ $(function () {
         renderAll();
     });
 
-    $('.btn-inc').on('click', function () {
-        const {max} = getSPECIALMinMax()
-        const $li = $(this).parent().parent(),
-              $input = $li.find('input'),
-              value = parseInt($input.val());
+  $('.btn-inc').on('click', function () {
+    const remainingPoints = pointsRemaining();
+    const { max } = getSPECIALMinMax();
+    const $li = $(this).parent().parent();
+    const $input = $li.find('input');
+    const value = parseInt($input.val());
 
-        if (remainingPoints > 0 && value < max) {
+    if (remainingPoints > 0 && value < max) {
         $input.val(value + 1);
-        }
+    }
 
-        renderAll();
+    renderAll();
+});
     });
 
     $('.btn-dec').on('click', function () {
