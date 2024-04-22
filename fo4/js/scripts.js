@@ -229,10 +229,10 @@ $(function () {
     renderAll();
 
     $includeBobbleheads.on('click', function () {
-        let valShift = -2;
+        let valShift = -0;
         
         if (includeBobbleheads()) {
-            valShift = 2;
+            valShift = 0;
         }
         
         const $inputs = $(".list-special>li>span>input")
