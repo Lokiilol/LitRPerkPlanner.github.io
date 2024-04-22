@@ -38,34 +38,39 @@
             },
             {
                 rank: 2,
-                name: 'Big Leagues',
-                img: 'big-leagues.png',
+                name: 'Heavy Gunner',
+                img: 'heavy-gunner.png',
                 ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Swing for the fences! Do 20% more melee weapon damage.'
+                        str: 2,
+                        description: 'Thanks to practice and conditioning you do 15% more damage plus an addtional 0.5% per level with heavy guns.'
                     },
                     {
                         rank: 2,
-                        level: 7,
-                        description: 'You now do 40% more melee weapon damage and gain a chance to disarm your opponent.'
+                        level: 12,
+                        str: 3,
+                        description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
                     },
                     {
                         rank: 3,
-                        level: 15,
-                        description: 'You now do 60% more melee weapon damage and gain an increased chance to disarm your opponent.'
+                        level: 30,
+                        str: 4,
+                        description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
                     },
                     {
                         rank: 4,
-                        level: 27,
-                        description: 'You now do 80% more melee weapon damage and hit all targets in front of you.'
+                        level: 50,
+                        str: 5,
+                        description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
                     },
                     {
                         rank: 5,
-                        level: 42,
-                        description: 'You now do double damage with a melee weapon, and gain a chance to cripple your opponent, or grand slam their head clean off!'
+                        level: 70,
+                        str: 6,
+                        description: 'You do 55% more damage with heavy guns.'
                     }
                 ]
             },
