@@ -138,7 +138,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 0;
+       remaining += 1;
     }
     
     if (remaining < 0) {
@@ -169,7 +169,7 @@ const pointsRemaining = function () {
 const renderSummary = function () {
     let html = '';
 
-    for (let i = 0; i < perks.length; ++i) {
+    for (let i = ; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             const perk = perks[i].perks[j];
             if (perk.currentRank && perk.currentRank > 0) {
