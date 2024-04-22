@@ -251,8 +251,8 @@ $(function () {
               $input = $li.find('input'),
               value = parseInt($input.val());
 
-        if (value < max) {
-            $input.val(value + 1);
+        if (remainingPoints > 0 && value < max) {
+        $input.val(value + 1);
         }
 
         renderAll();
