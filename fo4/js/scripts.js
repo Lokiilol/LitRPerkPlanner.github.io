@@ -218,26 +218,8 @@ const renderSummary = function () {
                     let description = perk.ranked[k].description;
                     
                     // Add attribute requirements to the description
-                    if (perk.ranked[k].str) {
-                        description += ' (Strength ' + perk.ranked[k].str + ')';
-                    }
-                    if (perk.ranked[k].per) {
-                        description += ' (Perception ' + perk.ranked[k].per + ')';
-                    }
-                    if (perk.ranked[k].end) {
-                        description += ' (Endurance ' + perk.ranked[k].end + ')';
-                    }
-                    if (perk.ranked[k].int) {
-                        description += ' (Intelligence ' + perk.ranked[k].int + ')';
-                    }
-                    if (perk.ranked[k].cha) {
-                        description += ' (Charisma ' + perk.ranked[k].cha + ')';
-                    }
-                    if (perk.ranked[k].agi) {
-                        description += ' (Agility ' + perk.ranked[k].agi + ')';
-                    }
-                    if (perk.ranked[k].lck) {
-                        description += ' (Luck ' + perk.ranked[k].lck + ')';
+                    if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
+                        description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
                     }
                     
                     html += '<li>' + description + '</li>';
