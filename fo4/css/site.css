@@ -1,31 +1,21 @@
-/* Contents of css/site.css */
-
-body {
-    background-color: #121212;
-    color: #fff;
-}
-
-.navbar-default {
-    background-color: #333;
-}
-
-.navbar-default .navbar-brand,
-.navbar-default .navbar-nav > li > a {
-    color: #fff;
+.list-special .list-group-item::first-letter {
+    font-weight: bold;
 }
 
 .list-special input {
     display: inline-block;
     width: 60px;
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #fff;
+}
+
+.unavailable {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
 }
 
 .perk {
     width: 86px;
     height: 86px;
-    border: 1px solid #fff;
+    border: 1px solid black;
     position: relative;
 }
 
@@ -47,6 +37,11 @@ body {
     color: #fff;
 }
 
+.no-rank {
+    font-size: 12px;
+}
+
+/* Add the new checkbox styling here */
 .checkbox input[type="checkbox"] {
     margin-right: 5px;
 }
@@ -55,42 +50,78 @@ body {
     font-weight: normal;
 }
 
+/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
+/* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
 
-.checkbox .include-extra-points {
-    margin-right: 5px;
-    font-size: 12px;
-    font-family: Arial, sans-serif;
+/* Move the buttons to the side */
+.pull-right .btn {
+    margin-left: 5px;
 }
 
-.perk-description {
-    background-color: #333;
-    color: #fff;
+/* Dark mode styles */
+body {
+    background-color: #222; /* Dark background color */
+    color: #FFF; /* White text color */
+    
 }
 
-.list-group {
-    background-color: #333;
-    color: #fff;
+.navbar-default {
+    background-color: #333; /* Dark navbar background color */
+}
+
+.list-group-item {
+    background-color: #333; /* Dark list item background color */
+}
+
+.list-group-item span {
+    color: #FFF; /* White text color for list items */
+}
+
+.form-control {
+    background-color: #444; /* Dark form control background color */
+    color: #FFF; /* White text color for form controls */
+}
+
+.btn {
+    background-color: #444; /* Dark button background color */
+    color: #FFF; /* White text color for buttons */
+}
+
+.btn-primary {
+    background-color: #337ab7; /* Dark primary button background color */
+    border-color: #2e6da4; /* Dark primary button border color */
 }
 
 /* Dark mode styles for description on mouseover */
-.perk:hover {
-    background-color: #121212; /* Dark background color */
-}
-
 .perk:hover .overlay {
     background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
-    color: #fff; /* White text color */
+}
+.perk:hover .overlay span {
+    color: #FFF; /* White text color on mouseover */
 }
 
-.perk:hover .overlay span {
-    color: #fff; /* White text color on mouseover */
+
+/* Popup colours */
+.popover {
+    background-color:#222;
+    color: #FFF;
+
 }
+/* Popup title colours */
+.popover-title{
+
+    color:white;
+    background-color: #222; 
+}
+
+
+
