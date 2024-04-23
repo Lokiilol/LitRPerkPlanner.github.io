@@ -82,22 +82,15 @@ input[type=number] {
 }
 
 /* Dark mode styles for description on mouseover */
-.perk .overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
-}
-
-.perk .overlay span {
-    color: #FFF !important; /* White text color on mouseover */
-}
-
 .perk:hover {
-    background-color: #121212;
+    background-color: #121212; /* Dark background color */
 }
 
 .perk:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay background color */
+    color: #fff; /* White text color */
 }
 
 .perk:hover .overlay span {
-    color: #fff;
+    color: #fff; /* White text color on mouseover */
 }
