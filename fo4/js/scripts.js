@@ -1,23 +1,3 @@
-$(document).ready(function() {
-    // Function to update the color of shorthand text based on requirements
-    function updateShorthandColor() {
-        $('.list-special .list-group-item').each(function() {
-            const requiredSpecial = $(this).data('required-special');
-            const currentSpecial = parseInt($(this).find('.form-control').val());
-            const shorthandElement = $(this).find('.shorthand');
-            
-            if (currentSpecial >= requiredSpecial) {
-                shorthandElement.removeClass('not-met').addClass('met');
-            } else {
-                shorthandElement.removeClass('met').addClass('not-met');
-            }
-        });
-    }
-
-    updateShorthandColor();
-    $('.list-special .form-control').change(updateShorthandColor);
-
-
     let totalPoints = 28;
     let extraPointsEnabled = false;
 
@@ -401,3 +381,4 @@ $(function () {
         renderAll();
     });
 });
+so now?
