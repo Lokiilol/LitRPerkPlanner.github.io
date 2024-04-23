@@ -1,30 +1,66 @@
-let totalPoints = 28;
-let extraPointsEnabled = false;
+$(document).ready(function() {
+    // Function to update the color of shorthand text based on requirements
+    function updateShorthandColor() {
+        $('.list-special .list-group-item').each(function() {
+            const requiredSpecial = $(this).data('required-special');
+            const currentSpecial = parseInt($(this).find('.form-control').val());
+            const shorthandElement = $(this).find('.shorthand');
+            
+            if (currentSpecial >= requiredSpecial) {
+                shorthandElement.removeClass('not-met').addClass('met');
+            } else {
+                shorthandElement.removeClass('met').addClass('not-met');
+            }
+        });
+    }
 
-const attributeShorthands = {
-    "Strength": "Str",
-    "Perception": "Per",
-    "Endurance": "End",
-    "Intelligence": "Int",
-    "Charisma": "Cha",
-    "Agility": "Agi",
-    "Luck": "Lck"
-};
+    updateShorthandColor();
+    $('.list-special .form-control').change(updateShorthandColor);
+
+
+    let totalPoints = 28;
+    let extraPointsEnabled = false;
+
+    const attributeShorthands = {
+        "Strength": "Str",
+        "Perception": "Per",
+        "Endurance": "End",
+        "Intelligence": "Int",
+        "Charisma": "Cha",
+        "Agility": "Agi",
+        "Luck": "Lck"
+    };
+
+    const toShorthand = function (fullAttributeName) {
+        return attributeShorthands[fullAttributeName] || fullAttributeName;
+    };
 
 const toShorthand = function (fullAttributeName) {
     return attributeShorthands[fullAttributeName] || fullAttributeName;
 };
 
+// Function to update the color of shorthand text based on requirements
+function updateShorthandColor() {
+    $('.list-special .list-group-item').each(function() {
+        const requiredSpecial = $(this).data('required-special');
+        const currentSpecial = parseInt($(this).find('.form-control').val());
+        const shorthandElement = $(this).find('.shorthand');
+        
+        if (currentSpecial >= requiredSpecial) {
+            shorthandElement.removeClass('not-met').addClass('met');
+        } else {
+            shorthandElement.removeClass('met').addClass('not-met');
+        }
+    });
+}
+
 const renderPerks = function () {
-    let html = '',
-        special = getSPECIAL();
+    let html = '';
+    const special = getSPECIAL();
 
     html += '<tr>';
-
-    // List of valid attributes
     const validAttributes = ["Strength", "Perception", "Intelligence", "Endurance", "Agility", "Charisma", "Luck"];
 
-    // Render only the valid attributes
     for (let i = 0; i < special.length; ++i) {
         const attribute = special[i].special;
         if (validAttributes.includes(attribute)) {
@@ -38,15 +74,15 @@ const renderPerks = function () {
         html += '<tr>';
 
         for (let j = 0; j < perks.length; ++j) {
-            let perk = perks[j].perks[i],
-                className = i > special[j].value - 1 ? ' unavailable' : '';
+            const perk = perks[j].perks[i];
+            let className = i > special[j].value - 1 ? ' unavailable' : '';
 
             if (!perk.currentRank) {
                 perk.currentRank = 0;
             }
 
             const title = perk.ranked.map(function (rank) {
-                const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
+                let rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
 
                 if (rank.str) {
@@ -54,6 +90,11 @@ const renderPerks = function () {
                 }
 
                 if (rank.requiredAttribute && rank.requiredAttributeValue) {
+                    if (special.some(attr => attr.special === rank.requiredAttribute && attr.value >= rank.requiredAttributeValue)) {
+                        rankClass = 'has-rank';
+                    } else {
+                        rankClass = 'no-rank';
+                    }
                     description += ' (Requires ' + toShorthand(rank.requiredAttribute) + ' ' + rank.requiredAttributeValue + ')';
                 }
 
@@ -74,7 +115,11 @@ const renderPerks = function () {
     }
 
     $('.table').html(html);
+
+    // Call the function to update shorthand color after rendering perks
+    updateShorthandColor();
 };
+
 
 const getJSON = function () {
     return btoa(JSON.stringify({
@@ -82,6 +127,7 @@ const getJSON = function () {
         r: getRanks()
     }));
 };
+
 
 const getRanks = function () {
     const ranks = [];
