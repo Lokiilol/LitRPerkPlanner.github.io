@@ -13,8 +13,11 @@ const attributeShorthands = {
 
 const toShorthand = function (fullAttributeName) {
     const shorthand = attributeShorthands[fullAttributeName] || fullAttributeName;
-    return '<b>' + shorthand + '</b>';
+    const firstLetter = shorthand.charAt(0).toUpperCase();
+    const digit = shorthand.slice(1);
+    return '<b>' + firstLetter + '</b>' + '<b>' + digit + '</b>';
 };
+
 
 const renderPerks = function () {
     let html = '',
