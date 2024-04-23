@@ -112,3 +112,24 @@ body {
     color:white;
     background-color: #222; 
 }
+/* Add this CSS to correct the layout and display issues */
+.list-group-item .shorthand {
+    display: inline-block;
+    width: auto; /* Ensure shorthand text doesn't occupy the entire width */
+}
+
+.perk {
+    /* Remove fixed width and height to allow dynamic sizing */
+    width: auto;
+    height: auto;
+}
+
+.overlay {
+    /* Adjust bottom position to ensure it aligns properly */
+    bottom: 5px;
+}
+
+.perk .overlay span {
+    /* Ensure text color remains white on hover */
+    color: #FFF !important;
+}
