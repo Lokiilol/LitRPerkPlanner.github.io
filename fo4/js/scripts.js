@@ -2,17 +2,18 @@ let totalPoints = 28;
 let extraPointsEnabled = false;
 
 const attributeShorthands = {
-    "Strength": "Str",
-    "Perception": "Per",
-    "Endurance": "End",
-    "Intelligence": "Int",
-    "Charisma": "Cha",
-    "Agility": "Agi",
-    "Luck": "Lck"
+    "Strength": "STR",
+    "Perception": "PER",
+    "Endurance": "END",
+    "Intelligence": "INT",
+    "Charisma": "CHA",
+    "Agility": "AGI",
+    "Luck": "LCK"
 };
 
 const toShorthand = function (fullAttributeName) {
-    return attributeShorthands[fullAttributeName] || fullAttributeName;
+    const shorthand = attributeShorthands[fullAttributeName] || fullAttributeName;
+    return '<b>' + shorthand + '</b>';
 };
 
 const renderPerks = function () {
