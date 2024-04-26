@@ -330,13 +330,13 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        per; 1, 
+                        per: 1, 
                         description: 'Gain double XP from discovering locations, and move 7% faster with your weapon holstered while not over-encumbered.'
                     },
                     {
                         rank: 2,
                         level: 7,
-                        per; 2,
+                        per: 2,
                         description: 'Move 14% faster with your weapon holstered, and you may hold your V.A.T.S. key to see the path to your closest quest target.'
                     },
                     {
