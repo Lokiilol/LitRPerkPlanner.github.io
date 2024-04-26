@@ -53,6 +53,24 @@ const renderPerks = function () {
 
                 if (rank.str) {
                     description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
+                    
+                if (rank.per) {
+                    description += ' (' + toShorthand("Perception") + ' ' + rank.per + ')';
+                    
+                if (rank.end) {
+                    description += ' (' + toShorthand("Endurance") + ' ' + rank.end + ')';
+                    
+                if (rank.cha) {
+                    description += ' (' + toShorthand("Charisma") + ' ' + rank.cha + ')';
+                    
+                if (rank.int) {
+                    description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
+                    
+                if (rank.agi) {
+                    description += ' (' + toShorthand("agility") + ' ' + rank.agi + ')';
+                    
+                if (rank.luk) {
+                    description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
                 }
 
                 if (rank.requiredAttribute && rank.requiredAttributeValue) {
