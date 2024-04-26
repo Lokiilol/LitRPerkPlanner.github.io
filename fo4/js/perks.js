@@ -11,27 +11,31 @@
                     {
                         rank: 1,
                         level: 0,
-                        str: 5,
+                        str: 1,
                         description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
                     },
                     {
                         rank: 2,
                         level: 12,
+                        str: 2,
                         description: 'You do 25% with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
                     },
                     {
                         rank: 3,
                         level: 30,
+                        str: 3,
                         description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
                     },
                     {
                         rank: 4,
                         level: 50,
+                        str: 4,
                         description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!.'
                     },
                     {
                         rank: 5,
-                        level: 46,
+                        level: 70,
+                        str: 5,
                         description: 'You do 55% more damage with unarmed and blunt melee weapons.'
                     }
                 ]
@@ -76,53 +80,61 @@
             },
             {
                 rank: 3,
-                name: 'Armorer',
-                img: 'armorer.png',
-                ranks: 4,
+                name: 'Adamantium Skeleton',
+                img: 'adamantium-skeleton.png',
+                ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Protect yourself from the dangers of the Wasteland with access to base level and Rank 1 armor mods.'
+                        str: 3,
+                        description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage and damage from over-encumbrance by 30%'
                     },
                     {
                         rank: 2,
-                        level: 13,
-                        description: 'You gain access to Rank 2 armor mods'
+                        level: 15,
+                        str: 4,
+                        description: '
                     },
                     {
                         rank: 3,
-                        level: 25,
-                        description: 'You gain access to Rank 3 armor mods'
+                        level: 37,
+                        str: 5,
+                        description: 'Your limb damage, fall damage and damage from over-encumbrance is now reduced by 90%'
                     },
-                    {
-                        rank: 4,
-                        level: 39,
-                        description: 'You gain access to Rank 4 armor mods'
-                    }
+                                     
                 ]
             },
             {
                 rank: 4,
                 name: 'Blacksmith',
                 img: 'blacksmith.png',
-                ranks: 3,
+                ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Fire up the forge and gain access to base level and Rank 1 melee weapon mods.'
+                        str: 4,
+                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
                     },
                     {
                         rank: 2,
                         level: 16,
-                        description: 'You gain access to Rank 2 melee weapon mods'
+                        str: 5,
+                        description: 'You gain access to Rank 2 power armor and melee weapon mods'
                     },
                     {
                         rank: 3,
                         level: 29,
-                        description: 'You gain access to Rank 3 melee weapon mods'
-                    }
+                        str: 6,
+                        description: 'You gain access to Rank 3 power armor and melee weapon mods'
+                    },
+                    {
+                        rank: 4,
+                        level: 43,
+                        str: 6,
+                        description: 'You gain access to rank 4 power armor mods'
+                    }       
                 ]
             },
             {
