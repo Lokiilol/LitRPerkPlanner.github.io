@@ -313,12 +313,8 @@ const perks = [
                     "level": 48,
                     "str": 12,
                     "description": "You take 15% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking."
-                }
-            ]
-        }
-    ]
-}
-
+            }
+                ]
             }
         ]
     },
