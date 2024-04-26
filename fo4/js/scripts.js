@@ -25,10 +25,8 @@ const renderPerks = function () {
 
     html += '<tr>';
 
-    // List of valid attributes
-    const validAttributes = ["Strength", "Perception", "Intelligence", "Endurance", "Agility", "Charisma", "Luck"];
+    const validAttributes = ["Strength", "Perception", "Endurance", "Charisma", "Intelligence", "Agility", "Luck"];
 
-    // Render only the valid attributes
     for (let i = 0; i < special.length; ++i) {
         const attribute = special[i].special;
         if (validAttributes.includes(attribute)) {
