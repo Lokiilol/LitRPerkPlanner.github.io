@@ -342,7 +342,7 @@ const perks = [
                     {
                         rank: 3,
                         level: 24,
-                        per; 3, 
+                        per: 3, 
                         description: 'Move 21% faster with your weapon holstered.'
                     },
                     {
