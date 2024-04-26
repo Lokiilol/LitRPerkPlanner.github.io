@@ -94,7 +94,7 @@
                         rank: 2,
                         level: 15,
                         str: 4,
-                        description: '
+                        description: 'Your limb damage, fall damage and damage from over-encumbrance is now reduced by 60%'
                     },
                     {
                         rank: 3,
