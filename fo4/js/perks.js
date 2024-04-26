@@ -1,4 +1,5 @@
-﻿{
+const perks = [
+    {
     "special": "st",
     "perks": [
         {
