@@ -20,12 +20,11 @@ const toShorthand = function (fullAttributeName) {
 
 
 const renderPerks = function () {
-    let html = '',
-        special = getSPECIAL();
+    let html = '';
+    const special = getSPECIAL();
+    const validAttributes = ["Strength", "Perception", "Endurance", "Charisma", "Intelligence", "Agility", "Luck"];
 
     html += '<tr>';
-
-    const validAttributes = ["Strength", "Perception", "Endurance", "Charisma", "Intelligence", "Agility", "Luck"];
 
     for (let i = 0; i < special.length; ++i) {
         const attribute = special[i].special;
@@ -40,8 +39,8 @@ const renderPerks = function () {
         html += '<tr>';
 
         for (let j = 0; j < perks.length; ++j) {
-            let perk = perks[j].perks[i],
-                className = i > special[j].value - 1 ? ' unavailable' : '';
+            const perk = perks[j].perks[i];
+            let className = i > special[j].value - 1 ? ' unavailable' : '';
 
             if (!perk.currentRank) {
                 perk.currentRank = 0;
@@ -50,35 +49,23 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-
+                
                 if (rank.str) {
                     description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
-                    
-                else if (rank.per) {
+                } else if (rank.per) {
                     description += ' (' + toShorthand("Perception") + ' ' + rank.per + ')';
-                    
-                else if (rank.end) {
+                } else if (rank.end) {
                     description += ' (' + toShorthand("Endurance") + ' ' + rank.end + ')';
-                    
-                else if (rank.cha) {
+                } else if (rank.cha) {
                     description += ' (' + toShorthand("Charisma") + ' ' + rank.cha + ')';
-                    
-                else if (rank.int) {
+                } else if (rank.int) {
                     description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
-                    
-                else if (rank.agi) {
-                    description += ' (' + toShorthand("agility") + ' ' + rank.agi + ')';
-                    
-                else if (rank.luk) {
+                } else if (rank.agi) {
+                    description += ' (' + toShorthand("Agility") + ' ' + rank.agi + ')';
+                } else if (rank.luk) {
                     description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
                 }
-
-                if (rank.requiredAttribute && rank.requiredAttributeValue) {
-                    description += ' (Requires ' + toShorthand(rank.requiredAttribute) + ' ' + rank.requiredAttributeValue + ')';
-                }
-
-                description += ' ' + rank.description;
-
+                
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
