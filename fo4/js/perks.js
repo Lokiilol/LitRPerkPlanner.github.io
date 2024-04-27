@@ -362,50 +362,37 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Keep your distance long and your kill-count high. Attacks with non-automatic rifles do 20% more damage'
+                        per: 2,
+                        description: 'Keep your distance long and your kill-count high! You do 15% plus 0.5% per level with non-automatic rifles and shotguns.'
                     },
                     {
                         rank: 2,
-                        level: 9,
-                        description: 'Attacks with non-automatic rifles do 40% more damage and ignore 15% of a target\'s armor.'
+                        level: 12,
+                        per: 3,
+                        description: 'You do 25% more damage, and have 25% more range with non-automatic rifles and shotguns.'
                     },
                     {
                         rank: 3,
-                        level: 18,
-                        description: 'Attacks with non-automatic rifles do 60% more damage and ignore 20% of a target\'s armor.'
+                        level: 30,
+                        per: 4,
+                        description: 'You do 35% more damage, and have 50% more range with non-automatic rifles and shotguns.'
                     },
                     {
                         rank: 4,
-                        level: 31,
-                        description: 'Attacks with non-automatic rifles do 80% more damage and ignore 25% of a target\'s armor. They also have a slight chance of crippling a limb.'
+                        level: 50,
+                        per: 5,
+                        description: 'You do 45% more damage, and have 10% armor penetration with non-automatic rifles and shotguns.'
                     },
                     {
                         rank: 5,
-                        level: 46,
-                        description: 'Attacks with non-automatic rifles do double damage and ignore 30% of a target\'s armor. They also have a slightly higher chance of crippling a limb.'
+                        level: 70,
+                        per: 6,
+                        description: 'You do 55% more damage with non-automatic rifles and shotguns.'
                     }
                 ]
             },
             {
                 rank: 3,
-                name: 'Awareness',
-                img: 'awareness.png',
-                ranks: 2,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'To defeat your enemies, know their weaknesses! You can view a target\'s specific damage resistances in V.A.T.S.'
-                    },
-                    {
-                        rank: 2,
-                        level: 14,
-                        description: 'Knowing their weaknesses lets you attack more efficiently. 5% increase to hit chance and damage dealt to VATS targets.(Nuka-World DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 4,
                 name: 'Locksmith',
                 img: 'locksmith.png',
                 ranks: 4,
@@ -413,50 +400,96 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Your nimble fingers allow you to pick advanced locks.'
+                        per: 3,
+                        description: 'Your nimble fingers allow you to pick, shoot, kick or explode Advanced locks. Shooting a lock is less likely to break it.'
                     },
                     {
                         rank: 2,
                         level: 7,
-                        description: 'You can pick Expert locks.'
+                        per: 4, 
+                        description: 'You can pick, shoot, kick or explode Expert locks. Shooting a lock is less likely to break it.'
                     },
                     {
                         rank: 3,
                         level: 18,
-                        description: 'You can pick Master locks.'
+                        per: 5,
+                        description: 'You can pick, shoot, kick or explode Master locks. Shooting a lock is less likely to break it, and you can repair it if you do.'
                     },
                     {
                         rank: 4,
                         level: 41,
-                        description: 'Your bobby pins never break during lockpicking.'
+                        per: 6, 
+                        description: 'Your bobby pins never break during lockpicking, and locks you shoot never break.'
+                    }
+                ]
+            },
+            {
+                rank: 4,
+                name: 'Gun Nut',
+                img: 'gun-nut.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        per: 4,
+                        description: 'Shoot first, kill first, with access to base level and Rank 1 gun mods.'
+                    },
+                    {
+                        rank: 2,
+                        level: 14,
+                        per: 5,
+                        description: 'Create Rank 2 gun mods and more complex devices for your settlements.'
+                    },
+                    {
+                        rank: 3,
+                        level: 26,
+                        per: 6,
+                        description: 'You gain access to Rank 3 gun mods.'
+                    },
+                    {
+                        rank: 4,
+                        level: 44,
+                        per: 7,
+                        description: 'You gain access to Rank 4 gun mods.'
+                    },
+                    {
+                        rank: 4,
+                        level: 85,
+                        per: 8,
+                        description: 'Create Rank 5 gun mods.'
                     }
                 ]
             },
             {
                 rank: 5,
-                name: 'Demolition Expert',
-                img: 'demolition-expert.png',
+                name: 'Gumshoe',
+                img: 'mysterious-stranger.png',
                 ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'The bigger the boom, the better! Your explosives do 25% more damage, and you can craft explosives at any Chemistry Station.'
+                        per: 5,
+                        description: 'The case called for plain, old-fashioned private eye work. XP gain and persuasion chance are increased by 1% per Perception.'
                     },
                     {
                         rank: 2,
-                        level: 10,
-                        description: 'Your explosives do 50% more damage, and grenades gain a throwing arc.'
+                        level: 11,
+                        per: 6,
+                        description: 'Put on your trench coat! While not wearing armor, gain 25% of your energy resistance as an armor bonus, plus an additional 10% of your rad resist if also not wearing a helmet.'
                     },
                     {
                         rank: 3,
                         level: 22,
-                        description: 'Your explosives do 75% more damage and affect a larger area.'
+                        per: 7,
+                        description: 'Who is he? Why does he help? The Mysterious Stranger will appear occasionally in V.A.T.S. to lend a hand, with deadly efficiency...'
                     },
                     {
                         rank: 4,
-                        level: 34,
-                        description: 'Your explosives now do double damage. Mines and grenades shot in V.A.T.S explode for double damage, too.'
+                        level: 49,
+                        per: 8,
+                        description: 'Plot Twist! The Mysterious Stranger is helping your case! The Mysterious Stranger appears more often in V.A.T.S. When he kills an opponent, there is a chance your critical meter gets filled.'
                     }
                 ]
             },
@@ -469,96 +502,51 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
+                        per: 6,
                         description: 'You are a creature of the night! Gain +2 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
                     },
                     {
                         rank: 2,
                         level: 25,
-                        description: 'You now have +3 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m., and night vision when sneaking.'
+                        per: 7,
+                        description: 'You now have +4 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
                     },
                     {
                         rank: 3,
                         level: 37,
-                        description: 'You have 30 extra health between the hours of 6:00 PM and 6:00 AM.(Far Harbor DLC)'
+                        per: 8,
+                        description: 'You gain night vision while sneaking.'
                     }
                 ]
             },
             {
                 rank: 7,
-                name: 'Refractor',
-                img: 'refractor.png',
-                ranks: 5,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'You must be part mirror! Instantly gain +10 Energy Resistance.'
-                    },
-                    {
-                        rank: 2,
-                        level: 11,
-                        description: 'You now have +20 Energy Resistance.'
-                    },
-                    {
-                        rank: 3,
-                        level: 21,
-                        description: 'You now have +30 Energy Resistance.'
-                    },
-                    {
-                        rank: 4,
-                        level: 35,
-                        description: 'You now have +40 Energy Resistance.'
-                    },
-                    {
-                        rank: 5,
-                        level: 42,
-                        description: 'You now have +50 Energy Resistance.'
-                    }
-                ]
-            },
-            {
-                rank: 8,
-                name: 'Sniper',
-                img: 'sniper.png',
+                name: 'Steady Aim',
+                img: 'steady-aim.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'It\'s all about focus. You have improved control and can hold your breath longer when aiming with scopes.'
-                    },
-                    {
-                        rank: 2,
-                        level: 13,
-                        description: 'Non-automatic, scoped rifles have a chance of knocking down your target.'
-                    },
-                    {
-                        rank: 3,
-                        level: 26,
-                        description: 'Non-automatic, scoped rifles gain +25% accuracy to head shot in V.A.T.S.'
-                    }
-                ]
-            },
-            {
-                rank: 9,
-                name: 'Penetrator',
-                img: 'penetrator.png',
-                ranks: 2,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'There\'s no place to hide! In V.A.T.S you can target an enemy\'s body parts that are blocked by cover, with a decrease in accuracy.'
+                        per: 7,
+                        description: 'Stay on target! Gain 1% increased accuracy per Perception while using a scope or aiming down sights.'
                     },
                     {
                         rank: 2,
                         level: 28,
-                        description: 'In V.A.T.S when you target an enemy\'s body parts that are blocked by cover, there is no decrease in accuracy.'
+                        per: 8,
+                        description: 'Deal 1% more damage per Perception while using a scope or aiming down sights.'
+                    },
+                    {
+                        rank: 3,
+                        level: 49,
+                        per: 9,
+                        description: 'Deal 2% more damage and gain 2% more accuracy per Perception while using a scope or aiming down sights.'
                     }
                 ]
             },
             {
-                rank: 10,
+                rank: 8,
                 name: 'Concentrated Fire',
                 img: 'concentrated-fire.png',
                 ranks: 3,
@@ -566,17 +554,73 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Stay Focused! In V.A.T.S every attack on the same body part gains +10% accuracy.'
+                        per: 8,
+                        description: 'Stay focused! In V.A.T.S. every attack on the same body part gains +10% accuracy.'
                     },
                     {
                         rank: 2,
                         level: 26,
-                        description: 'In V.A.T.S every attack on the same body part gains +15% accuracy.'
+                        per: 9,
+                        description: 'In V.A.T.S. every attack on the same body part gains +15% damage.'
                     },
                     {
                         rank: 3,
                         level: 50,
-                        description: 'In V.A.T.S every attack on the same body part gains +20% accuracy and does 20% more damage.'
+                        per: 10,
+                        description: 'In V.A.T.S. every attack on the same body part gains +20% accuracy and does 20% more damage.'
+                    }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Penetrator',
+                img: 'penetrator.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        per: 9,
+                        description: 'There\'s no place to hide! Your attacks with ballistic weapons ignore 10% of a target\'s armor.'
+                    },
+                    {
+                        rank: 2,
+                        level: 28,
+                        per: 10,
+                        description: 'Your attacks with ballistic weapons ignore 15% of your targets armor, and in V.A.T.S. you can target an enemy\'s body parts that are blocked by cover, with a large decrease in accuracy.'
+                    },
+                    {
+                        rank: 3,
+                        level: 52,
+                        per: 11,
+                        description: 'Your attacks with ballistic ignore 20% of a target\'s armor, and in V.A.T.S. when you target an enemy\'s body parts that are blocked by cover, there is only a small decrease in accuracy.'
+                    }
+                    
+                ]
+            },
+            {
+                rank: 10,
+                name: 'Sniper',
+                img: 'sniper.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        per: 10,
+                        description: 'It\'s all about focus. Aiming while sneaking slows time slightly, but also drains Action Points..'
+                    },
+                    {
+                        rank: 2,
+                        level: 26,
+                        per: 11,
+                        description: 'You have improved control with scopes, and aiming while sneaking or holding your breath drains fewer Action Points.'
+                    },
+                    {
+                        rank: 3,
+                        level: 50,
+                        per: 12,
+                        description: 'While aiming through a scope, always score a Critical hit against targets at full health.'
                     }
                 ]
             }
@@ -587,75 +631,60 @@ const perks = [
         perks: [
             {
                 rank: 1,
-                name: 'Toughness',
-                img: 'toughness.png',
-                ranks: 5,
+                name: 'Lead Belly',
+                img: 'lead-belly.png',
+                ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'If nothing else, you can take a beating! Instantly gain +10 Damage Resistance'
+                        end: 1,
+                        description: 'Your digestive tract has adjusted to the weirdness of the Wasteland! You take less radiation from eating or drinking.'
                     },
                     {
                         rank: 2,
-                        level: 9,
-                        description: 'You now have +20 damage resistance.'
+                        level: 12,
+                        end: 2,
+                        description: 'Healing from food lasts 10% longer, and you take even less radiation from eating or drinking.'
                     },
                     {
                         rank: 3,
-                        level: 18,
-                        description: 'You now have +30 damage resistance.'
-                    },
-                    {
-                        rank: 4,
-                        level: 31,
-                        description: 'You now have +40 damage resistance.'
-                    },
-                    {
-                        rank: 5,
-                        level: 46,
-                        description: 'You now have +50 damage resistance.'
+                        level: 28,
+                        end: 2,
+                        description: 'Healing from food lasts 20% longer, and you take even less radiation from eating or drinking.'
                     }
                 ]
             },
             {
                 rank: 2,
-                name: 'Lead Belly',
-                img: 'lead-belly.png',
-                ranks: 3,
+                name: 'Chem Resistant',
+                img: 'chem-resistant.png',
+                ranks: 2,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
-                       description: 'Your digestive tract has adjusted to the weirdness of the Wasteland! Take less radiation from eating or drinking.'
+                       end: 2,
+                       description: 'All the rush without the hassle! You\'re 50% less likely to get addicted when consuming chems.'
                    },
                    {
                        rank: 2,
-                       level: 6,
-                       description: 'You take even less radiation from eating or drinking.'
-                   },
-                   {
-                       rank: 3,
-                       level: 17,
-                       description: 'You take no radiation from eating or drinking.'
+                       level: 48,
+                       end: 3,
+                       description: 'You gain almost complete immunity to chem addiction.'
                    }
                 ]
             },
             {
                 rank: 3,
-                name: 'Life Giver',
-                img: 'life-giver.png',
-                ranks: 3,
+                name: 'Aquaboy',
+                img: 'aquaboy.png',
+                ranks: 2,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
                        description: 'You embody wellness! Instantly gain +20 maximum Health.'
-                   },
-                   {
-                       rank: 2,
-                       level: 8,
-                       description: 'You instantly gain another +20 maximum Health.'
                    },
                    {
                        rank: 3,
