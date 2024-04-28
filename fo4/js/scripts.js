@@ -174,8 +174,8 @@ const renderAll = function () {
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
-    // If extra points are enabled, set remaining points to 999
-    remaining = extraPointsEnabled ? 999 : remaining;
+    // If extra points are enabled or unlimited perk points are enabled, set remaining points to 999
+    remaining = extraPointsEnabled || unlimitedPerkPointsEnabled ? 999 : remaining;
 
     $('.points-left').text(remaining);
 };
