@@ -1,316 +1,316 @@
 const perks = [
-    {
-        rank: 1,
-        name: 'Big Leagues',
-        img: 'big-leagues.png',
-        ranks: 5,
-        ranked: [
-            {
+        {
                 rank: 1,
-                level: 0,
-                str: 1,
-                description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
-            },
-            {
+                name: 'Big Leagues',
+                img: 'big-leagues.png',
+                ranks: 5,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 1,
+                                description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
+                        },
+                        {
+                                rank: 2,
+                                level: 12,
+                                str: 2,
+                                description: 'You do 25% more damage with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
+                        },
+                        {
+                                rank: 3,
+                                level: 30,
+                                str: 3,
+                                description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
+                        },
+                        {
+                                rank: 4,
+                                level: 50,
+                                str: 4,
+                                description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!'
+                        },
+                        {
+                                rank: 5,
+                                level: 70,
+                                str: 5,
+                                description: 'You do 55% more damage with unarmed and blunt melee weapons.'
+                        }
+                ]
+        },
+        {
                 rank: 2,
-                level: 12,
-                str: 2,
-                description: 'You do 25% more damage with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
-            },
-            {
+                name: 'Heavy Gunner',
+                img: 'heavy-gunner.png',
+                ranks: 5,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 2,
+                                description: 'Thanks to practice and conditioning, you do 15% more damage plus an additional 0.5% per level with heavy guns.'
+                        },
+                        {
+                                rank: 2,
+                                level: 12,
+                                str: 3,
+                                description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
+                        },
+                        {
+                                rank: 3,
+                                level: 30,
+                                str: 4,
+                                description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
+                        },
+                        {
+                                rank: 4,
+                                level: 50,
+                                str: 5,
+                                description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
+                        },
+                        {
+                                rank: 5,
+                                level: 70,
+                                str: 6,
+                                description: 'You do 55% more damage with heavy guns.'
+                        }
+                ]
+        },
+        {
                 rank: 3,
-                level: 30,
-                str: 3,
-                description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
-            },
-            {
+                name: 'Adamantium Skeleton',
+                img: 'adamantium-skeleton.png',
+                ranks: 3,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 3,
+                                description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage, and damage from over-encumbrance by 30%.'
+                        },
+                        {
+                                rank: 2,
+                                level: 15,
+                                str: 4,
+                                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 60%.'
+                        },
+                        {
+                                rank: 3,
+                                level: 37,
+                                str: 5,
+                                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 90%.'
+                        }
+                ]
+        },
+        {
                 rank: 4,
-                level: 50,
-                str: 4,
-                description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!'
-            },
-            {
+                name: 'Blacksmith',
+                img: 'blacksmith.png',
+                ranks: 4,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 4,
+                                description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
+                        },
+                        {
+                                rank: 2,
+                                level: 16,
+                                str: 5,
+                                description: 'You gain access to Rank 2 power armor and melee weapon mods.'
+                        },
+                        {
+                                rank: 3,
+                                level: 29,
+                                str: 6,
+                                description: 'You gain access to Rank 3 power armor and melee weapon mods.'
+                        },
+                        {
+                                rank: 4,
+                                level: 43,
+                                str: 7,
+                                description: 'You gain access to rank 4 power armor mods.'
+                        }
+                ]
+        },
+        {
                 rank: 5,
-                level: 70,
-                str: 5,
-                description: 'You do 55% more damage with unarmed and blunt melee weapons.'
-            }
-        ]
-    },
-    {
-        rank: 2,
-        name: 'Heavy Gunner',
-        img: 'heavy-gunner.png',
-        ranks: 5,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 2,
-                description: 'Thanks to practice and conditioning, you do 15% more damage plus an additional 0.5% per level with heavy guns.'
-            },
-            {
-                rank: 2,
-                level: 12,
-                str: 3,
-                description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
-            },
-            {
-                rank: 3,
-                level: 30,
-                str: 4,
-                description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
-            },
-            {
-                rank: 4,
-                level: 50,
-                str: 5,
-                description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
-            },
-            {
-                rank: 5,
-                level: 70,
-                str: 6,
-                description: 'You do 55% more damage with heavy guns.'
-            }
-        ]
-    },
-    {
-        rank: 3,
-        name: 'Adamantium Skeleton',
-        img: 'adamantium-skeleton.png',
-        ranks: 3,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 3,
-                description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage, and damage from over-encumbrance by 30%.'
-            },
-            {
-                rank: 2,
-                level: 15,
-                str: 4,
-                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 60%.'
-            },
-            {
-                rank: 3,
-                level: 37,
-                str: 5,
-                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 90%.'
-            }
-        ]
-    },
-    {
-        rank: 4,
-        name: 'Blacksmith',
-        img: 'blacksmith.png',
-        ranks: 4,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 4,
-                description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
-            },
-            {
-                rank: 2,
-                level: 16,
-                str: 5,
-                description: 'You gain access to Rank 2 power armor and melee weapon mods.'
-            },
-            {
-                rank: 3,
-                level: 29,
-                str: 6,
-                description: 'You gain access to Rank 3 power armor and melee weapon mods.'
-            },
-            {
-                rank: 4,
-                level: 43,
-                str: 7,
-                description: 'You gain access to rank 4 power armor mods.'
-            }
-        ]
-    },
-    {
-        rank: 5,
-        name: 'Pain Train',
-        img: 'pain-train.png',
-        ranks: 5,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 5,
-                description: 'Choo Choo! All aboard! While wearing Power Armor, sprinting into enemies hurts and staggers them, and your armor takes 5% less damage.'
-            },
-            {
-                rank: 2,
-                level: 13,
-                str: 6,
-                description: 'While wearing Power Armor, fusion cores last twice as long while running, and your armor takes 10% less damage.'
-            },
-            {
-                rank: 3,
-                level: 26,
-                str: 7,
-                description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger, and your power armor takes 15% less damage.'
-            },
-            {
-                rank: 4,
-                level: 39,
-                str: 8,
-                description: 'Your fusion cores last three times as long in Power Armor while running, and your armor takes 20% less damage.'
-            },
-            {
-                rank: 5,
-                level: 54,
-                str: 9,
-                description: 'Sprinting into enemies now causes massive damage and knocks them down. Landing near enemies inflicts even more damage. Your power armor takes 25% less damage.'
-            }
-        ]
-    },
-    {
-        rank: 6,
-        name: 'Buffness',
-        img: 'toughness.png',
-        ranks: 5,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 6,
-                description: 'You must work out! Gain Health equal to two times your Strength.'
-            },
-            {
-                rank: 2,
-                level: 10,
-                str: 7,
-                description: 'You gain Health equal to four times your Strength.'
-            },
-            {
-                rank: 3,
-                level: 20,
-                str: 8,
-                description: 'You gain Health equal to six times your Strength.'
-            },
-            {
-                rank: 4,
-                level: 40,
-                str: 9,
-                description: 'You gain Health equal to eight times your Strength.'
-            },
-            {
-                rank: 5,
-                level: 60,
-                str: 10,
-                description: 'You gain Health equal to ten times your Strength.'
-            }
-        ]
-    },
-    {
-        rank: 7,
-        name: 'Basher',
-        img: 'basher.png',
-        ranks: 4,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 7,
-                description: 'Get up close and personal! Gun bashing gains a 15% chance to knock down enemies, does 25% more damage to enemies below 50% health, and gun bashing executes occur more frequently.'
-            },
-            {
-                rank: 2,
-                level: 12,
-                str: 9,
-                description: 'Gun bashing now deals 50% extra damage to enemies below 50% health and possibly cripples your opponent.'
-            },
-            {
-                rank: 3,
-                level: 30,
-                str: 9,
-                description: 'Gun bashing now does 75% more damage to enemies below 50% health and has increased chance to cripple your opponent.'
-            },
-            {
-                rank: 4,
-                level: 50,
-                str: 10,
-                description: 'Gun bashing now does double damage to enemies below 50% health and gains a 15% chance to critically hit.'
-            }
-        ]
-    },
-    {
-        rank: 8,
-        name: 'Iron Roots',
-        img: 'rooted.png',
-        ranks: 3,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 8,
-                description: 'Youre part tree! While standing still, gain a damage threshold of 4, doubled while over-encumbered.'
-            },
-            {
-                rank: 2,
-                level: 23,
-                str: 9,
-                description: 'While standing still, gain a damage threshold of 8, doubled while over-encumbered.'
-            },
-            {
-                rank: 3,
-                level: 50,
-                str: 10,
-                description: 'While standing still, gain a damage threshold of 12, doubled while over-encumbered.'
-            }
-        ]
-    },
-    {
-        rank: 9,
-        name: 'Blitz',
-        img: 'blitz.png',
-        ranks: 2,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 9,
-                description: 'Find the gap and make the tackle! While not over-encumbered sprint 15% faster. V.A.T.S. melee distance increased by 50%'
-            },
-            {
-                rank: 2,
-                level: 29,
-                str: 10,
-                description: 'Melee attacks while sprinting deal 20% more damage. V.A.T.S. melee attacks deal more damage based on how far away you are.'
-            }
-        ]
-    },
-    {
-        rank: 10,
-        name: 'Mano a Mano',
-        img: 'iron-fist.png',
-        ranks: 3,
-        ranked: [
-            {
-                rank: 1,
-                level: 0,
-                str: 10,
-                description: 'Force your foes to fight you face to face. You take 5% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-            },
-            {
-                rank: 2,
-                level: 26,
-                str: 11,
-                description: 'You take 10% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-            },
-            {
-                rank: 3,
-                level: 48,
-                str: 12,
-                description: 'You take 15% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-                    }
+                name: 'Pain Train',
+                img: 'pain-train.png',
+                ranks: 5,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 5,
+                                description: 'Choo Choo! All aboard! While wearing Power Armor, sprinting into enemies hurts and staggers them, and your armor takes 5% less damage.'
+                        },
+                        {
+                                rank: 2,
+                                level: 13,
+                                str: 6,
+                                description: 'While wearing Power Armor, fusion cores last twice as long while running, and your armor takes 10% less damage.'
+                        },
+                        {
+                                rank: 3,
+                                level: 26,
+                                str: 7,
+                                description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger, and your power armor takes 15% less damage.'
+                        },
+                        {
+                                rank: 4,
+                                level: 39,
+                                str: 8,
+                                description: 'Your fusion cores last three times as long in Power Armor while running, and your armor takes 20% less damage.'
+                        },
+                        {
+                                rank: 5,
+                                level: 54,
+                                str: 9,
+                                description: 'Sprinting into enemies now causes massive damage and knocks them down. Landing near enemies inflicts even more damage. Your power armor takes 25% less damage.'
+                        }
+                ]
+        },
+        {
+                rank: 6,
+                name: 'Buffness',
+                img: 'toughness.png',
+                ranks: 5,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 6,
+                                description: 'You must work out! Gain Health equal to two times your Strength.'
+                        },
+                        {
+                                rank: 2,
+                                level: 10,
+                                str: 7,
+                                description: 'You gain Health equal to four times your Strength.'
+                        },
+                        {
+                                rank: 3,
+                                level: 20,
+                                str: 8,
+                                description: 'You gain Health equal to six times your Strength.'
+                        },
+                        {
+                                rank: 4,
+                                level: 40,
+                                str: 9,
+                                description: 'You gain Health equal to eight times your Strength.'
+                        },
+                        {
+                                rank: 5,
+                                level: 60,
+                                str: 10,
+                                description: 'You gain Health equal to ten times your Strength.'
+                        }
+                ]
+        },
+        {
+                rank: 7,
+                name: 'Basher',
+                img: 'basher.png',
+                ranks: 4,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 7,
+                                description: 'Get up close and personal! Gun bashing gains a 15% chance to knock down enemies, does 25% more damage to enemies below 50% health, and gun bashing executes occur more frequently.'
+                        },
+                        {
+                                rank: 2,
+                                level: 12,
+                                str: 9,
+                                description: 'Gun bashing now deals 50% extra damage to enemies below 50% health and possibly cripples your opponent.'
+                        },
+                        {
+                                rank: 3,
+                                level: 30,
+                                str: 9,
+                                description: 'Gun bashing now does 75% more damage to enemies below 50% health and has increased chance to cripple your opponent.'
+                        },
+                        {
+                                rank: 4,
+                                level: 50,
+                                str: 10,
+                                description: 'Gun bashing now does double damage to enemies below 50% health and gains a 15% chance to critically hit.'
+                        }
+                ]
+        },
+        {
+                rank: 8,
+                name: 'Iron Roots',
+                img: 'rooted.png',
+                ranks: 3,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 8,
+                                description: 'Youre part tree! While standing still, gain a damage threshold of 4, doubled while over-encumbered.'
+                        },
+                        {
+                                rank: 2,
+                                level: 23,
+                                str: 9,
+                                description: 'While standing still, gain a damage threshold of 8, doubled while over-encumbered.'
+                        },
+                        {
+                                rank: 3,
+                                level: 50,
+                                str: 10,
+                                description: 'While standing still, gain a damage threshold of 12, doubled while over-encumbered.'
+                        }
+                ]
+        },
+        {
+                rank: 9,
+                name: 'Blitz',
+                img: 'blitz.png',
+                ranks: 2,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 9,
+                                description: 'Find the gap and make the tackle! While not over-encumbered sprint 15% faster. V.A.T.S. melee distance increased by 50%'
+                        },
+                        {
+                                rank: 2,
+                                level: 29,
+                                str: 10,
+                                description: 'Melee attacks while sprinting deal 20% more damage. V.A.T.S. melee attacks deal more damage based on how far away you are.'
+                        }
+                ]
+        },
+        {
+                rank: 10,
+                name: 'Mano a Mano',
+                img: 'iron-fist.png',
+                ranks: 3,
+                ranked: [
+                        {
+                                rank: 1,
+                                level: 0,
+                                str: 10,
+                                description: 'Force your foes to fight you face to face. You take 5% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                        },
+                        {
+                                rank: 2,
+                                level: 26,
+                                str: 11,
+                                description: 'You take 10% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                        },
+                        {
+                                rank: 3,
+                                level: 48,
+                                str: 12,
+                                description: 'You take 15% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                     }
                 ]
             }
         ]
