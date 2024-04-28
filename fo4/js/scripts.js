@@ -1,4 +1,6 @@
 let totalPoints = 28;
+let extraPointsEnabled = false;
+let unlimitedPerkPointsEnabled = false; // New variable to track unlimited perk points
 
 const attributeShorthands = {
     "Strength": "STR",
@@ -16,7 +18,6 @@ const toShorthand = function (fullAttributeName) {
     const digit = shorthand.slice(1);
     return '<b>' + firstLetter + '</b>' + '<b>' + digit + '</b>';
 };
-
 
 const renderPerks = function () {
     let html = '';
@@ -48,7 +49,7 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-                
+
                 if (rank.str) {
                     description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
                 } else if (rank.per) {
@@ -65,8 +66,9 @@ const renderPerks = function () {
                     description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
                 }
 
+                // Add the perk description
                 description += ' - ' + rank.description;
-                
+
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
@@ -94,7 +96,7 @@ const getJSON = function () {
 
 const getRanks = function () {
     const ranks = [];
-    
+
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             const perk = perks[i].perks[j];
@@ -139,7 +141,7 @@ const requiredLevel = function () {
     let remaining = totalPoints - getAllocatedPoints();
 
     let maxLevel = 0;
-    
+
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             for (let k = 0; k < perks[i].perks[j].currentRank; ++k) {
@@ -171,8 +173,11 @@ const renderAll = function () {
 
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
-    
-    $pointsLeft.text(remaining); 
+
+    // If extra points are enabled, set remaining points to 999
+    remaining = extraPointsEnabled ? 999 : remaining;
+
+    $('.points-left').text(remaining);
 };
 
 const getAllocatedPoints = function () {
@@ -185,6 +190,7 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
+const $unlimitedPerkPoints = $('.unlimited-perk-points'); // New variable to track the checkbox for unlimited perk points
 
 const pointsRemaining = function () {
     return parseInt($pointsLeft.text());
@@ -202,12 +208,12 @@ const renderSummary = function () {
 
                 for (let k = 0; k < perk.currentRank; ++k) {
                     let description = perk.ranked[k].description;
-                    
+
                     // Add attribute requirements to the description
                     if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
                         description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
                     }
-                    
+
                     html += '<li>' + description + '</li>';
                 }
 
@@ -220,19 +226,19 @@ const renderSummary = function () {
     $('[rel="popover"]').popover();
 };
 
-const getSPECIALMinMax = function() {
+const getSPECIALMinMax = function () {
     let min = 1;
     let max = 13;
 
-    return {min, max};
+    return { min, max };
 };
 
 $(function () {
     const hash = window.location.hash.replace('#', '');
-    
+
     if (hash.length > 0) {
         const load = JSON.parse(atob(hash));
-        
+
         $('input[type=number]').each(function (index) {
             $(this).val(load.s[index]);
         });
@@ -243,7 +249,7 @@ $(function () {
             for (let j = 0; j < perks.length; ++j) {
                 for (let k = 0; k < perks[j].perks.length; ++k) {
                     let perk = perks[j].perks[k];
-                    
+
                     if (perk.name === key) {
                         perk.currentRank = value;
                     }
@@ -254,21 +260,16 @@ $(function () {
 
     renderAll();
 
-    $includeBobbleheads.on('click', function () {
-        let valShift = -0;
-        
-        if (includeBobbleheads()) {
-            valShift = 0;
-        }
-        
-        const $inputs = $(".list-special>li>span>input")
-        
-        $inputs.attr(getSPECIALMinMax());
-        $inputs.val( function(i, val) {
-            return parseInt(val, 10) + valShift;
-        });
+    // Checkbox event for enabling/disabling extra points
+    $includeBobbleheads.on('change', function () {
+        extraPointsEnabled = $(this).prop('checked');
+        calculatePoints();
+    });
 
-        renderAll();
+    // Checkbox event for enabling/disabling unlimited perk points
+    $unlimitedPerkPoints.on('change', function () {
+        unlimitedPerkPointsEnabled = $(this).prop('checked');
+        calculatePoints();
     });
 
     $('.btn-inc').on('click', function () {
@@ -286,11 +287,11 @@ $(function () {
     });
 
     $('.btn-dec').on('click', function () {
-        const {min} = getSPECIALMinMax()
+        const { min } = getSPECIALMinMax()
         const $li = $(this).parent().parent(),
-              $input = $li.find('input'),
-              value = parseInt($input.val()),
-              special = $li.data('special');
+            $input = $li.find('input'),
+            value = parseInt($input.val()),
+            special = $li.data('special');
 
         if (value > min) {
             $input.val(value - 1);
@@ -309,23 +310,17 @@ $(function () {
 
     $('body').on('click', '.btn-inc-perk, .btn-dec-perk', function () {
         const $container = $(this).parent().parent(),
-              i = parseInt($container.data('i')),
-              j = parseInt($container.data('j')),
-              perk = perks[j].perks[i],
-              incrementing = $(this).hasClass('btn-inc-perk');
+            i = parseInt($container.data('i')),
+            j = parseInt($container.data('j')),
+            perk = perks[j].perks[i],
+            incrementing = $(this).hasClass('btn-inc-perk');
 
         if (!perk.currentRank) {
             perk.currentRank = 0;
         }
 
-        if (incrementing) {
-            if (perk.currentRank < perk.ranks) {
-                perk.currentRank += 1;
-            }
-        } else {
-            if (perk.currentRank > 0) {
-                perk.currentRank -= 1;
-            }
+        if (unlimitedPerkPointsEnabled || (incrementing && perk.currentRank < perk.ranks)) {
+            perk.currentRank += incrementing ? 1 : -1;
         }
 
         renderAll();
