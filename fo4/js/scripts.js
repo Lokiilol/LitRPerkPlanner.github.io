@@ -18,6 +18,7 @@ const toShorthand = function (fullAttributeName) {
     return '<b>' + firstLetter + '</b>' + '<b>' + digit + '</b>';
 };
 
+
 const renderPerks = function () {
     let html = '';
     const special = getSPECIAL();
@@ -49,10 +50,24 @@ const renderPerks = function () {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
                 
-                // Add attribute requirements to the description
-                if (rank.requiredAttribute && rank.requiredAttributeValue) {
-                    description += ' (Requires ' + toShorthand(rank.requiredAttribute) + ' ' + rank.requiredAttributeValue + ')';
+                if (rank.str) {
+                    description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
+                } else if (rank.per) {
+                    description += ' (' + toShorthand("Perception") + ' ' + rank.per + ')';
+                } else if (rank.end) {
+                    description += ' (' + toShorthand("Endurance") + ' ' + rank.end + ')';
+                } else if (rank.cha) {
+                    description += ' (' + toShorthand("Charisma") + ' ' + rank.cha + ')';
+                } else if (rank.int) {
+                    description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
+                } else if (rank.agi) {
+                    description += ' (' + toShorthand("Agility") + ' ' + rank.agi + ')';
+                } else if (rank.luk) {
+                    description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
                 }
+
+                // Add the perk description
+                description += ' - ' + rank.description;
                 
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
@@ -69,7 +84,7 @@ const renderPerks = function () {
     }
 
     $('.table').html(html);
-    $('[rel="popover"]').popover(); // Ensure popover initialization here
+    $('[rel="popover"]').popover();
 };
 
 const getJSON = function () {
