@@ -1,4 +1,5 @@
-const perks = [
+const perks = 
+[
     {
         rank: 1,
         name: 'Big Leagues',
