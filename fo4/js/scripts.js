@@ -1,5 +1,4 @@
 let totalPoints = 28;
-let extraPointsEnabled = false;
 
 const attributeShorthands = {
     "Strength": "STR",
@@ -66,7 +65,6 @@ const renderPerks = function () {
                     description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
                 }
 
-                // Add the perk description
                 description += ' - ' + rank.description;
                 
                 return '<p class=' + rankClass + '>' + description + '</p>';
@@ -140,14 +138,6 @@ const requiredLevel = function () {
 
     let remaining = totalPoints - getAllocatedPoints();
 
-    if (includeBobbleheads()) {
-        remaining += 8;
-    }
-
-    if (remaining <= 0) {
-        total += 1 + remaining * -1;
-    }
-
     let maxLevel = 0;
     
     for (let i = 0; i < perks.length; ++i) {
@@ -182,16 +172,6 @@ const renderAll = function () {
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
-    if (includeBobbleheads()) {
-       remaining += 1;
-    }
-    
-    if (!extraPointsEnabled) {
-        if (remaining < 0) {
-            remaining = 0;
-        }
-    }
-    
     $pointsLeft.text(remaining); 
 };
 
@@ -205,11 +185,6 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $extraPointsCheckbox = $('#extra-points-checkbox');
-
-const includeBobbleheads = function () {
-    return $includeBobbleheads.is(':checked');
-};
 
 const pointsRemaining = function () {
     return parseInt($pointsLeft.text());
@@ -248,11 +223,6 @@ const renderSummary = function () {
 const getSPECIALMinMax = function() {
     let min = 1;
     let max = 13;
-
-    if (includeBobbleheads()) {
-        min = 1;
-        max = 13;
-    }
 
     return {min, max};
 };
@@ -298,11 +268,6 @@ $(function () {
             return parseInt(val, 10) + valShift;
         });
 
-        renderAll();
-    });
-
-    $extraPointsCheckbox.on('click', function () {
-        extraPointsEnabled = $extraPointsCheckbox.is(':checked');
         renderAll();
     });
 
