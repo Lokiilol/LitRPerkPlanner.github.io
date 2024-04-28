@@ -18,7 +18,6 @@ const toShorthand = function (fullAttributeName) {
     return '<b>' + firstLetter + '</b>' + '<b>' + digit + '</b>';
 };
 
-
 const renderPerks = function () {
     let html = '';
     const special = getSPECIAL();
@@ -140,13 +139,19 @@ const requiredLevel = function () {
 
     let remaining = totalPoints - getAllocatedPoints();
 
-    if (includeBobbleheads()) {
-        remaining += 8;
+    if (extraPointsEnabled) { 
+        remaining = 999; // If extraPointsEnabled is true, set remaining points to 999
+    } else {
+        remaining = totalPoints - getAllocatedPoints(); // Otherwise, calculate remaining points based on the allocated points
+        if (includeBobbleheads()) {
+            remaining += 8; // Add 8 points if bobbleheads are included
+        }
+        if (remaining <= 0) {
+            total += 1 + remaining * -1; // If remaining points are less than or equal to 0, increase the total by the absolute value of remaining
+        }
     }
 
-    if (remaining <= 0) {
-        total += 1 + remaining * -1;
-    }
+    $pointsLeft.text(remaining); // Update the displayed remaining points
 
     let maxLevel = 0;
     
