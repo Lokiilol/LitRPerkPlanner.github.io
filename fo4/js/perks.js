@@ -1,518 +1,205 @@
-const perks = [
-        {
+﻿const perks = [
+    {
+        special: 'st',
+        perks: [
+            {
                 rank: 1,
                 name: 'Big Leagues',
                 img: 'big-leagues.png',
                 ranks: 5,
                 ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 1,
-                                description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
-                        },
-                        {
-                                rank: 2,
-                                level: 12,
-                                str: 2,
-                                description: 'You do 25% more damage with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
-                        },
-                        {
-                                rank: 3,
-                                level: 30,
-                                str: 3,
-                                description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
-                        },
-                        {
-                                rank: 4,
-                                level: 50,
-                                str: 4,
-                                description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!'
-                        },
-                        {
-                                rank: 5,
-                                level: 70,
-                                str: 5,
-                                description: 'You do 55% more damage with unarmed and blunt melee weapons.'
-                        }
+                    {
+                        rank: 1,
+                        level: 0,
+                        str: 1,
+                        description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
+                    },
+                    {
+                        rank: 2,
+                        level: 12,
+                        str: 2,
+                        description: 'You do 25% with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
+                    },
+                    {
+                        rank: 3,
+                        level: 30,
+                        str: 3,
+                        description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        str: 4,
+                        description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!.'
+                    },
+                    {
+                        rank: 5,
+                        level: 70,
+                        str: 5,
+                        description: 'You do 55% more damage with unarmed and blunt melee weapons.'
+                    }
                 ]
-        },
-        {
+            },
+            {
                 rank: 2,
                 name: 'Heavy Gunner',
                 img: 'heavy-gunner.png',
                 ranks: 5,
                 ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 2,
-                                description: 'Thanks to practice and conditioning, you do 15% more damage plus an additional 0.5% per level with heavy guns.'
-                        },
-                        {
-                                rank: 2,
-                                level: 12,
-                                str: 3,
-                                description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
-                        },
-                        {
-                                rank: 3,
-                                level: 30,
-                                str: 4,
-                                description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
-                        },
-                        {
-                                rank: 4,
-                                level: 50,
-                                str: 5,
-                                description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
-                        },
-                        {
-                                rank: 5,
-                                level: 70,
-                                str: 6,
-                                description: 'You do 55% more damage with heavy guns.'
-                        }
+                    {
+                        rank: 1,
+                        level: 0,
+                        str: 2,
+                        description: 'Thanks to practice and conditioning you do 15% more damage plus an addtional 0.5% per level with heavy guns.'
+                    },
+                    {
+                        rank: 2,
+                        level: 12,
+                        str: 3,
+                        description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
+                    },
+                    {
+                        rank: 3,
+                        level: 30,
+                        str: 4,
+                        description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        str: 5,
+                        description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
+                    },
+                    {
+                        rank: 5,
+                        level: 70,
+                        str: 6,
+                        description: 'You do 55% more damage with heavy guns.'
+                    }
                 ]
-        },
-        {
+            },
+            {
                 rank: 3,
                 name: 'Adamantium Skeleton',
                 img: 'adamantium-skeleton.png',
                 ranks: 3,
                 ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 3,
-                                description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage, and damage from over-encumbrance by 30%.'
-                        },
-                        {
-                                rank: 2,
-                                level: 15,
-                                str: 4,
-                                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 60%.'
-                        },
-                        {
-                                rank: 3,
-                                level: 37,
-                                str: 5,
-                                description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 90%.'
-                        }
+                    {
+                        rank: 1,
+                        level: 0,
+                        str: 3,
+                        description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage and damage from over-encumbrance by 30%'
+                    },
+                    {
+                        rank: 2,
+                        level: 15,
+                        str: 4,
+                        description: '
+                    },
+                    {
+                        rank: 3,
+                        level: 37,
+                        str: 5,
+                        description: 'Your limb damage, fall damage and damage from over-encumbrance is now reduced by 90%'
+                    },
+                                     
                 ]
-        },
-        {
+            },
+            {
                 rank: 4,
                 name: 'Blacksmith',
                 img: 'blacksmith.png',
                 ranks: 4,
                 ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 4,
-                                description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
-                        },
-                        {
-                                rank: 2,
-                                level: 16,
-                                str: 5,
-                                description: 'You gain access to Rank 2 power armor and melee weapon mods.'
-                        },
-                        {
-                                rank: 3,
-                                level: 29,
-                                str: 6,
-                                description: 'You gain access to Rank 3 power armor and melee weapon mods.'
-                        },
-                        {
-                                rank: 4,
-                                level: 43,
-                                str: 7,
-                                description: 'You gain access to rank 4 power armor mods.'
-                        }
-                ]
-        },
-        {
-                rank: 5,
-                name: 'Pain Train',
-                img: 'pain-train.png',
-                ranks: 5,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 5,
-                                description: 'Choo Choo! All aboard! While wearing Power Armor, sprinting into enemies hurts and staggers them, and your armor takes 5% less damage.'
-                        },
-                        {
-                                rank: 2,
-                                level: 13,
-                                str: 6,
-                                description: 'While wearing Power Armor, fusion cores last twice as long while running, and your armor takes 10% less damage.'
-                        },
-                        {
-                                rank: 3,
-                                level: 26,
-                                str: 7,
-                                description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger, and your power armor takes 15% less damage.'
-                        },
-                        {
-                                rank: 4,
-                                level: 39,
-                                str: 8,
-                                description: 'Your fusion cores last three times as long in Power Armor while running, and your armor takes 20% less damage.'
-                        },
-                        {
-                                rank: 5,
-                                level: 54,
-                                str: 9,
-                                description: 'Sprinting into enemies now causes massive damage and knocks them down. Landing near enemies inflicts even more damage. Your power armor takes 25% less damage.'
-                        }
-                ]
-        },
-        {
-                rank: 6,
-                name: 'Buffness',
-                img: 'toughness.png',
-                ranks: 5,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 6,
-                                description: 'You must work out! Gain Health equal to two times your Strength.'
-                        },
-                        {
-                                rank: 2,
-                                level: 10,
-                                str: 7,
-                                description: 'You gain Health equal to four times your Strength.'
-                        },
-                        {
-                                rank: 3,
-                                level: 20,
-                                str: 8,
-                                description: 'You gain Health equal to six times your Strength.'
-                        },
-                        {
-                                rank: 4,
-                                level: 40,
-                                str: 9,
-                                description: 'You gain Health equal to eight times your Strength.'
-                        },
-                        {
-                                rank: 5,
-                                level: 60,
-                                str: 10,
-                                description: 'You gain Health equal to ten times your Strength.'
-                        }
-                ]
-        },
-        {
-                rank: 7,
-                name: 'Basher',
-                img: 'basher.png',
-                ranks: 4,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 7,
-                                description: 'Get up close and personal! Gun bashing gains a 15% chance to knock down enemies, does 25% more damage to enemies below 50% health, and gun bashing executes occur more frequently.'
-                        },
-                        {
-                                rank: 2,
-                                level: 12,
-                                str: 9,
-                                description: 'Gun bashing now deals 50% extra damage to enemies below 50% health and possibly cripples your opponent.'
-                        },
-                        {
-                                rank: 3,
-                                level: 30,
-                                str: 9,
-                                description: 'Gun bashing now does 75% more damage to enemies below 50% health and has increased chance to cripple your opponent.'
-                        },
-                        {
-                                rank: 4,
-                                level: 50,
-                                str: 10,
-                                description: 'Gun bashing now does double damage to enemies below 50% health and gains a 15% chance to critically hit.'
-                        }
-                ]
-        },
-        {
-                rank: 8,
-                name: 'Iron Roots',
-                img: 'rooted.png',
-                ranks: 3,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 8,
-                                description: 'Youre part tree! While standing still, gain a damage threshold of 4, doubled while over-encumbered.'
-                        },
-                        {
-                                rank: 2,
-                                level: 23,
-                                str: 9,
-                                description: 'While standing still, gain a damage threshold of 8, doubled while over-encumbered.'
-                        },
-                        {
-                                rank: 3,
-                                level: 50,
-                                str: 10,
-                                description: 'While standing still, gain a damage threshold of 12, doubled while over-encumbered.'
-                        }
-                ]
-        },
-        {
-                rank: 9,
-                name: 'Blitz',
-                img: 'blitz.png',
-                ranks: 2,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 9,
-                                description: 'Find the gap and make the tackle! While not over-encumbered sprint 15% faster. V.A.T.S. melee distance increased by 50%'
-                        },
-                        {
-                                rank: 2,
-                                level: 29,
-                                str: 10,
-                                description: 'Melee attacks while sprinting deal 20% more damage. V.A.T.S. melee attacks deal more damage based on how far away you are.'
-                        }
-                ]
-        },
-        {
-                rank: 10,
-                name: 'Mano a Mano',
-                img: 'iron-fist.png',
-                ranks: 3,
-                ranked: [
-                        {
-                                rank: 1,
-                                level: 0,
-                                str: 10,
-                                description: 'Force your foes to fight you face to face. You take 5% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-                        },
-                        {
-                                rank: 2,
-                                level: 26,
-                                str: 11,
-                                description: 'You take 10% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-                        },
-                        {
-                                rank: 3,
-                                level: 48,
-                                str: 12,
-                                description: 'You take 15% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
-                     }
-                ]
-            }
-        ]
-    },
-    {
-        special: 'pe',
-        perks: [
-            {
-                rank: 1,
-                name: 'Explorer',
-                img: 'vans.png',
-                ranks: 4,
-                ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        per: 1, 
-                        description: 'Gain double XP from discovering locations, and move 7% faster with your weapon holstered while not over-encumbered.'
+                        str: 4,
+                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
                     },
                     {
                         rank: 2,
-                        level: 7,
-                        per: 2,
-                        description: 'Move 14% faster with your weapon holstered, and you may hold your V.A.T.S. key to see the path to your closest quest target.'
+                        level: 16,
+                        str: 5,
+                        description: 'You gain access to Rank 2 power armor and melee weapon mods'
                     },
                     {
                         rank: 3,
-                        level: 24,
-                        per: 3, 
-                        description: 'Move 21% faster with your weapon holstered.'
+                        level: 29,
+                        str: 6,
+                        description: 'You gain access to Rank 3 power armor and melee weapon mods'
                     },
                     {
                         rank: 4,
-                        level: 45,
-                        per: 4, 
-                        description: 'Every location in the world is revealed on your map.'
-                    }
-                ]
-            },
-            {
-                rank: 2,
-                name: 'Rifleman',
-                img: 'rifleman.png',
-                ranks: 5,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        per: 2,
-                        description: 'Keep your distance long and your kill-count high! You do 15% plus 0.5% per level with non-automatic rifles and shotguns.'
-                    },
-                    {
-                        rank: 2,
-                        level: 12,
-                        per: 3,
-                        description: 'You do 25% more damage, and have 25% more range with non-automatic rifles and shotguns.'
-                    },
-                    {
-                        rank: 3,
-                        level: 30,
-                        per: 4,
-                        description: 'You do 35% more damage, and have 50% more range with non-automatic rifles and shotguns.'
-                    },
-                    {
-                        rank: 4,
-                        level: 50,
-                        per: 5,
-                        description: 'You do 45% more damage, and have 10% armor penetration with non-automatic rifles and shotguns.'
-                    },
-                    {
-                        rank: 5,
-                        level: 70,
-                        per: 6,
-                        description: 'You do 55% more damage with non-automatic rifles and shotguns.'
-                    }
-                ]
-            },
-            {
-                rank: 3,
-                name: 'Locksmith',
-                img: 'locksmith.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        per: 3,
-                        description: 'Your nimble fingers allow you to pick, shoot, kick or explode Advanced locks. Shooting a lock is less likely to break it.'
-                    },
-                    {
-                        rank: 2,
-                        level: 7,
-                        per: 4, 
-                        description: 'You can pick, shoot, kick or explode Expert locks. Shooting a lock is less likely to break it.'
-                    },
-                    {
-                        rank: 3,
-                        level: 18,
-                        per: 5,
-                        description: 'You can pick, shoot, kick or explode Master locks. Shooting a lock is less likely to break it, and you can repair it if you do.'
-                    },
-                    {
-                        rank: 4,
-                        level: 41,
-                        per: 6, 
-                        description: 'Your bobby pins never break during lockpicking, and locks you shoot never break.'
-                    }
-                ]
-            },
-            {
-                rank: 4,
-                name: 'Gun Nut',
-                img: 'gun-nut.png',
-                ranks: 5,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        per: 4,
-                        description: 'Shoot first, kill first, with access to base level and Rank 1 gun mods.'
-                    },
-                    {
-                        rank: 2,
-                        level: 14,
-                        per: 5,
-                        description: 'Create Rank 2 gun mods and more complex devices for your settlements.'
-                    },
-                    {
-                        rank: 3,
-                        level: 26,
-                        per: 6,
-                        description: 'You gain access to Rank 3 gun mods.'
-                    },
-                    {
-                        rank: 4,
-                        level: 44,
-                        per: 7,
-                        description: 'You gain access to Rank 4 gun mods.'
-                    },
-                    {
-                        rank: 4,
-                        level: 85,
-                        per: 8,
-                        description: 'Create Rank 5 gun mods.'
-                    }
+                        level: 43,
+                        str: 6,
+                        description: 'You gain access to rank 4 power armor mods'
+                    }       
                 ]
             },
             {
                 rank: 5,
-                name: 'Gumshoe',
-                img: 'mysterious-stranger.png',
-                ranks: 4,
+                name: 'Heavy Gunner',
+                img: 'heavy-gunner.png',
+                ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        per: 5,
-                        description: 'The case called for plain, old-fashioned private eye work. XP gain and persuasion chance are increased by 1% per Perception.'
+                        description: 'Thanks to practice and conditioning, heavy guns do 20% more damage.'
                     },
                     {
                         rank: 2,
                         level: 11,
-                        per: 6,
-                        description: 'Put on your trench coat! While not wearing armor, gain 25% of your energy resistance as an armor bonus, plus an additional 10% of your rad resist if also not wearing a helmet.'
+                        description: 'Heavy guns now do 40% more damage, and have improved hip fire accuracy.'
                     },
                     {
                         rank: 3,
-                        level: 22,
-                        per: 7,
-                        description: 'Who is he? Why does he help? The Mysterious Stranger will appear occasionally in V.A.T.S. to lend a hand, with deadly efficiency...'
+                        level: 21,
+                        description: 'Heavy guns now do 60% more damage. Hip fire accuracy is increased even more.'
                     },
                     {
                         rank: 4,
-                        level: 49,
-                        per: 8,
-                        description: 'Plot Twist! The Mysterious Stranger is helping your case! The Mysterious Stranger appears more often in V.A.T.S. When he kills an opponent, there is a chance your critical meter gets filled.'
+                        level: 35,
+                        description: 'Heavy guns now do 80% more damage and have a chance to stagger your opponent.'
+                    },
+                    {
+                        rank: 5,
+                        level: 47,
+                        description: 'Heavy guns now do double damage.'
                     }
                 ]
             },
             {
                 rank: 6,
-                name: 'Night Person',
-                img: 'night-person.png',
-                ranks: 3,
+                name: 'Strong Back',
+                img: 'strong-back.png',
+                ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        per: 6,
-                        description: 'You are a creature of the night! Gain +2 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
+                        description: 'What are you, part pack mule? Gain +25 to carry weight'
                     },
                     {
                         rank: 2,
-                        level: 25,
-                        per: 7,
-                        description: 'You now have +4 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
+                        level: 10,
+                        description: 'You now have +50 to carry weight.'
                     },
                     {
                         rank: 3,
-                        level: 37,
-                        per: 8,
-                        description: 'You gain night vision while sneaking.'
+                        level: 20,
+                        description: 'When overencumbered, you can use Action Points to run.'
+                    },
+                    {
+                        rank: 4,
+                        level: 30,
+                        description: 'When overencumbered, you can fast travel.'
+                    },
+                    {
+                        rank: 5,
+                        level: 40,
+                        description: 'When overencumbered, running costs 50% less action points.(Far Harbor DLC)'
                     }
                 ]
             },
@@ -525,78 +212,292 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        per: 7,
-                        description: 'Stay on target! Gain 1% increased accuracy per Perception while using a scope or aiming down sights.'
+                        description: 'Stay on target! Hip-fire accuracy is improved when firing any gun.'
                     },
                     {
                         rank: 2,
                         level: 28,
-                        per: 8,
-                        description: 'Deal 1% more damage per Perception while using a scope or aiming down sights.'
+                        description: 'Hip-fire accuracy is improved even more when firing any gun.'
                     },
                     {
                         rank: 3,
                         level: 49,
-                        per: 9,
-                        description: 'Deal 2% more damage and gain 2% more accuracy per Perception while using a scope or aiming down sights.'
+                        description: 'Hip-fire accuracy is improved when firing any gun.(Nuka-World DLC)'
                     }
                 ]
             },
             {
                 rank: 8,
-                name: 'Concentrated Fire',
-                img: 'concentrated-fire.png',
-                ranks: 3,
+                name: 'Basher',
+                img: 'basher.png',
+                ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        per: 8,
-                        description: 'Stay focused! In V.A.T.S. every attack on the same body part gains +10% accuracy.'
+                        description: 'Get up close and personal! Gun bashing does 25% more damage.'
                     },
                     {
                         rank: 2,
-                        level: 26,
-                        per: 9,
-                        description: 'In V.A.T.S. every attack on the same body part gains +15% damage.'
+                        level: 5,
+                        description: 'Gun bashing now does 50% more damage and possibly cripples your opponent.'
                     },
                     {
                         rank: 3,
-                        level: 50,
-                        per: 10,
-                        description: 'In V.A.T.S. every attack on the same body part gains +20% accuracy and does 20% more damage.'
+                        level: 14,
+                        description: 'Gun bashing now does 75% more damage and has an increased chance to cripple your opponent.'
+                    },
+                    {
+                        rank: 4,
+                        level: 26,
+                        description: 'Gun bashing does double damage and has an increased chance to cripple your opponent. It may also inflict a Critical Hit.'
                     }
                 ]
             },
             {
                 rank: 9,
-                name: 'Penetrator',
-                img: 'penetrator.png',
+                name: 'Rooted',
+                img: 'rooted.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        per: 9,
-                        description: 'There\'s no place to hide! Your attacks with ballistic weapons ignore 10% of a target\'s armor.'
+                        description: 'You\'re part tree! While standing still, you gain +25 Damage Resistance and your melee and unarmed attacks deal 25% more damage.'
                     },
                     {
                         rank: 2,
-                        level: 28,
-                        per: 10,
-                        description: 'Your attacks with ballistic weapons ignore 15% of your targets armor, and in V.A.T.S. you can target an enemy\'s body parts that are blocked by cover, with a large decrease in accuracy.'
+                        level: 22,
+                        description: 'While standing still, you now gain +50 Damage Resistance and your melee and unarmed attacks deal 50% more damage.'
                     },
                     {
                         rank: 3,
-                        level: 52,
-                        per: 11,
-                        description: 'Your attacks with ballistic ignore 20% of a target\'s armor, and in V.A.T.S. when you target an enemy\'s body parts that are blocked by cover, there is only a small decrease in accuracy.'
+                        level: 43,
+                        description: 'While standing still, you may automatically disarm enemies that use melee weapons against you.'
                     }
-                    
                 ]
             },
             {
                 rank: 10,
+                name: 'Pain Train',
+                img: 'pain-train.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'Choo Choo! All aboard! While wearing Power Armor,sprinting into enemies hurts and staggers them. (Robots and oversized enemies are immune to the stagger.)'
+                    },
+                    {
+                        rank: 2,
+                        level: 24,
+                        description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger. (Robots and oversized enemies are immune to the stagger.)'
+                    },
+                    {
+                        rank: 3,
+                        level: 50,
+                        description: 'Sprinting into enemies while wearing Power Armor now causes massive damage and knocks them down. Impact landing near enemies inflicts even more damage.'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        special: 'pe',
+        perks: [
+            {
+                rank: 1,
+                name: 'Pickpocket',
+                img: 'pickpocket.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'Your quick hands and sticky fingers make picking pockets 25% easier.'
+                    },
+                    {
+                        rank: 2,
+                        level: 6,
+                        description: 'Picking pockets is now 50% easier. You can place a live grenade in a person\'s inventory.'
+                    },
+                    {
+                        rank: 3,
+                        level: 17,
+                        description: 'Picking pockets is now 75% easier, and you can steal equipped weapons.'
+                    },
+                    {
+                        rank: 4,
+                        level: 30,
+                        description: 'Picking pockets is now twice as easy, and you can steal equipped items.'
+                    }
+                ]
+            },
+            {
+                rank: 2,
+                name: 'Rifleman',
+                img: 'rifleman.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'Keep your distance long and your kill-count high. Attacks with non-automatic rifles do 20% more damage'
+                    },
+                    {
+                        rank: 2,
+                        level: 9,
+                        description: 'Attacks with non-automatic rifles do 40% more damage and ignore 15% of a target\'s armor.'
+                    },
+                    {
+                        rank: 3,
+                        level: 18,
+                        description: 'Attacks with non-automatic rifles do 60% more damage and ignore 20% of a target\'s armor.'
+                    },
+                    {
+                        rank: 4,
+                        level: 31,
+                        description: 'Attacks with non-automatic rifles do 80% more damage and ignore 25% of a target\'s armor. They also have a slight chance of crippling a limb.'
+                    },
+                    {
+                        rank: 5,
+                        level: 46,
+                        description: 'Attacks with non-automatic rifles do double damage and ignore 30% of a target\'s armor. They also have a slightly higher chance of crippling a limb.'
+                    }
+                ]
+            },
+            {
+                rank: 3,
+                name: 'Awareness',
+                img: 'awareness.png',
+                ranks: 2,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'To defeat your enemies, know their weaknesses! You can view a target\'s specific damage resistances in V.A.T.S.'
+                    },
+                    {
+                        rank: 2,
+                        level: 14,
+                        description: 'Knowing their weaknesses lets you attack more efficiently. 5% increase to hit chance and damage dealt to VATS targets.(Nuka-World DLC)'
+                    }
+                ]
+            },
+            {
+                rank: 4,
+                name: 'Locksmith',
+                img: 'locksmith.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'Your nimble fingers allow you to pick advanced locks.'
+                    },
+                    {
+                        rank: 2,
+                        level: 7,
+                        description: 'You can pick Expert locks.'
+                    },
+                    {
+                        rank: 3,
+                        level: 18,
+                        description: 'You can pick Master locks.'
+                    },
+                    {
+                        rank: 4,
+                        level: 41,
+                        description: 'Your bobby pins never break during lockpicking.'
+                    }
+                ]
+            },
+            {
+                rank: 5,
+                name: 'Demolition Expert',
+                img: 'demolition-expert.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'The bigger the boom, the better! Your explosives do 25% more damage, and you can craft explosives at any Chemistry Station.'
+                    },
+                    {
+                        rank: 2,
+                        level: 10,
+                        description: 'Your explosives do 50% more damage, and grenades gain a throwing arc.'
+                    },
+                    {
+                        rank: 3,
+                        level: 22,
+                        description: 'Your explosives do 75% more damage and affect a larger area.'
+                    },
+                    {
+                        rank: 4,
+                        level: 34,
+                        description: 'Your explosives now do double damage. Mines and grenades shot in V.A.T.S explode for double damage, too.'
+                    }
+                ]
+            },
+            {
+                rank: 6,
+                name: 'Night Person',
+                img: 'night-person.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'You are a creature of the night! Gain +2 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
+                    },
+                    {
+                        rank: 2,
+                        level: 25,
+                        description: 'You now have +3 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m., and night vision when sneaking.'
+                    },
+                    {
+                        rank: 3,
+                        level: 37,
+                        description: 'You have 30 extra health between the hours of 6:00 PM and 6:00 AM.(Far Harbor DLC)'
+                    }
+                ]
+            },
+            {
+                rank: 7,
+                name: 'Refractor',
+                img: 'refractor.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'You must be part mirror! Instantly gain +10 Energy Resistance.'
+                    },
+                    {
+                        rank: 2,
+                        level: 11,
+                        description: 'You now have +20 Energy Resistance.'
+                    },
+                    {
+                        rank: 3,
+                        level: 21,
+                        description: 'You now have +30 Energy Resistance.'
+                    },
+                    {
+                        rank: 4,
+                        level: 35,
+                        description: 'You now have +40 Energy Resistance.'
+                    },
+                    {
+                        rank: 5,
+                        level: 42,
+                        description: 'You now have +50 Energy Resistance.'
+                    }
+                ]
+            },
+            {
+                rank: 8,
                 name: 'Sniper',
                 img: 'sniper.png',
                 ranks: 3,
@@ -604,20 +505,58 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        per: 10,
-                        description: 'It\'s all about focus. Aiming while sneaking slows time slightly, but also drains Action Points..'
+                        description: 'It\'s all about focus. You have improved control and can hold your breath longer when aiming with scopes.'
+                    },
+                    {
+                        rank: 2,
+                        level: 13,
+                        description: 'Non-automatic, scoped rifles have a chance of knocking down your target.'
+                    },
+                    {
+                        rank: 3,
+                        level: 26,
+                        description: 'Non-automatic, scoped rifles gain +25% accuracy to head shot in V.A.T.S.'
+                    }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Penetrator',
+                img: 'penetrator.png',
+                ranks: 2,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'There\'s no place to hide! In V.A.T.S you can target an enemy\'s body parts that are blocked by cover, with a decrease in accuracy.'
+                    },
+                    {
+                        rank: 2,
+                        level: 28,
+                        description: 'In V.A.T.S when you target an enemy\'s body parts that are blocked by cover, there is no decrease in accuracy.'
+                    }
+                ]
+            },
+            {
+                rank: 10,
+                name: 'Concentrated Fire',
+                img: 'concentrated-fire.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        description: 'Stay Focused! In V.A.T.S every attack on the same body part gains +10% accuracy.'
                     },
                     {
                         rank: 2,
                         level: 26,
-                        per: 11,
-                        description: 'You have improved control with scopes, and aiming while sneaking or holding your breath drains fewer Action Points.'
+                        description: 'In V.A.T.S every attack on the same body part gains +15% accuracy.'
                     },
                     {
                         rank: 3,
                         level: 50,
-                        per: 12,
-                        description: 'While aiming through a scope, always score a Critical hit against targets at full health.'
+                        description: 'In V.A.T.S every attack on the same body part gains +20% accuracy and does 20% more damage.'
                     }
                 ]
             }
@@ -628,60 +567,75 @@ const perks = [
         perks: [
             {
                 rank: 1,
-                name: 'Lead Belly',
-                img: 'lead-belly.png',
-                ranks: 3,
+                name: 'Toughness',
+                img: 'toughness.png',
+                ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        end: 1,
-                        description: 'Your digestive tract has adjusted to the weirdness of the Wasteland! You take less radiation from eating or drinking.'
+                        description: 'If nothing else, you can take a beating! Instantly gain +10 Damage Resistance'
                     },
                     {
                         rank: 2,
-                        level: 12,
-                        end: 2,
-                        description: 'Healing from food lasts 10% longer, and you take even less radiation from eating or drinking.'
+                        level: 9,
+                        description: 'You now have +20 damage resistance.'
                     },
                     {
                         rank: 3,
-                        level: 28,
-                        end: 2,
-                        description: 'Healing from food lasts 20% longer, and you take even less radiation from eating or drinking.'
+                        level: 18,
+                        description: 'You now have +30 damage resistance.'
+                    },
+                    {
+                        rank: 4,
+                        level: 31,
+                        description: 'You now have +40 damage resistance.'
+                    },
+                    {
+                        rank: 5,
+                        level: 46,
+                        description: 'You now have +50 damage resistance.'
                     }
                 ]
             },
             {
                 rank: 2,
-                name: 'Chem Resistant',
-                img: 'chem-resistant.png',
-                ranks: 2,
+                name: 'Lead Belly',
+                img: 'lead-belly.png',
+                ranks: 3,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
-                       end: 2,
-                       description: 'All the rush without the hassle! You\'re 50% less likely to get addicted when consuming chems.'
+                       description: 'Your digestive tract has adjusted to the weirdness of the Wasteland! Take less radiation from eating or drinking.'
                    },
                    {
                        rank: 2,
-                       level: 48,
-                       end: 3,
-                       description: 'You gain almost complete immunity to chem addiction.'
+                       level: 6,
+                       description: 'You take even less radiation from eating or drinking.'
+                   },
+                   {
+                       rank: 3,
+                       level: 17,
+                       description: 'You take no radiation from eating or drinking.'
                    }
                 ]
             },
             {
                 rank: 3,
-                name: 'Aquaboy',
-                img: 'aquaboy.png',
-                ranks: 2,
+                name: 'Life Giver',
+                img: 'life-giver.png',
+                ranks: 3,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
                        description: 'You embody wellness! Instantly gain +20 maximum Health.'
+                   },
+                   {
+                       rank: 2,
+                       level: 8,
+                       description: 'You instantly gain another +20 maximum Health.'
                    },
                    {
                        rank: 3,
