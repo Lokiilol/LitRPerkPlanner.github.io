@@ -81,6 +81,7 @@ const renderPerks = function () {
     }
 
     $('.table').html(html);
+    $('[rel="popover"]').popover();
 };
 
 const getJSON = function () {
