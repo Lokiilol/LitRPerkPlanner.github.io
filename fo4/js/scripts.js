@@ -177,19 +177,24 @@ const renderAll = function () {
 };
 
 const calculatePoints = function () {
-    let remaining = totalPoints;
-
-    $('[data-special] input').each(function () {
-        remaining -= parseInt($(this).val());
-    });
+    let remaining;
     
-    if (includeBobbleheads()) {
-        remaining += 1;
+    if (infinitePoints()) {
+        remaining = 999; // Set remaining points to 999
+    } else {
+        remaining = totalPoints - getAllocatedPoints();
+        
+        if (includeBobbleheads()) {
+            remaining += 1;
+        }
+        
+        if (remaining < 0) {
+            remaining = 0;
+        }
     }
     
-    if (remaining < 0) {
-        remaining = 0;
-    }
+    // Ensure remaining points do not exceed 999
+    remaining = Math.min(remaining, 999);
     
     $('.points-left').text(remaining);
 };
@@ -202,57 +207,9 @@ const getAllocatedPoints = function () {
     });
 };
 
-const $pointsLeft = $('.points-left');
-const $includeBobbleheads = $('.include-bobbleheads');
-const $infinitePoints = $('.infinite-Points');
-
-const includeBobbleheads = function () {
-    return $includeBobbleheads.is(':checked');
-};
-
-const infinitePoints = function () {
-    return $infinitePoints.is(':checked');
-};
-
-const pointsRemaining = function () {
-    return parseInt($pointsLeft.text());
-};
-
-const renderSummary = function () {
-    let html = '';
-
-    for (let i = 0; i < perks.length; ++i) {
-        for (let j = 0; j < perks[i].perks.length; ++j) {
-            const perk = perks[i].perks[j];
-            if (perk.currentRank && perk.currentRank > 0) {
-                html += '<li>' + perk.name + ': ' + perk.currentRank + '/' + perk.ranks + '</li>';
-                html += '<ul>';
-
-                for (let k = 0; k < perk.currentRank; ++k) {
-                    let description = perk.ranked[k].description;
-                    
-                    // Add attribute requirements to the description
-                    if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
-                        description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
-                    }
-                    
-                    html += '<li>' + description + '</li>';
-                }
-
-                html += '</ul>';
-            }
-        }
-    }
-
-    $('.summary').html(html);
-    $('[rel="popover"]').popover();
-};
-
-const getSPECIALMinMax = function() {
-    let min = 1;
-    let max = 12;
-
-    return { min, max };
+const updateSpecialInputs = function() {
+    const { min, max } = getSPECIALMinMax();
+    $(".list-special>li>span>input").attr({ "min": min, "max": max });
 };
 
 $(function () {
@@ -282,26 +239,18 @@ $(function () {
 
     renderAll();
 
-    $includeBobbleheads.on('click', function () {
-        const $inputs = $(".list-special>li>span>input")
-        
-        $inputs.attr(getSPECIALMinMax());
-        $inputs.val( function(i, val) {
-            return parseInt(val, 10) + (includeBobbleheads() ? 0 : -1);
-        });
+    const $includeBobbleheads = $('.include-bobbleheads');
+    const $infinitePoints = $('.infinite-Points');
 
-        renderAll();
+    // Add event handlers for includeBobbleheads and infinitePoints checkboxes
+    $includeBobbleheads.on('click', function () {
+        updateSpecialInputs(); // Update special inputs min/max attributes
+        // Other code...
     });
 
     $infinitePoints.on('click', function () {
-        const $inputs = $(".list-special>li>span>input")
-        
-        $inputs.attr(getSPECIALMinMax());
-        $inputs.val( function(i, val) {
-            return parseInt(val, 10) + (infinitePoints() ? 999 : 0);
-        });
-
-        renderAll();
+        updateSpecialInputs(); // Update special inputs min/max attributes
+        // Other code...
     });
 
     $('.btn-inc').on('click', function () {
