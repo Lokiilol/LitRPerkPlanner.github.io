@@ -324,3 +324,7 @@ const infinitePoints = function () {
     return $('.infinite-Points').prop('checked');
 };
 
+// Define the includeBobbleheads function
+const includeBobbleheads = function () {
+    return $('.include-bobbleheads').prop('checked');
+};
