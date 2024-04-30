@@ -323,3 +323,4 @@ $(function () {
 const infinitePoints = function () {
     return $('.infinite-Points').prop('checked');
 };
+
