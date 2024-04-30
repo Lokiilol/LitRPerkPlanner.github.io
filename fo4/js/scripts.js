@@ -47,10 +47,22 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-
-                // Adjust this part to ensure the description is correctly formatted
-                // Here's an example:
-                description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
+                
+                if (rank.str) {
+                    description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
+                } else if (rank.per) {
+                    description += ' (' + toShorthand("Perception") + ' ' + rank.per + ')';
+                } else if (rank.end) {
+                    description += ' (' + toShorthand("Endurance") + ' ' + rank.end + ')';
+                } else if (rank.cha) {
+                    description += ' (' + toShorthand("Charisma") + ' ' + rank.cha + ')';
+                } else if (rank.int) {
+                    description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
+                } else if (rank.agi) {
+                    description += ' (' + toShorthand("Agility") + ' ' + rank.agi + ')';
+                } else if (rank.lck) {
+                    description += ' (' + toShorthand("Luck") + ' ' + rank.lck + ')';
+                }
 
                 description += ' - ' + rank.description;
                 
@@ -106,6 +118,15 @@ const getSPECIALShort = function () {
     return specs;
 };
 
+const getSPECIAL = function () {
+    return $('[data-special]').map(function () {
+        return {
+            special: $(this).data('special'),
+            value: $(this).find('input').val()
+        };
+    });
+};
+
 const requiredLevel = function () {
     let total = 0;
     for (let i = 0; i < perks.length; ++i) {
@@ -156,21 +177,19 @@ const renderAll = function () {
 };
 
 const calculatePoints = function () {
-    let remaining;
+    let remaining = totalPoints - getAllocatedPoints();
     
-    if (infinitePoints()) {
-        remaining = 999; // Set remaining points to 999
-    } else {
-        let basePoints = includeBobbleheads() ? 22 : 21;
-        remaining = basePoints - getAllocatedPoints();
-        
-        if (remaining < 0) {
-            remaining = 0;
-        }
+    if (includeBobbleheads()) {
+       remaining += 1;
     }
     
-    $('.points-left').text(remaining);
+    if (remaining < 0) {
+        remaining = 0;
+    }
+    
+    $pointsLeft.text(remaining); 
 };
+
 
 const getAllocatedPoints = function () {
     return $('[data-special] input').map(function () {
@@ -180,16 +199,57 @@ const getAllocatedPoints = function () {
     });
 };
 
-const updateSpecialInputs = function() {
-    const { min, max } = getSPECIALMinMax();
-    $(".list-special>li>span>input").attr({ "min": min, "max": max });
+const $pointsLeft = $('.points-left');
+const $includeBobbleheads = $('.include-bobbleheads');
+
+const includeBobbleheads = function () {
+    return $includeBobbleheads.is(':checked');
+};
+
+const pointsRemaining = function () {
+    return parseInt($pointsLeft.text());
+};
+
+const renderSummary = function () {
+    let html = '';
+
+    for (let i = 0; i < perks.length; ++i) {
+        for (let j = 0; j < perks[i].perks.length; ++j) {
+            const perk = perks[i].perks[j];
+            if (perk.currentRank && perk.currentRank > 0) {
+                html += '<li>' + perk.name + ': ' + perk.currentRank + '/' + perk.ranks + '</li>';
+                html += '<ul>';
+
+                for (let k = 0; k < perk.currentRank; ++k) {
+                    let description = perk.ranked[k].description;
+                    
+                    // Add attribute requirements to the description
+                    if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
+                        description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
+                    }
+                    
+                    html += '<li>' + description + '</li>';
+                }
+
+                html += '</ul>';
+            }
+        }
+    }
+
+    $('.summary').html(html);
+    $('[rel="popover"]').popover();
 };
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 12;
+    let max = 13;
 
-    return { min, max };
+    if (includeBobbleheads()) {
+        min = 1;
+        max = 13;
+    }
+
+    return {min, max};
 };
 
 $(function () {
@@ -219,22 +279,21 @@ $(function () {
 
     renderAll();
 
-    const $includeBobbleheads = $('.include-bobbleheads');
-    const $infinitePoints = $('.infinite-Points');
-
-    // Add event handlers for includeBobbleheads and infinitePoints checkboxes
     $includeBobbleheads.on('click', function () {
-        updateSpecialInputs(); // Update special inputs min/max attributes
-        calculatePoints(); // Recalculate points
-        renderRequiredLevel(); // Render required level
-        renderSummary(); // Render summary
-    });
+        let valShift = -0;
+        
+        if (includeBobbleheads()) {
+            valShift = 0;
+        }
+        
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val( function(i, val) {
+            return parseInt(val, 10) + valShift;
+        });
 
-    $infinitePoints.on('click', function () {
-        updateSpecialInputs(); // Update special inputs min/max attributes
-        calculatePoints(); // Recalculate points
-        renderRequiredLevel(); // Render required level
-        renderSummary(); // Render summary
+        renderAll();
     });
 
     $('.btn-inc').on('click', function () {
@@ -297,19 +356,3 @@ $(function () {
         renderAll();
     });
 });
-
-// Define the infinitePoints function
-const infinitePoints = function () {
-    return $('.infinite-Points').prop('checked');
-};
-
-// Define the includeBobbleheads function
-const includeBobbleheads = function () {
-    return $('.include-bobbleheads').prop('checked');
-};
-
-// Define the pointsRemaining function
-const pointsRemaining = function () {
-    const allocatedPoints = getAllocatedPoints();
-    return totalPoints - allocatedPoints;
-};
