@@ -146,8 +146,7 @@ const requiredLevel = function () {
     }
     
     if (unlimitedSpecialPoints()) {
-        min = 1;
-        max = 999; 
+        remaining += 999;
     }
     
     let maxLevel = 0;
@@ -186,6 +185,10 @@ const calculatePoints = function () {
     
     if (includeBobbleheads()) {
        remaining += 1;
+    }
+   
+    if (unlimitedSpecialPoints()) {
+       remaining += 999; 
     }
     
     if (remaining < 0) {
