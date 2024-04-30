@@ -142,9 +142,14 @@ const requiredLevel = function () {
     }
 
     if (remaining <= 0) {
-        total += 3 + remaining * -3;
+        total += 1 + remaining * -1;
     }
-
+    
+    if (unlimitedSpecialPoints()) {
+        min = 1;
+        max = 999; 
+    }
+    
     let maxLevel = 0;
     
     for (let i = 0; i < perks.length; ++i) {
@@ -180,7 +185,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 3;
+       remaining += 1;
     }
     
     if (remaining < 0) {
