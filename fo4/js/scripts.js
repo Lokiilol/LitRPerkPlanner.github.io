@@ -318,3 +318,8 @@ $(function () {
         renderAll();
     });
 });
+
+// Define the infinitePoints function
+const infinitePoints = function () {
+    return $('.infinite-Points').prop('checked');
+};
