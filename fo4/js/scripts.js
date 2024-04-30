@@ -60,11 +60,10 @@ const renderPerks = function () {
                     description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
                 } else if (rank.agi) {
                     description += ' (' + toShorthand("Agility") + ' ' + rank.agi + ')';
-                } else if (rank.luk) {
-                    description += ' (' + toShorthand("Luck") + ' ' + rank.luk + ')';
+                } else if (rank.lck) {
+                    description += ' (' + toShorthand("Luck") + ' ' + rank.lck + ')';
                 }
 
-                // Add the perk description
                 description += ' - ' + rank.description;
                 
                 return '<p class=' + rankClass + '>' + description + '</p>';
