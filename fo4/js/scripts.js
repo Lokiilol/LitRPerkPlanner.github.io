@@ -177,7 +177,11 @@ const renderAll = function () {
 };
 
 const calculatePoints = function () {
-    let remaining = totalPoints - getAllocatedPoints();
+    let remaining = totalPoints;
+
+    $('[data-special] input').each(function () {
+        remaining -= parseInt($(this).val());
+    });
     
     if (includeBobbleheads()) {
         remaining += 1;
