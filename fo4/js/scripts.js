@@ -142,7 +142,7 @@ const requiredLevel = function () {
     }
 
     if (remaining <= 0) {
-        total += 1 + remaining * -1;
+        total += 3 + remaining * -3;
     }
 
     let maxLevel = 0;
@@ -180,7 +180,7 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 1;
+       remaining += 3;
     }
     
     if (remaining < 0) {
@@ -248,16 +248,16 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 13;
+    let max = 12;
 
     if (includeBobbleheads()) {
         min = 1;
-        max = 13;
+        max = 12;
     }
 
     if (unlimitedSpecialPoints()) {
         min = 1;
-        max = 999; // Update max value to 999 when unlimited points are enabled
+        max = 999; 
     }
 
     return {min, max};
