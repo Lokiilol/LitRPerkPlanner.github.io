@@ -201,7 +201,6 @@ const getAllocatedPoints = function () {
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
 const $unlimitedSpecialPoints = $('.unlimited-S.P.E.C.I.A.L.-points');
-const $extraPointsCheckbox = $('#extra-points-checkbox');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
@@ -309,11 +308,6 @@ $(function () {
         $inputs.attr(getSPECIALMinMax());
         $inputs.val(valShift);
 
-        renderAll();
-    });
-
-    $extraPointsCheckbox.on('click', function () {
-        calculatePoints();
         renderAll();
     });
 
