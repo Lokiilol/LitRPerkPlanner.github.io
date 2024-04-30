@@ -305,15 +305,18 @@ $(function () {
         renderAll();
     });
 
-   $infinitePoints.on('change', function () {
+  $infinitePoints.on('change', function () {
     const isChecked = $(this).is(':checked');
-    const valShift = isChecked ? 999 : 0; 
     
     const $inputs = $(".list-special>li>span>input");
     
-    $inputs.each(function() {
-        $(this).val(valShift);
-    });
+    $inputs.prop('disabled', isChecked);
+    
+    if (isChecked) {
+        $inputs.val(999);
+    } else {
+        $inputs.val(1);
+    }
 
     renderAll();
 });
