@@ -289,22 +289,14 @@ $(function () {
 
     renderAll();
 
-    $includeBobbleheads.on('click', function () {
-        let valShift = -0;
-        
-        if (includeBobbleheads()) {
-            valShift = 0;
-        }
-        
-        const $inputs = $(".list-special>li>span>input")
-        
-        $inputs.attr(getSPECIALMinMax());
-        $inputs.val( function(i, val) {
-            return parseInt(val, 10) + valShift;
-        });
+$youreSpecialCheckbox.on('change', function() {
+    if ($(this).is(':checked')) {
+        console.log('Unlimited S.P.E.C.I.A.L. Points checkbox checked');
+    } else {
+        console.log('Unlimited S.P.E.C.I.A.L. Points checkbox unchecked');
+    }
+});
 
-        renderAll();
-    });
 
     $('.btn-inc').on('click', function () {
         const remainingPoints = pointsRemaining();
