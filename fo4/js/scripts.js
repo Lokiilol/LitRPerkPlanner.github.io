@@ -183,17 +183,12 @@ const calculatePoints = function () {
        remaining += 1;
     }
     
-    if (unlimitedSpecialPoints()) {
-        remaining += 84;
-    }
-    
     if (remaining < 0) {
         remaining = 0;
     }
     
-    $pointsLeft.text(remaining); 
+    $('.points-left').text(remaining); 
 };
-
 
 const getAllocatedPoints = function () {
     return $('[data-special] input').map(function () {
@@ -258,6 +253,11 @@ const getSPECIALMinMax = function() {
         max = 13;
     }
 
+    if (unlimitedSpecialPoints()) {
+        min = 1;
+        max = 999; // Update max value to 999 when unlimited points are enabled
+    }
+
     return {min, max};
 };
 
@@ -306,9 +306,10 @@ $(function () {
     });
 
     $unlimitedSpecialPoints.on('click', function () {
-        let valShift = unlimitedSpecialPoints() ? 999 : 0;
+        const isChecked = $(this).is(':checked');
+        let valShift = isChecked ? 999 : 0; // Update valShift to 999 when checkbox is checked
         
-        const $inputs = $(".list-special>li>span>input")
+        const $inputs = $(".list-special>li>span>input");
         
         $inputs.attr(getSPECIALMinMax());
         $inputs.val(valShift);
