@@ -192,6 +192,10 @@ const calculatePoints = function () {
     }
 
     $pointsLeft.text(remaining); 
+
+    if ($youreSpecialCheckbox.is(':checked')) {
+        $pointsLeft.text(parseInt($pointsLeft.text()) + 1); // Add 1 point if "You're SPECIAL" is checked
+    }
 };
 
 const getAllocatedPoints = function () {
@@ -205,6 +209,7 @@ const getAllocatedPoints = function () {
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
 const $extraPointsCheckbox = $('#extra-points-checkbox');
+const $youreSpecialCheckbox = $('#youre-special-checkbox'); // Add this line
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
