@@ -140,14 +140,15 @@ const requiredLevel = function () {
     if (includeBobbleheads()) {
         remaining += 8;
     }
-
-    if (remaining <= 0) {
-        total += 1 + remaining * -1;
-    }
     
     if (unlimitedSpecialPoints()) {
         remaining += 999;
     }
+    
+    if (remaining <= 0) {
+        total += 1 + remaining * -1;
+    }
+      
     
     let maxLevel = 0;
     
