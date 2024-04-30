@@ -1,4 +1,4 @@
-﻿const perks = [
+const perks = [
     {
         special: 'st',
         perks: [
@@ -684,127 +684,147 @@
                    {
                        rank: 1,
                        level: 0,
-                       description: 'You embody wellness! Instantly gain +20 maximum Health.'
+                       end: 3,
+                       description: 'Stay hydrated! Drinking water restores some Action Points, and you gain +200 rad resistance while swimming.'
                    },
                    {
-                       rank: 3,
-                       level: 20,
-                       description: 'You instantly gain another +20 maximum Health, and slowly regenerate lost Health.'
+                       rank: 2,
+                       level: 28,
+                       end: 4,
+                       description: 'Drinking water restores even more Action Points, and you swim 25% faster.'
                    }
                 ]
             },
             {
                 rank: 4,
-                name: 'Chem Resistant',
-                img: 'chem-resistant.png',
-                ranks: 2,
-                ranked: [
-                   {
-                       rank: 1,
-                       level: 0,
-                       description: 'All the rush without the hassle! You\'re 50% less likely to get addicted when consuming Chems'
-                   },
-                   {
-                       rank: 2,
-                       level: 22,
-                       description: 'You gain complete immunity to chem addiction.'
-                   }
-                ]
-            },
-            {
-                rank: 5,
-                name: 'Aquaboy',
-                img: 'aquaboy.png',
-                ranks: 2,
-                ranked: [
-                   {
-                       rank: 1,
-                       level: 0,
-                       description: 'Water is your ally. You no longer take radiation damage from swimming, and can breathe underwater'
-                   },
-                   {
-                       rank: 2,
-                       level: 21,
-                       description: 'You become totally undetectable while submerged.'
-                   }
-                ]
-            },
-            {
-                rank: 6,
-                name: 'Rad Resistant',
-                img: 'rad-resistant.png',
+                name: 'Armorer',
+                img: 'armorer.png',
                 ranks: 4,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
-                       description: 'Exposure to the Wasteland has made you more resilient, instantly granting +10 Radiation Resistance.'
+                       end: 4, 
+                       description: 'Protect yourself from the dangers of the Wasteland with access to Rank 1 armor mods.'
                    },
-                   {
+                {
                        rank: 2,
-                       level: 13,
-                       description: 'You now have +20 Radiation Resistance.'
+                       level: 14,
+                       end: 5,
+                       description: 'Worn armor weighs 25% less, and you gain access to Rank 2 armor mods.'
                    },
                    {
                        rank: 3,
                        level: 26,
-                       description: 'You now have +30 Radiation Resistance.'
+                       end: 6,
+                       description: 'You gain access to Rank 3 armor mods.'
                    },
                    {
                        rank: 4,
-                       level: 35,
-                       description: 'You now have +40 Radiation Resistance. (Far Harbor DLC)'
+                       level: 42,
+                       end: 7,
+                       description: 'Worn armor weighs 50% less, and you gain access to Rank 4 armor mods.'
+                   }
+                ]
+            },
+            {
+                rank: 5,
+                name: 'Strongback',
+                img: 'strong-back.png',
+                ranks: 5,
+                ranked: [
+                   {
+                       rank: 1,
+                       level: 0,
+                       end: 5,
+                       description: 'What are you, part pack mule? Gain +5 to carry weight per Endurance.'
+                   },
+                   {
+                       rank: 2,
+                       level: 10,
+                       end: 6,
+                       description: 'When overencumbered, running costs 25% less action points.'
+                   },
+                   {
+                       rank: 3,
+                       level: 20,
+                       end: 7,
+                       description: 'Gain +10 to carry weight per Endurance.'
+                   },
+                   {
+                       rank: 4,
+                       level: 30,
+                       end: 8,
+                       description: 'When overencumbered, running costs 50% less action points.'
+                   },
+                   {
+                       rank: 5,
+                       level: 40,
+                       end: 9,
+                       description: 'Worn armor weighs 50% less, and you gain access to Rank 4 armor mods.'
+                }
+                ]
+            },
+            {
+                rank: 6,
+                name: 'Attack Dog',
+                img: 'attack-dog.png',
+                ranks: 4,
+                ranked: [
+                   {
+                       rank: 1,
+                       level: 0,
+                       end: 6,
+                       description: 'Your faithful canine companion moves 15% faster and can hold an enemy, giving you a greater chance to hit them in V.A.T.S.'
+                   },
+                   {
+                       rank: 2,
+                       level: 9,
+                       end: 7,
+                       description: 'Your dog takes 3% less damage per point of your Endurance, and when he holds an enemy, there\'s a chance he\'ll cripple the limb he\'s biting.'
+                   },
+                   {
+                       rank: 3,
+                       level: 25,
+                       end: 8,
+                       description: 'Your dog deals 3% more damage per point of your Endurance.'
+                   },
+                   {
+                       rank: 4,
+                       level: 31,
+                       end: 9,
+                       description: 'While your dog holds an enemy, they bleed Profuesely.'
                    }
                 ]
             },
             {
                 rank: 7,
-                name: 'Adamantium Skeleton',
-                img: 'adamantium-skeleton.png',
+                name: 'Ricohet',
+                img: 'ricochet.png',
                 ranks: 3,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
-                       description: 'Your skeleton has been infused with indestructible metal, reducing limb damage by 30%.'
+                       end: 7,
+                       description: 'What goes around comes around! Bullets have a 10% chance to ricochet off you harmlessly.'
                    },
                    {
                        rank: 2,
-                       level: 13,
-                       description: 'Your limb damage is now reduced by 60%.'
+                       level: 25,
+                       end: 8,
+                       description: 'When a bullet ricochets it now damages the enemy!'
                    },
                    {
                        rank: 3,
-                       level: 26,
-                       description: 'Your limb damage is completely eliminated.'
+                       level: 37,
+                       end: 9,
+                       description: 'Enemy bullets now have a 2% chance per Endurance to Ricochet!'
                    }
                 ]
             },
             {
                 rank: 8,
-                name: 'Cannibal',
-                img: 'cannibal.png',
-                ranks: 3,
-                ranked: [
-                   {
-                       rank: 1,
-                       level: 0,
-                       description: 'Feast on mortal flesh to heal your wounds! Eating human corpses restores Health.'
-                   },
-                   {
-                       rank: 2,
-                       level: 19,
-                       description: 'Eating Ghoul or Super Mutant corpses restores Health.'
-                   },
-                   {
-                       rank: 3,
-                       level: 38,
-                       description: 'Eating human, Ghoul or Super Mutant corpses now restores a significant amount of Health.'
-                   }
-                ]
-            },
-            {
-                rank: 9,
                 name: 'Ghoulish',
                 img: 'ghoulish.png',
                 ranks: 4,
@@ -812,22 +832,52 @@
                    {
                        rank: 1,
                        level: 0,
-                       description: 'Sure, you\'re still human - on the outside! Radiation now regenerates your lost Health.'
+                       end: 8,
+                       description: 'Sure, you\'re still human - on the outside! Gain a +2 bonus to Strength and Perception while your radiation level is above 25%.'
                    },
                    {
                        rank: 2,
                        level: 24,
-                       description: 'Radiation now regenerates even more of your lost Health.'
+                       end: 9,
+                       description: 'You take 30% less damage while your radiation level is above 25%.'
                    },
                    {
                        rank: 3,
                        level: 48,
-                       description: 'Radiation now regenerates even more of your lost Health, and some Feral Ghouls will randomly become friendly.'
+                       end: 10,
+                       description: 'You gain +50 Damage and Energy resistances, and take 50% less damage from radiation based attacks while your radiation level is above 25%.'
                    },
                    {
                        rank: 4,
                        level: 50,
-                       description: 'Rad damage will now begin to slowly heal, restoring health in the process. (Nuka-World DLC)'
+                       end: 11,
+                       description: 'You do 5% more damage and take 5% less damage for every 10% of your health contaminated by radiation (up to 50% of your health).'
+                   }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Bloodthirsty Cannibal',
+                img: 'cannibal.png',
+                ranks: 3,
+                ranked: [
+                   {
+                       rank: 1,
+                       level: 0,
+                       end: 9,
+                       description: 'Feast on mortal flesh to heal your wounds! Eating human corpses restores 15% of your health, and you deal more limb damage while hungry.'
+                   },
+                   {
+                       rank: 2,
+                       level: 19,
+                       end: 10,
+                       description: 'Eating Ghoul or Super Mutant corpses restores 15% of your max health, and you deal 10% increased critical damage per rank of thirst.'
+                   },
+                   {
+                       rank: 3,
+                       level: 38,
+                       end: 11,
+                       description: 'You can feed on corpses of humanoids to restore Health, and when you do, you gain +30 to all resistances and can smell the living for a limited time.'
                    } 
                 ]
             },
@@ -840,17 +890,20 @@
                    {
                        rank: 1,
                        level: 0,
-                       description: 'Catch some rays! Gain +2 to Strength and Endurance between the hours of 6:00a.m. and 6:00p.m.'
+                       end: 10,
+                       description: 'Catch some rays! Slowly regenerate your lost health in sunlight.'
                    },
                    {
                        rank: 2,
                        level: 27,
-                       description: 'Sunlight slowly heals your radiation damage.'
+                       end: 11,
+                       description: 'The health regeneration from sunlight increases based on the time of day.'
                    },
                    {
                        rank: 3,
                        level: 50,
-                       description: 'Sunlight slowly regenerates your lost Health.'
+                       end: 12,
+                       description: 'Increase the health regeneration from sunlight by 50%.'
                    }
                 ]
             }
@@ -861,149 +914,32 @@
         perks: [
             {
                 rank: 1,
-                name: 'Cap Collector',
-                img: 'cap-collector.png',
+                name: 'Local Leader',
+                img: 'local-leader.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'You\'ve mastered the art of the deal! Buying and selling prices at vendors are better.'
+                        cha: 1,
+                        description: 'As the ruler everyone turns to, you are able to establish supply lines between your settlements, and provisioners can carry equipment to be left at their home or destination.'
                     },
                     {
                         rank: 2,
-                        level: 20,
-                        description: 'Buying and selling prices of vendors are now much better.'
+                        level: 14,
+                        cha: 2,
+                        description: 'You can now fast travel with a provisioner to their home or destination. You can also build stores and workstations at settlements.'
                     },
                     {
                         rank: 3,
-                        level: 41,
-                        description: 'You can now invest a total of 500 caps to raise a store\'s buying capacity.'
+                        level: 29,
+                        cha: 3,
+                        description: 'Your provisioners now carry transponders. Activate the Provisioner Tracker quest in your Pip Boy to view their location on your map.'
                     }
                 ]
             },
             {
                 rank: 2,
-                name: 'Lady Killer',
-                img: 'lady-killer-man-hunter.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'You\'re charming... and dangerous. Men/Women suffer +5% damage in combat, and are easier to persuade in dialogue.'
-                    },
-                    {
-                        rank: 2,
-                        level: 7,
-                        description: 'Men/Women now suffer +10% damage in combat, and are even easier to persuade in dialogue. They are also easier to pacify with the Intimidation perk.'
-                    },
-                    {
-                        rank: 3,
-                        level: 16,
-                        description: 'Men/Women now suffer +15% damage in combat, and are much easier to persuade in dialogue. They are now even easier to pacify with the Intimidation perk.'
-                    }
-                ]
-            },
-            {
-                rank: 3,
-                name: 'Lone Wanderer',
-                img: 'lone-wanderer.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Who needs friends, anyway? When adventuring without a companion, you take 15% less damage and carry weight increases by 50.'
-                    },
-                    {
-                        rank: 2,
-                        level: 17,
-                        description: 'When adventuring without a companion, you take 20% less damage and carry weight increases by 100'
-                    },
-                    {
-                        rank: 3,
-                        level: 40,
-                        description: 'When adventuring without a companion, you do 25% more damage.'
-                    },
-                    {
-                        rank: 4,
-                        level: 50,
-                        description: 'When adventuring without a companion, you have 25 more action points.(Far Harbor DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 4,
-                name: 'Attack Dog',
-                img: 'attack-dog.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Your faithful canine companion can hold an enemy, giving you a greater chance to hit them in V.A.T.S.'
-                    },
-                    {
-                        rank: 2,
-                        level: 9,
-                        description: 'When your dog holds an enemy, there\'s a chance he\'ll cripple the limb he\'s biting.'
-                    },
-                    {
-                        rank: 3,
-                        level: 25,
-                        description: 'When your dog holds an enemy, there\'s a chance he\'ll cause them to bleed.'
-                    },
-                    {
-                        rank: 4,
-                        level: 31,
-                        description: 'When adventuring with your dog, you take 10% less damage. (Nuka-World DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 5,
-                name: 'Animal Friend',
-                img: 'animal-friend.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Commune with beasts! With your gun, aim at any animal below your level and gain a chance to pacify it.'
-                    },
-                    {
-                        rank: 2,
-                        level: 12,
-                        description: 'When you successfully pacify an animal, you can incite it to attack'
-                    },
-                    {
-                        rank: 3,
-                        level: 28,
-                        description: 'When you successfully pacify an animal, you can give it specific commands'
-                    }
-                ]
-            },
-            {
-                rank: 6,
-                name: 'Local Leader',
-                img: 'local-leader.png',
-                ranks: 2,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'As the ruler everyone turns to, you are able to establish supply lines between your workshop settlements.'
-                    },
-                    {
-                        rank: 2,
-                        level: 14,
-                        description: 'You can build stores and workstations at workshop settlements.'
-                    }
-                ]
-            },
-            {
-                rank: 7,
                 name: 'Party Boy',
                 img: 'party-boy-party-girl.png',
                 ranks: 3,
@@ -1011,45 +947,179 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Nobody has a good time like you! There\'s no chance you\'ll get addicted to alcohol.'
+                        cha: 2,
+                        description: 'Nobody has a good time like you! Temporarily ignore the effects of addiction withdrawal with a refreshing Nuka-Cola, and in survival quench your thirst with beer.'
                     },
                     {
                         rank: 2,
                         level: 15,
-                        description: 'The effects of alcohol are doubled.'
+                        cha: 3,
+                        description: 'Each addiction you have increases the duration of all chems by 20%.'
                     },
                     {
                         rank: 3,
                         level: 37,
-                        description: 'Your Luck is increased by 3 while you\'re under the influence of alcohol.'
+                        cha: 4,
+                        description: 'The effects of chems are doubled if you have 3 or more addictions.'
                     }
                 ]
             },
             {
-                rank: 8,
-                name: 'Inspiration',
+                rank: 3,
+                name: 'Dressed for the Apocalypse',
+                img: 'rad-resistant.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 3,
+                        description: 'Dress to impress! Gain 15 Rad Resistance, double that while not wearing leg armor.'
+                    },
+                    {
+                        rank: 2,
+                        level: 8,
+                        cha: 4,
+                        description: 'Reduce incoming ballistic damage by a flat amount equal to half your Charisma, doubled if not wearing chest armor.'
+                    },
+                    {
+                        rank: 3,
+                        level: 21,
+                        cha: 5,
+                        description: 'Reduce incoming energy damage by a flat amount equal to half your Charisma, doubled if not wearing arm armor.'
+                    },
+                    {
+                        rank: 4,
+                        level: 36,
+                        cha: 6,
+                        description: 'While not wearing the required armor, previous ranks are tripled, instead of doubled.'
+                    },
+                    {
+                        rank: 5,
+                        level: 48,
+                        cha: 7,
+                        description: 'While not wearing the required armor, instead add 4 times your Charisma from the previous levels.'
+                    }
+                ]
+            },
+            {
+                rank: 4,
+                name: 'Lady Killer',
+                img: 'lady-killer-man-hunter.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 4,
+                        description: 'You\'re charming... and dangerous. Women suffer +1% damage per point of Charisma, and are easier to persuade in dialogue.'
+                    },
+                    {
+                        rank: 2,
+                        level: 7,
+                        cha: 5,
+                        description: 'Gain 10% armor penetration against women. Women are even easier to persuade in dialogue. They are also easier to pacify with the Intimidation perk.'
+                    },
+                    {
+                        rank: 3,
+                        level: 16,
+                        cha: 6,
+                        description: 'Even other men find you irresistible! Gain half the effects of this perk against men.'
+                    }
+                ]
+            },
+            {
+                rank: 5,
+                name: 'Refractor',
+                img: 'refractor.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 5,
+                        description: 'You must be part mirror! Instantly gain +10 Energy Resistance.'
+                    },
+                    {
+                        rank: 2,
+                        level: 11,
+                        cha: 6,
+                        description: 'You now have +20 Energy Resistance, and lasers have a 10% chance to ricochet off you instead of damaging you, charging your Critical meter!'
+                    },
+                    {
+                        rank: 3,
+                        level: 21,
+                        cha: 7,
+                        description: 'You now have +30 Energy Resistance, and take 50% less limb damage from lasers.'
+                    },
+                    {
+                        rank: 4,
+                        level: 35,
+                        cha: 8,
+                        description: 'You now have +40 Energy Resistance, and lasers charge your Critical meter twice as fast.'
+                    },
+                    {
+                        rank: 5,
+                        level: 42,
+                        cha: 9,
+                        description: 'You take 25% less energy damage, and cannot be critically hit by enemies.'
+                    }
+                ]
+            },
+            {
+                rank: 6,
+                name: 'Animal Friend',
+                img: 'animal-friend.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 6,
+                        description: 'Commune with beasts! With your gun, aim at any animal below your level and gain a chance to pacify it.'
+                    },
+                    {
+                        rank: 2,
+                        level: 18,
+                        cha: 7,
+                        description: 'Wild animals will no longer attack you unprovoked.'
+                    },
+                    {
+                        rank: 3,
+                        level: 38,
+                        cha: 8,
+                        description: 'Animals will now come to your aid, but not against other animals.'
+                    }
+                ]
+            },
+            {
+                rank: 7,
+                name: 'Inspirational',
                 img: 'inspiration.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Because you lead by example, your companion does more damage in combat, and cannot hurt you.'
+                        cha: 7,
+                        description: 'Because you lead by example, your companions and settlers take 3% less damage per point of your Charisma, and cannot hurt you.'
                     },
                     {
                         rank: 2,
                         level: 19,
-                        description: 'Your companion resists more damage in combat, and can\'t be harmed by your attacks.'
+                        cha: 8,
+                        description: 'Your companion and settlers deals 3% more damage per point of your Charisma, and can\'t be harmed by your attacks.'
                     },
                     {
                         rank: 3,
                         level: 43,
-                        description: 'Your companion can carry more items.'
+                        cha: 9,
+                        description: 'While traveling with a companion, you gain an additional 75 carry weight.'
                     }
                 ]
             },
             {
-                rank: 9,
+                rank: 8,
                 name: 'Wasteland Whisperer',
                 img: 'wasteland-whisperer.png',
                 ranks: 3,
@@ -1057,17 +1127,46 @@
                     {
                         rank: 1,
                         level: 0,
+                        cha: 8,
                         description: 'Master the post-apocalypse! With your gun, aim at any Wasteland creature below your level and gain a chance to pacify it.'
                     },
                     {
                         rank: 2,
                         level: 21,
-                        description: 'When you successfully pacify a creature, you can incite it to attack.'
+                        cha: 9,
+                        description: 'When you successfully pacify a Wasteland creature, you can incite it to attack.'
                     },
                     {
                         rank: 3,
                         level: 49,
-                        description: 'When you successfully pacify a creature, you can give it specific commands.'
+                        cha: 10,
+                        description: 'When you successfully pacify a Wasteland creature, you can give it specific commands.'
+                    }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Decapitalist',
+                img: 'cap-collector.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 9,
+                        description: 'The fewer caps you carry, the better deals you get. Gain 5% better buying prices, plus up to an additional 10% while carrying less than 5000 caps (1% per 500 less).'
+                    },
+                    {
+                        rank: 2,
+                        level: 20,
+                        cha: 10,
+                        description: 'Gain 10% better buying prices, plus up to an additional 20% while carrying less than 10,000 caps (1% per 500 less). Additionally, apply half the bonus to head and limb damage.'
+                    },
+                    {
+                        rank: 3,
+                        level: 41,
+                        cha: 11,
+                        description: 'Gain 15% better buying prices, plus up to an additional 30% while carrying less than 15,000 caps (1% per 500 less). Additionally, apply half the bonus to V.A.T.S. headshot accuracy.'
                     }
                 ]
             },
@@ -1080,17 +1179,20 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Time to show everyone who\'s boss! With your gun, aim at any human opponent below your level and gain a chance to pacify them.'
+                        cha: 10,
+                        description: 'Time to show everyone who\'s boss! With your gun, aim at any human opponent below your level and gain a chance to pacify them. Once pacified, you can make enemies flee the scene.'
                     },
                     {
                         rank: 2,
                         level: 23,
-                        description: 'When you successfully pacify someone, you can incite them to attack.'
+                        cha: 11,
+                        description: 'When you successfully pacify someone, you can incite them to attack using watered down Psycho or interrogate them for information on their allies\' whereabouts! '
                     },
                     {
                         rank: 3,
-                        level: 50,
-                        description: 'When you successfully pacify someone, you can give them specific commands.'
+                        level: 38,
+                        cha: 12,
+                        description: 'When you successfully pacify someone, you can equip them with a detonatable collar and make them do your bidding! Additionally, you now gain double XP from intimidations!'
                     }
                 ]
             }
@@ -1101,24 +1203,6 @@
         perks: [
             {
                 rank: 1,
-                name: 'V.A.N.S.',
-                img: 'vans.png',
-                ranks: 2,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Let Vault-Tec guide you! The path to your closest quest target is displayed in V.A.T.S.'
-                    },
-                    {
-                        rank: 2,
-                        level: 36,
-                        description: 'Gain +2 to Perception. (Nuka-World DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 2,
                 name: 'Medic',
                 img: 'medic.png',
                 ranks: 4,
@@ -1126,55 +1210,63 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Is there a doctor in the house? Stimpaks restore 40% of lost Health, and RadAway removes 40% of radiation.'
+                        int: 1,
+                        description: 'Is there a doctor in the house? Oh wait, You! While below 50% health, Stimpaks and Medpaks heal 25% more.'
                     },
                     {
                         rank: 2,
                         level: 18,
-                        description: 'Stimpaks restore 60% of lost Health, and RadAway removes 60% of radiation'
+                        int: 2,
+                        description: 'While below 50% health, Stimpaks and Medpaks heal 50% more.'
                     },
                     {
                         rank: 3,
                         level: 30,
-                        description: 'Stimpaks restore 80% of lost Health, and RadAway removes 80% of radiation'
+                        int: 3,
+                        description: 'While below 50% health, Stimpaks and Medpaks heal 75% more, and Stimpaks restore an additional missing segment of health.'
                     },
                     {
                         rank: 4,
                         level: 49,
-                        description: 'Stimpaks and RadAway restore all lost health and radiation, and work much more quickly.'
+                        int: 4,
+                        description: 'While below 50% health, Stimpaks and Medpaks heal twice as much.'
                     }
                 ]
             },
             {
-                rank: 3,
-                name: 'Gun Nut',
-                img: 'gun-nut.png',
+                rank: 2,
+                name: 'Demolition Expert',
+                img: 'demolition-expert.png',
                 ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'You gain access to base level and Rank 1 gun mods'
+                        int: 2,
+                        description: 'The bigger the boom, the better! You do 15% more damage plus an additional 0.5% per level with explosives.'
                     },
                     {
                         rank: 2,
-                        level: 13,
-                        description: 'You gain access to Rank 2 gun mods'
+                        level: 10,
+                        int: 3,
+                        description: 'You do 25% more damage with explosives, you can craft explosives at the crafting station, and your grenades gain a throwing arc.'
                     },
                     {
                         rank: 3,
                         level: 25,
-                        description: 'You gain access to Rank 3 gun mods'
+                        int: 4,
+                        description: 'You do 35% more damage with explosives, and your explosives now affect a 25% larger area.'
                     },
                     {
                         rank: 4,
-                        level: 39,
-                        description: 'You gain access to Rank 4 gun mods'
+                        level: 40,
+                        int: 5,
+                        description: 'You do 45% more damage with explosives, and you take 20% less damage from explosives.'
                     }
                 ]
             },
             {
-                rank: 4,
+                rank: 3,
                 name: 'Hacker',
                 img: 'hacker.png',
                 ranks: 4,
@@ -1182,78 +1274,31 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Knowledge of cutting-edge computer encryption allows you to hack Advanced terminals'
+                        int: 3,
+                        description: 'Knowledge of cutting-edge computer encryption allows you to hack Advanced terminals and Robots. When you successfully hack a robot, gain a chance to power it on or off.'
                     },
                     {
                         rank: 2,
                         level: 9,
-                        description: 'You can hack Expert terminals.'
+                        int: 4,
+                        description: 'You can hack Expert terminals. When you hack a robot, you can initiate a self-destruct.'
                     },
                     {
                         rank: 3,
                         level: 21,
-                        description: 'You can hack Master terminals.'
+                        int: 5,
+                        description: 'You can hack or bypass Master terminals. When you successfully hack a robot, you can incite it to attack.'
                     },
                     {
                         rank: 4,
                         level: 33,
-                        description: 'When hacking, you never get locked out of a terminal when things go wrong.'
+                        int: 6,
+                        description: 'When hacking, you never get locked out of a terminal when things go wrong. When you successfully hack a robot, you can give it specific commands.'
                     }
                 ]
             },
             {
-                rank: 5,
-                name: 'Scrapper',
-                img: 'scrapper.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Waste not, want not! You can salvage uncommon components like screws, aluminum, and copper when scrapping weapons and armor.'
-                    },
-                    {
-                        rank: 2,
-                        level: 23,
-                        description: 'You can salvage rare components like circuitry, nuclear material, and fiber optics when scrapping weapons and armor. Items with favorited components are highlighted.'
-                    },
-                    {
-                        rank: 3,
-                        level: 40,
-                        description: 'You get more from salvaging. Appears to only apply to uncommon components, i.e., those affected by the first level of the perk. (Far Harbor DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 6,
-                name: 'Science',
-                img: 'science.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Take full advantage of advanced technology with access to base level and Rank 1 high-tech mods.'
-                    },
-                    {
-                        rank: 2,
-                        level: 17,
-                        description: 'You gain access to Rank 2 high-tech mods.'
-                    },
-                    {
-                        rank: 3,
-                        level: 28,
-                        description: 'You gain access to Rank 3 high-tech mods.'
-                    },
-                    {
-                        rank: 4,
-                        level: 41,
-                        description: 'You gain access to Rank 4 high-tech mods.'
-                    }
-                ]
-            },
-            {
-                rank: 7,
+                rank: 4,
                 name: 'Chemist',
                 img: 'chemist.png',
                 ranks: 4,
@@ -1261,50 +1306,173 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Any chems you take last 50% longer. Far out.'
+                        int: 4,
+                        description: 'Your knowledge of basic chemistry allows you to craft a few basic components at the chemistry workbench.'
                     },
                     {
                         rank: 2,
                         level: 16,
-                        description: 'Any chems you take now last twice as long.'
+                        int: 5,
+                        description: 'You can now craft a few simple chems and syringer ammo. Chem I recipes yield an additional product.'
                     },
                     {
                         rank: 3,
-                        level: 32,
-                        description: 'Any chems you take now last an additional 150% longer.'
+                        level: 36,
+                        int: 6,
+                        description: 'You can now craft more advanced wasteland chems, and your Chem I and II recipes yield an additional product.'
                     },
                     {
                         rank: 4,
-                        level: 45,
-                        description: 'Any chems you take now last an additional 200% longer.'
+                        level: 54,
+                        int: 7,
+                        description: 'You can now craft pre-war chems, and your Chem I, II, and III recipes yield an additional product.'
                     }
                 ]
             },
             {
-                rank: 8,
-                name: 'Robotics Expert',
+                rank: 5,
+                name: 'Science!',
                 img: 'robotics-expert.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        int: 5,
+                        description: 'Take full advantage of advanced technology with access to base level and Rank 1 high-tech mods.'
+                    },
+                    {
+                        rank: 2,
+                        level: 17,
+                        int: 6,
+                        description: 'You gain access to Rank 2 high-tech mods.'
+                    },
+                    {
+                        rank: 3,
+                        level: 30,
+                        int: 7,
+                        description: 'You gain access to Rank 3 high-tech mods.'
+                    },
+                    {
+                        rank: 4,
+                        level: 45,
+                        int: 8,
+                        description: 'You gain access to Rank 4 high-tech mods.'
+                    },
+                    {
+                        rank: 5,
+                        level: 88,
+                        int: 9,
+                        description: 'You gain access to Rank 5 high-tech mods.'
+                    }
+                ]
+            },
+            {
+                rank: 6,
+                name: 'Overclocked V.A.T.S.',
+                img: 'awareness.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Machines will always serve humans, if you have anything to say about it. Hack a robot, and gain a chance to power it on or off, or initiate a self-destruct.'
+                        int: 6,
+                        description: 'To defeat your enemies, know their weaknesses! V.A.T.S. costs are reduced by 1% per Intelligence. You can view a target\'s specific damage resistances in V.A.T.S.'
                     },
                     {
                         rank: 2,
-                        level: 19,
-                        description: 'When you successfully hack a robot, you can incite it to attack.'
+                        level: 18,
+                        int: 7,
+                        description: 'V.A.T.S. costs are now reduced by 2% per Intelligence.'
                     },
                     {
                         rank: 3,
-                        level: 44,
-                        description: 'When you successfully hack a robot, you can give it specific commands.'
+                        level: 36,
+                        int: 8,
+                        description: 'V.A.T.S. costs are reduced by 3% per Intelligence.'
+                    }
+                ]
+            },
+            {
+                rank: 7,
+                name: 'Ad victoriam!',
+                img: 'science.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        int: 7,
+                        description: 'To Victory! You deal an additional 5% damage with energy weapons, doubled while in Power Armor.'
+                    },
+                    {
+                        rank: 2,
+                        level: 17,
+                        int: 8,
+                        description: 'You deal an Addtional 10% damage with Energy weapons, doubled while in power armor.'
+                    },
+                    {
+                        rank: 3,
+                        level: 28,
+                        int: 9,
+                        description: 'You deal an Addtional 15% damage with Energy weapons, doubled while in power armor.'
+                    }
+                ]
+            },
+            {
+                rank: 8,
+                name: 'Fatal Exception',
+                img: 'grim-reapers-sprint.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        int: 8,
+                        description: 'Pip-Boy has encountered an error! Any kill in V.A.T.S. has a 15% chance to restore all Action Points.'
+                    },
+                    {
+                        rank: 2,
+                        level: 29,
+                        int: 9,
+                        description: 'Any kill in V.A.T.S. now has a 25% chance to restore all Action Points.'
+                    },
+                    {
+                        rank: 3,
+                        level: 50,
+                        int: 10,
+                        description: 'Any kill in V.A.T.S. now has a 35% chance to restore all Action Points and refill your Critical Meter'
                     }
                 ]
             },
             {
                 rank: 9,
+                name: 'Forced Evolution',
+                img: 'nerd-rage.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        int: 9,
+                        description: 'Inject yourself with a modified F.E.V. strain and be your own best test subject! Gain +2 Strength, but -1 Charisma.'
+                    },
+                    {
+                        rank: 2,
+                        level: 18,
+                        int: 10,
+                        description: 'Gain +4 Strength, but -2 Charisma, and regenerate health quickly below 20%.'
+                    },
+                    {
+                        rank: 3,
+                        level: 36,
+                        int: 11,
+                        description: 'Gain +6 Strength, but -3 Charisma, and regenerate health quickly below 30%.'
+                    }
+                ]
+            },
+            {
+                rank: 10,
                 name: 'Nuclear Physicist',
                 img: 'nuclear-physicist.png',
                 ranks: 3,
@@ -1312,40 +1480,20 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'You\'ve learned to split the atom... and command it. Radiation weapons do 50% more damage and Fusion Cores last an extra 25% longer.'
+                        int: 10,
+                        description: 'You\'ve learned to split the atom... You can now recover and recharge your depleted fusion cores with fresh nuclear material to 50% of their normal capacity. Radiation weapons do 50% more damage.'
                     },
                     {
                         rank: 2,
-                        level: 14,
-                        description: 'Radiation weapons now do double damage and Fusion Cores last an extra 50% longer.'
-                    },
-                    {
-                        rank: 3,
-                        level: 26,
-                        description: 'Fusion Cores can be ejected from Power Armor like devastating grenades and Fusion Cores last twice as long.'
-                    }
-                ]
-            },
-            {
-                rank: 10,
-                name: 'Nerd Rage',
-                img: 'nerd-rage.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Genius. Is. ANGRY! When your Health drops below 20%, time slows and you gain +20 Damage resistance and do 20% more damage while the effect lasts.'
-                    },
-                    {
-                        rank: 2,
-                        level: 31,
-                        description: 'You now gain 30 more Damage Resistance and do 30% more damage while Nerd Rage is in effect.'
+                        level: 21,
+                        int: 11,
+                        description: 'You can now recharge depleted fusion cores to 100% of their original capacity. Radiation weapons now do double damage.'
                     },
                     {
                         rank: 3,
                         level: 50,
-                        description: 'You now gain 40 more Damage Resistance and do 40% more damage while Nerd Rage is in effect. Kills you make while enraged restore some lost Health.'
+                        int: 12,
+                        description: 'You can now recharge depleted fusion cores to double their original capacity.'
                     }
                 ]
             }
@@ -1356,6 +1504,32 @@
         perks: [
             {
                 rank: 1,
+                name: 'Quick Hands',
+                img: 'quick-hands.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 1,
+                        description: 'In combat, there\'s no time to hesitate! While in combat, you can reload all guns 15% faster, and your hipfire accuracy is improved by 15%.'
+                    },
+                    {
+                        rank: 2,
+                        level: 28,
+                        agi: 2,
+                        description: 'While in combat, you can reload all guns 30% faster, and your hipfire accuracy is improved by 30%.'
+                    },
+                    {
+                        rank: 3,
+                        level: 40,
+                        agi: 3,
+                        description: 'You can reload all guns 45% faster, and your hipfire accuracy is improved by 45%.'
+                    }
+                ]
+            },
+            {
+                rank: 2,
                 name: 'Gunslinger',
                 img: 'gunslinger.png',
                 ranks: 5,
@@ -1363,27 +1537,306 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Channel the spirit of the old west! Non-automatic pistols do 20% more damage.'
+                        agi: 2,
+                        description: 'Channel the spirit of the Old West! You do 15% plus an additional 0.5% per level more damage with all pistols.'
+                    },
+                    {
+                        rank: 2,
+                        level: 12,
+                        agi: 3,
+                        description: 'You do 25% more damage with all pistols, and pistols deal 20% more damage to limbs.'
+                    },
+                    {
+                        rank: 3,
+                        level: 30,
+                        agi: 4,
+                        description: 'You do 35% more damage with all pistols, and attacks with pistols on arms have a chance to disarm your target.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        agi: 5,
+                        description: 'You do 45% more damage with all pistols, and attacks with pistols on legs have a chance to knock your target down.'
+                    },
+                    {
+                        rank: 5,
+                        level: 70,
+                        agi: 6,
+                        description: 'You do 55% more damage with all pistols.'
+                    }
+                ]
+            },
+            {
+                rank: 3,
+                name: 'Ninja',
+                img: 'ninja.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 3,
+                        description: 'Trained as a shadow warrior, you do 15% more damage plus an additional 0.5% per level with bladed weapons.'
+                    },
+                    {
+                        rank: 2,
+                        level: 12,
+                        agi: 4,
+                        description: 'You do 25% more damage with bladed weapons, and you move 5% faster when sneaking.'
+                    },
+                    {
+                        rank: 3,
+                        level: 30,
+                        agi: 5,
+                        description: 'You do 35% more damage with bladed weapons, and you move 10% faster while sneaking.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        agi: 6,
+                        description: 'You do 45% more damage with bladed weapons, and you move 15% faster while sneaking.'
+                    },
+                    {
+                        rank: 5,
+                        level: 70,
+                        agi: 7,
+                        description: 'You do 55% more damage with bladed weapons.'
+                    }
+                ]
+            },
+            {
+                rank: 4,
+                name: 'Sneak',
+                img: 'sneak.png',
+                ranks: 5,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 4,
+                        description: 'Become whisper, become shadow. You are 20% harder to detect while sneaking while not over-encumbered.'
                     },
                     {
                         rank: 2,
                         level: 7,
-                        description: 'Non-automatic pistols now do 40% more damage and have increased range.'
+                        agi: 5,
+                        description: 'You are now 30% harder to detect while sneaking while not over-ecumbered.'
                     },
                     {
                         rank: 3,
-                        level: 15,
-                        description: 'Non-automatic pistols now do 60% more damage and range is increased even further.'
+                        level: 16,
+                        agi: 6,
+                        description: 'You are now 40% harder to detect while sneaking while not over-encumbered.'
                     },
                     {
                         rank: 4,
-                        level: 27,
-                        description: 'Non-automatic pistols now do 80% more damage and their attacks can disarm opponents.'
+                        level: 32,
+                        agi: 7,
+                        description: 'You are now 50% harder to detect while sneaking, and running no longer adversely affects stealth while not over-encumbered.'
                     },
                     {
                         rank: 5,
+                        level: 38,
+                        agi: 8,
+                        description: 'Engaging stealth causes distant enemies to lose you while not over-encumbered.'
+                    }
+                ]
+            },
+            {
+                rank: 5,
+                name: 'Infiltrator',
+                img: 'pickpocket.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 5,
+                        description: 'Your silenced guns deal 5% more damage per point of Agility with sneak attacks, and picking pockets is 25% easier.'
+                    },
+                    {
+                        rank: 2,
+                        level: 6,
+                        agi: 6,
+                        description: 'Your silenced guns deal 10% more damage per point of Agility with sneak attacks, and picking pockets is 50% easier. You can now place a live grenade in a person\'s inventory.'
+                    },
+                    {
+                        rank: 3,
+                        level: 17,
+                        agi: 7,
+                        description: 'Your silenced guns deal 15% more damage per point of Agility with sneak attacks, and picking pockets is 75% easier, and you can steal equipped weapons.'
+                    },
+                    {
+                        rank: 4,
+                        level: 30,
+                        agi: 8,
+                        description: 'Picking Pockets is now twice as easy, and you can steal equipped items.'
+                    }
+                ]
+            },
+            {
+                rank: 6,
+                name: 'Mister Sandman',
+                img: 'mister-sandman.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 6,
+                        description: 'As an agent of death itself, your melee weapons do an additional 25% sneak attack damage.'
+                    },
+                    {
+                        rank: 2,
+                        level: 26,
+                        agi: 7,
+                        description: 'Your melee weapons do an additional 50% sneak attack damage.'
+                    },
+                    {
+                        rank: 3,
+                        level: 50,
+                        agi: 8,
+                        description: 'You can instantly kill a sleeping person, and your melee weapons now do 75% more sneak attack damage'
+                    }
+                ]
+            },
+            {
+                rank: 7,
+                name: 'Action Boy',
+                img: 'action-boy-action-girl.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 7,
+                        description: 'There\'s no time to waste! While not over-encumbered, your Action Points regenerate faster based on how fast you\'re moving.'
+                    },
+                    {
+                        rank: 2,
+                        level: 18,
+                        agi: 8,
+                        description: 'While moving and in combat, your Action Points regenerate even faster while not over-encumbered.'
+                    },
+                    {
+                        rank: 3,
+                        level: 38,
+                        description: 'Sprinting drains your Action Points half as fast.'
+                    }
+                ]
+            },
+            {
+                rank: 8,
+                name: 'Deadly Rush',
+                img: 'critical-banker.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 8,
+                        description: 'Feel the Adrenaline! Each rank of reduces the effects of fatigue, and decreases the chance you\'ll be staggered.'
+                    },
+                    {
+                        rank: 2,
+                        level: 17,
+                        agi: 9,
+                        description: 'Each rank of Adrenaline grants you increased AP and AP Regeneration.'
+                    },
+                    {
+                        rank: 3,
+                        level: 43,
+                        agi: 10,
+                        description: 'Gain a 3% dodge chance per rank of Adrenaline.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        agi: 11,
+                        description: 'Your Critical Hits deal an extra 10% damage per rank of Adrenaline.'
+                    }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Gun-Fu',
+                img: 'gun-fu.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 9,
+                        description: 'You\'ve learned to apply ancient martial arts to gunplay! Do 25% more damage to your second V.A.T.S. target and beyond.'
+                    },
+                    {
+                        rank: 2,
+                        level: 21,
+                        agi: 10,
+                        description: 'In V.A.T.S. you do 50% more damage to your third target and beyond.'
+                    },
+                    {
+                        rank: 3,
                         level: 42,
-                        description: 'Non-automatic pistols now do double damage. Their attacks have a much better chance to disarm opponents, and may even cripple a limb.'
+                        agi: 11,
+                        description: 'In V.A.T.S. you instantly do a Critical Hit against your fourth target and beyond.'
+                    }
+                ]
+            },
+            {
+                rank: 10,
+                name: 'Arobatics',
+                img: 'moving-target.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        agi: 10,
+                        description: 'While unencumbered and not wearing Power Armor, you have a 5% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                    },
+                    {
+                        rank: 2,
+                        level: 28,
+                        agi: 11,
+                        description: 'While unencumbered, moving, and not wearing Power Armor, you now have a 10% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                    },
+                    {
+                        rank: 3,
+                        level: 52,
+                        agi: 12,
+                        description: 'While unencumbered, moving, and not wearing Power Armor, you now have a 15% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        special: 'lu',
+        perks: [
+            {
+                rank: 1,
+                name: 'Beginner\'s Luck',
+                img: 'idiot-savant.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        lck: 1,
+                        description: 'Feeling lucky? You have a 7% chance to receive 3x XP from any action.'
+                    },
+                    {
+                        rank: 2,
+                        level: 11,
+                        lck: 2,
+                        description: 'When you fire the last round in your magazine you have a 7% chance to gain a free magazine.'
+                    },
+                    {
+                        rank: 3,
+                        level: 34,
+                        lck: 3,
+                        description: 'There\'s a chance that your enemies will explode in a shower of caps when you kill them.'
                     }
                 ]
             },
@@ -1396,356 +1849,122 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Rigorous combat training means automatic weapons do 20% more damage'
-                    },
-                    {
-                        rank: 2,
-                        level: 11,
-                        description: 'Attacks with automatic weapons do 40% more damage, with improved hip fire accuracy.'
-                    },
-                    {
-                        rank: 3,
-                        level: 21,
-                        description: 'Attacks with automatic weapons do 60% more damage. Hip fire accuracy is improved even more.'
-                    },
-                    {
-                        rank: 4,
-                        level: 35,
-                        description: 'Attacks with automatic weapons do 80% more damage and gain a chance to stagger opponents.'
-                    },
-                    {
-                        rank: 5,
-                        level: 49,
-                        description: 'Your automatic weapons now do double damage and have a greater chance to stagger opponents.'
-                    }
-                ]
-            },
-            {
-                rank: 3,
-                name: 'Sneak',
-                img: 'sneak.png',
-                ranks: 5,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Become whisper, become shadow. You are 20% harder to detect while sneaking.'
-                    },
-                    {
-                        rank: 2,
-                        level: 5,
-                        description: 'You are now 30% harder to detect while sneaking, and no longer trigger floor-based traps.'
-                    },
-                    {
-                        rank: 3,
-                        level: 12,
-                        description: 'You are now 40% harder to detect while sneaking, and no longer trigger enemy mines.'
-                    },
-                    {
-                        rank: 4,
-                        level: 23,
-                        description: 'You are now 50% harder to detect while sneaking, and running no longer adversely affects stealth.'
-                    },
-                    {
-                        rank: 5,
-                        level: 38,
-                        description: 'Engaging stealth causes distant enemies to lose you.'
-                    }
-                ]
-            },
-            {
-                rank: 4,
-                name: 'Mister Sandman',
-                img: 'mister-sandman.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'As an agent of death, you can instantly kill a sleeping person. Your silenced weapons do an additional 15% sneak attack damage.'
-                    },
-                    {
-                        rank: 2,
-                        level: 17,
-                        description: 'Your silenced weapons do an additional 30% sneak attack damage.'
-                    },
-                    {
-                        rank: 3,
-                        level: 30,
-                        description: 'Your silenced weapons now do 50% more sneak attack damage.'
-                    }
-                ]
-            },
-            {
-                rank: 5,
-                name: 'Action Boy',
-                img: 'action-boy-action-girl.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'There\'s no time to waste! Action Points regenerate 25% faster.'
+                        lck: 2,
+                        description: 'Rigorous combat training or just dumb luck? Either way, you do 15% more damage, plus an additional 0.5% damage per level with full and semi-auto rifles and shotguns.'
                     },
                     {
                         rank: 2,
                         level: 18,
-                        description: 'Your Action Points now regenerate 50% faster.'
+                        lck: 3,
+                        description: 'You do 25% more damage, and have a 7% chance to gain a free magazine when you fire the last bullet in your magazine with full and semi-auto rifles and shotguns.'
                     },
                     {
                         rank: 3,
-                        level: 38,
-                        description: 'Your Action Points now regenerate 75% faster. (Far Harbor DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 6,
-                name: 'Moving Target',
-                img: 'moving-target.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'They can\'t hurt what they can\'t hit! Get 25+ Damage Resistance and 25+ Energy Resistance when you\'re sprinting.'
-                    },
-                    {
-                        rank: 2,
                         level: 24,
-                        description: 'You now get +50 Damage Resistance and +50 Energy Resistance when you\'re sprinting.'
+                        lck: 4,
+                        description: 'You do 35% more damage with full and semi-auto rifles and shotguns..'
                     },
                     {
-                        rank: 3,
-                        level: 44,
-                        description: 'Sprinting costs 50% fewer Action Points.'
-                    }
-                ]
-            },
-            {
-                rank: 7,
-                name: 'Ninja',
-                img: 'ninja.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Trained as a shadow warrior, your ranged sneak attack do 2.5x normal damage and your melee attacks do 4x normal damage.'
-                    },
-                    {
-                        rank: 2,
-                        level: 16,
-                        description: 'Your ranged sneak attacks do 3x normal damage and your melee sneak attacks do 5x normal damage.'
-                    },
-                    {
-                        rank: 3,
-                        level: 33,
-                        description: 'Your ranged sneak attacks do 3.5x normal damage and your melee sneak attacks do 10x normal damage.'
-                    }
-                ]
-            },
-            {
-                rank: 8,
-                name: 'Quick Hands',
-                img: 'quick-hands.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'In combat, there\'s no time to hesitate. You can reload all guns faster.'
-                    },
-                    {
-                        rank: 2,
-                        level: 28,
-                        description: 'Reloading guns costs no Action Points in V.A.T.S.'
-                    },
-                    {
-                        rank: 3,
-                        level: 40,
-                        description: 'Quick and efficient. You gain 10 additional Action Points. (Nuka-World DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 9,
-                name: 'Blitz',
-                img: 'blitz.png',
-                ranks: 2,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Find the gap and make the tackle! V.A.T.S. melee distance is increased significantly.'
-                    },
-                    {
-                        rank: 2,
-                        level: 29,
-                        description: 'V.A.T.S. melee distance is increased even more, and the farther the Blitz distance, the greater the damage.'
-                    }
-                ]
-            },
-            {
-                rank: 10,
-                name: 'Gun Fu',
-                img: 'gun-fu.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'You\'ve learned to apply ancient martial arts to gunplay! Do 25% more damage to your second V.A.T.S. target and beyond.'
-                    },
-                    {
-                        rank: 2,
-                        level: 26,
-                        description: 'In V.A.T.S. you do 50% more damage to your third target and beyond.'
-                    },
-                    {
-                        rank: 3,
+                        rank: 4,
                         level: 50,
-                        description: 'In V.A.T.S. you instantly do a Critical Hit against your fourth target and beyond.'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        special: 'lu',
-        perks: [
-            {
-                rank: 1,
-                name: 'Fortune Finder',
-                img: 'fortune-finder.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'You find more bottle caps in containers.'
+                        lck: 5,
+                        description: 'You do 45% more damage, and have a 14% chance to gain a free magazine when you fire the last bullet in your magazine with full and semi-auto rifles and shotguns.'
                     },
                     {
-                        rank: 2,
-                        level: 5,
-                        description: 'You find even more bottle caps in containers.'
-                    },
-                    {
-                        rank: 3,
-                        level: 25,
-                        description: 'You find even more bottle caps in containers.'
-                    },
-                    {
-                        rank: 4,
-                        level: 40,
-                        description: 'You find even more bottle caps in containers, and there is a chance of enemies exploding into a shower of caps when you kill them.'
-                    }
-                ]
-            },
-            {
-                rank: 2,
-                name: 'Scrounger',
-                img: 'scrounger.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'You find more ammunition in containers.'
-                    },
-                    {
-                        rank: 2,
-                        level: 7,
-                        description: 'You find even more ammunition in containers.'
-                    },
-                    {
-                        rank: 3,
-                        level: 24,
-                        description: 'You find even more ammunition in containers.'
-                    },
-                    {
-                        rank: 4,
-                        level: 37,
-                        description: 'There is a chance to gain ammo when firing the last round in your clip.'
+                        rank: 5,
+                        level: 74,
+                        lck: 6,
+                        description: 'You do 55% more damage with full and semi-auto rifles and shotguns.'
                     }
                 ]
             },
             {
                 rank: 3,
-                name: 'Bloody Mess',
-                img: 'bloody-mess.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: '+5% bonus damage means enemies will sometimes explode into a gory red paste. Watch out for flying eyeballs!'
-                    },
-                    {
-                        rank: 2,
-                        level: 9,
-                        description: 'You now inflict +10% damage in combat.'
-                    },
-                    {
-                        rank: 3,
-                        level: 31,
-                        description: 'You now inflict +15% damage in combat.'
-                    },
-                    {
-                        rank: 4,
-                        level: 47,
-                        description: 'When an enemy explodes, nearby enemies may suffer the same fate.'
-                    }
-                ]
-            },
-            {
-                rank: 4,
-                name: 'Mysterious Stranger',
-                img: 'mysterious-stranger.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Who is he? Why does he help? Who cares! The Mysterious Stranger will appear occasionally in V.A.T.S. to lend a hand, with deadly efficiency...'
-                    },
-                    {
-                        rank: 2,
-                        level: 22,
-                        description: 'The Mysterious Stranger appears more often in V.A.T.S.'
-                    },
-                    {
-                        rank: 3,
-                        level: 41,
-                        description: 'The Mysterious Stranger appears more often in V.A.T.S. When he kills an opponent, there is a chance your Critical meter gets filled.'
-                    },
-                    {
-                        rank: 4,
-                        level: 49,
-                        description: 'The Mysterious Stranger appears more often in V.A.T.S. When he kills an opponent, there is a high chance your Critical meter gets filled. (Nuka-World DLC)'
-                    }
-                ]
-            },
-            {
-                rank: 5,
-                name: 'Idiot Savant',
-                img: 'idiot-savant.png',
+                name: 'Scrapper',
+                img: 'scrapper.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'You\'re not stupid! Just... different. Randomly receive 3x XP from any action, and the lower your Intelligence, the greater the chance.'
+                        lck: 3,
+                        description: 'Waste not, want not! Hardened weapons grant more scrap, and you can salvage uncommon components like screws, aluminum, and copper when scrapping weapons and armor.'
                     },
                     {
                         rank: 2,
-                        level: 11,
-                        description: 'You now randomly receive 5x XP from any action. The lower your Intelligence, the greater the chance.'
+                        level: 23,
+                        lck: 4,
+                        description: 'Powerful weapons grant more scrap, and you can salvage rare components like circuitry, nuclear material, and fiberoptics when scrapping weapons and armor. Favorited components are highlighted.'
                     },
                     {
                         rank: 3,
-                        level: 34,
-                        description: 'Randomly receiving bonus XP from any action may trigger 3x XP for all kills for a short period of time. The lower your Intelligence, the greater the chance.'
+                        level: 40,
+                        lck: 5,
+                        description: 'Advanced weapons grant more scrap, and you get more from salvaging.'
+                    }
+                ]
+            },
+            {
+                rank: 4,
+                name: 'Four Leaf Clover',
+                img: 'four-leaf-clover.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        lck: 4,
+                        description: 'Feeling lucky? You should! Whenever you\'re facing 4 or more enemies, gain +1 to Strength, Perception, and Endurance.'
+                    },
+                    {
+                        rank: 2,
+                        level: 9,
+                        lck: 5,
+                        description: 'Whenever you\'re facing 4 or more enemies, gain +1 to Charisma, Intelligence, and Agility.'
+                    },
+                    {
+                        rank: 3,
+                        level: 25,
+                        lck: 6,
+                        description: 'Whenever you\'re facing 4 or more enemies, gain +3 Luck.'
+                    },
+                    {
+                        rank: 4,
+                        level: 31,
+                        lck: 7,
+                        description: 'Whenever you\'re facing 7 or more enemies, gain an additional +1 to all SPECIALs.'
+                    }
+                ]
+            },
+            {
+                rank: 5,
+                name: 'Lone Wanderer',
+                img: 'lone-wanderer.png',
+                ranks: 4,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        lck: 5,
+                        description: 'Who needs friends when you have luck? Take 1% per Luck reduced damage, doubled when traveling without a companion.'
+                    },
+                    {
+                        rank: 2,
+                        level: 16,
+                        lck: 6,
+                        description: 'Gain +3 carry weight per Luck, doubled when traveling without a companion.'
+                    },
+                    {
+                        rank: 3,
+                        level: 32,
+                        lck: 7,
+                        description: 'Gain 1% per Luck increased damage, doubled when traveling without a companion.'
+                    },
+                    {
+                        rank: 4,
+                        level: 48,
+                        lck: 8,
+                        description: 'Bonuses from previous ranks of the perk are tripled instead of doubled when traveling without a companion!'
                     }
                 ]
             },
@@ -1758,119 +1977,130 @@
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Advanced training for enhanced combat effectiveness! Criticals do 50% more extra damage.'
+                        lck: 6,
+                        description: 'Advanced training for enhanced combat effectiveness! Gain a 5% Critical Hit chance outside of V.A.T.S., and you can save a Critical Hit, to be used in V.A.T.S. when you need it the most.'
                     },
                     {
                         rank: 2,
                         level: 15,
-                        description: 'Your criticals now do twice as much extra damage.'
+                        lck: 7,
+                        description: 'Add half your Luck to your Critical Hit chance outside V.A.T.S., and you can now save 2 Critical Hits, to be used in V.A.T.S. when you need them the most.'
                     },
                     {
                         rank: 3,
                         level: 40,
-                        description: 'Your criticals now do 2.5x as much extra damage.'
+                        lck: 8,
+                        description: 'Add your Luck to your Critical Hit chance outside V.A.T.S., and banking a Critical has a chance to save an additional Critical.'
                     }
                 ]
             },
             {
                 rank: 7,
-                name: 'Critical Banker',
-                img: 'critical-banker.png',
+                name: 'Bloody Mess',
+                img: 'bloody-mess.png',
                 ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'You\'re a patient battlefield tactician, and can save a Critical Hit, to be used in V.A.T.S. when you need it most.'
+                        lck: 7,
+                        description: '+25% bonus Critical Hit damage means enemies will sometimes explode into a gory red paste. Watch out for flying eyeballs!'
                     },
                     {
                         rank: 2,
-                        level: 17,
-                        description: 'You can now save 2 Critical Hits, to be used in V.A.T.S. when you need them the most.'
+                        level: 9,
+                        lck: 8,
+                        description: 'Your Critical Hits gain a weak bleed effect.'
                     },
                     {
                         rank: 3,
-                        level: 43,
-                        description: 'You can now save 3 Critical Hits, to be used in V.A.T.S. when you need them the most. Banking a Critical has a chance to save an additional Critical.'
+                        level: 31,
+                        lck: 9,
+                        description: 'Your Critical Hits gain a strong bleed effect.'
                     },
                     {
                         rank: 4,
-                        level: 50,
-                        description: 'You can now save 4 Critical Hits, to be used in V.A.T.S. when you need them the most. (Far Harbor DLC)'
+                        level: 47,
+                        lck: 10,
+                        description: '+50% bonus Critical Hit damage, and when an enemy explodes after a Critical Hit, nearby enemies may suffer the same fate.'
                     }
                 ]
             },
             {
                 rank: 8,
-                name: 'Grim Reaper\'s Sprint',
-                img: 'grim-reapers-sprint.png',
+                name: 'Scrounger',
+                img: 'scrounger.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'Death becomes you! Any kill in V.A.T.S. has a 15% chance to restore all Action Points.'
+                        lck: 8,
+                        description: 'You know just how to scavenge to keep the fight going, and gain a chance to find rare bulk ammo caches in ammo boxes.'
                     },
                     {
                         rank: 2,
-                        level: 19,
-                        description: 'Any kill in V.A.T.S. now has a 25% chance to restore all Action Points.'
+                        level: 26,
+                        lck: 9,
+                        description: 'You gain a chance to find rare bulk caches of explosives in explosives boxes.'
                     },
                     {
                         rank: 3,
-                        level: 46,
-                        description: 'Any kill in V.A.T.S. has a 35% chance to restore all Action Points and refill your Critical meter.'
+                        level: 52,
+                        lck: 10,
+                        description: 'You find more ammunition in all containers.'
                     }
                 ]
             },
             {
                 rank: 9,
-                name: 'Four Leaf Clover',
-                img: 'four-leaf-clover.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        description: 'Feeling Lucky? You should! Each hit in V.A.T.S. has a chance of filling your Critical meter.'
-                    },
-                    {
-                        rank: 2,
-                        level: 13,
-                        description: 'Each hit in V.A.T.S. now has an even better chance of filling your Critical meter.'
-                    },
-                    {
-                        rank: 3,
-                        level: 32,
-                        description: 'Each hit in V.A.T.S. now has a very good chance of filling your Critical meter.'
-                    },
-                    {
-                        rank: 4,
-                        level: 48,
-                        description: 'Each hit in V.A.T.S. now has an excellent chance of filling your Critical meter.'
-                    }
-                ]
-            },
-            {
-                rank: 10,
-                name: 'Ricochet',
-                img: 'ricochet.png',
+                name: 'Fortune Finder',
+                img: 'fortune-finder.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        description: 'What goes around comes around! Any enemy\'s ranged attacks will sometimes ricochet back and instantly kill them. The closer you are to death, the higher the chance.'
+                        lck: 9,
+                        description: 'You\'ve learned to discover the Wasteland\'s hidden wealth, caps stashes you find have a rare chance to contain 10 times as many caps.'
                     },
                     {
                         rank: 2,
-                        level: 29,
-                        description: 'There\'s an increased chance that an enemy\'s shot will ricochet back and kill them.'
+                        level: 21,
+                        lck: 10,
+                        description: 'You gain a rare chance to find legendaries in locked safes.'
+                    },
+                    {
+                        rank: 4,
+                        level: 42,
+                        lck: 11,
+                        description: 'You find more bottlecaps in all containers.'
+                    }
+                ]
+            },
+            {
+                rank: 10,
+                name: 'Serendipity',
+                img: 'life-giver.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        lck: 10,
+                        description: 'You must be the chosen one! While below 33% health, gain a 15% chance to avoid damage.'
+                    },
+                    {
+                        rank: 2,
+                        level: 24,
+                        lck: 11,
+                        description: 'While below 33% health, gain a 30% chance to avoid damage.'
                     },
                     {
                         rank: 3,
-                        level: 50,
-                        description: 'When an enemy\'s shot ricochets back and kills them, there is a chance your Critical meter gets filled.'
+                        level: 48,
+                        lck: 12,
+                        description: 'While below 33% health, gain a 45% chance to avoid damage.'
                     }
                 ]
             }
