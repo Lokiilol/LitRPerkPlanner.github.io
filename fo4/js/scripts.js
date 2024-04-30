@@ -1,4 +1,4 @@
-const totalPoints = 28; // Total available points
+let totalPoints = 28;
 
 const attributeShorthands = {
     "Strength": "STR",
@@ -180,24 +180,14 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 1; // Increment by 1 if bobbleheads are included
+       remaining += 1;
     }
-
-    if ($('.unlimited-S.P.E.C.I.A.L.-points').is(':checked')) {
-        remaining += 999; // Add 999 points if "Unlimited S.P.E.C.I.A.L. Points" is checked
-    }
-
+    
     if (remaining < 0) {
-        remaining = 0; // Set remaining points to 0 if negative
-    } else if (remaining > 21) {
-        remaining = 21; // Set remaining points to 21 if not SPECIAL
+        remaining = 0;
     }
-
+    
     $pointsLeft.text(remaining); 
-
-    if ($youreSpecialCheckbox.is(':checked')) {
-        $pointsLeft.text(parseInt($pointsLeft.text()) + 1); // Add 1 point if "You're SPECIAL" is checked
-    }
 };
 
 const getAllocatedPoints = function () {
@@ -210,10 +200,15 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $youreSpecialCheckbox = $('.unlimited-S.P.E.C.I.A.L.-points');
+const $unlimitedSpecialPoints = $('.unlimited-S.P.E.C.I.A.L.-points');
+const $extraPointsCheckbox = $('#extra-points-checkbox');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
+};
+
+const unlimitedSpecialPoints = function () {
+    return $unlimitedSpecialPoints.is(':checked');
 };
 
 const pointsRemaining = function () {
@@ -252,11 +247,11 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 12;
+    let max = 13;
 
     if (includeBobbleheads()) {
         min = 1;
-        max = 12;
+        max = 13;
     }
 
     return {min, max};
@@ -289,14 +284,38 @@ $(function () {
 
     renderAll();
 
-$youreSpecialCheckbox.on('change', function() {
-    if ($(this).is(':checked')) {
-        console.log('Unlimited S.P.E.C.I.A.L. Points checkbox checked');
-    } else {
-        console.log('Unlimited S.P.E.C.I.A.L. Points checkbox unchecked');
-    }
-});
+    $includeBobbleheads.on('click', function () {
+        let valShift = -0;
+        
+        if (includeBobbleheads()) {
+            valShift = 0;
+        }
+        
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val( function(i, val) {
+            return parseInt(val, 10) + valShift;
+        });
 
+        renderAll();
+    });
+
+    $unlimitedSpecialPoints.on('click', function () {
+        let valShift = unlimitedSpecialPoints() ? 999 : 0;
+        
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val(valShift);
+
+        renderAll();
+    });
+
+    $extraPointsCheckbox.on('click', function () {
+        calculatePoints();
+        renderAll();
+    });
 
     $('.btn-inc').on('click', function () {
         const remainingPoints = pointsRemaining();
