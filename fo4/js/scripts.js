@@ -1,4 +1,4 @@
-let totalPoints = 28;
+const totalPoints = 28; // Total available points
 
 const attributeShorthands = {
     "Strength": "STR",
@@ -183,9 +183,11 @@ const calculatePoints = function () {
        remaining += 1; // Increment by 1 if bobbleheads are included
     }
 
-    if ($extraPointsCheckbox.is(':checked')) {
-        remaining = 999; // Set remaining points to 999 if "Unlimited" is checked
-    } else if (remaining < 0) {
+    if ($('.unlimited-S.P.E.C.I.A.L.-points').is(':checked')) {
+        remaining += 999; // Add 999 points if "Unlimited S.P.E.C.I.A.L. Points" is checked
+    }
+
+    if (remaining < 0) {
         remaining = 0; // Set remaining points to 0 if negative
     } else if (remaining > 21) {
         remaining = 21; // Set remaining points to 21 if not SPECIAL
@@ -208,8 +210,7 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $extraPointsCheckbox = $('#extra-points-checkbox');
-const $youreSpecialCheckbox = $('#youre-special-checkbox'); // Add this line
+const $youreSpecialCheckbox = $('.unlimited-S.P.E.C.I.A.L.-points'); // Add this line
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
@@ -302,11 +303,6 @@ $(function () {
             return parseInt(val, 10) + valShift;
         });
 
-        renderAll();
-    });
-
-    $extraPointsCheckbox.on('click', function () {
-        calculatePoints();
         renderAll();
     });
 
