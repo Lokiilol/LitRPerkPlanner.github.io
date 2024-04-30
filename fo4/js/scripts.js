@@ -177,20 +177,14 @@ const renderAll = function () {
 };
 
 const calculatePoints = function () {
-    let remaining;
+    let remaining = totalPoints - getAllocatedPoints();
     
-    if (infinitePoints()) {
-        remaining = 999; // Set remaining points to 999
-    } else {
-        remaining = totalPoints - getAllocatedPoints();
-        
-        if (includeBobbleheads()) {
-            remaining += 1;
-        }
-        
-        if (remaining < 0) {
-            remaining = 0;
-        }
+    if (includeBobbleheads()) {
+        remaining += 1;
+    }
+    
+    if (remaining < 0) {
+        remaining = 0;
     }
     
     $('.points-left').text(remaining);
