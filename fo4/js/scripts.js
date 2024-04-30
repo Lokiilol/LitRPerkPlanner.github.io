@@ -183,12 +183,17 @@ const calculatePoints = function () {
        remaining += 1;
     }
     
+    if (unlimitedSpecialPoints()) {
+        remaining += 84;
+    }
+    
     if (remaining < 0) {
         remaining = 0;
     }
     
     $pointsLeft.text(remaining); 
 };
+
 
 const getAllocatedPoints = function () {
     return $('[data-special] input').map(function () {
