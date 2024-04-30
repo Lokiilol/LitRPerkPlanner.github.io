@@ -210,7 +210,7 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $youreSpecialCheckbox = $('.unlimited-S.P.E.C.I.A.L.-points'); // Add this line
+const $youreSpecialCheckbox = $('.unlimited-S.P.E.C.I.A.L.-points');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
