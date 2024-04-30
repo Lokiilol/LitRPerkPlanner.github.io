@@ -1,3 +1,5 @@
+const totalPoints = 28;
+
 const attributeShorthands = {
     "Strength": "STR",
     "Perception": "PER",
@@ -138,16 +140,11 @@ const requiredLevel = function () {
     if (includeBobbleheads()) {
         remaining += 8;
     }
-    
-    if (infinitePoints()) {
-        remaining += 999;
-    }
-    
+
     if (remaining <= 0) {
         total += 1 + remaining * -1;
     }
-      
-    
+
     let maxLevel = 0;
     
     for (let i = 0; i < perks.length; ++i) {
@@ -185,24 +182,23 @@ const calculatePoints = function () {
     if (includeBobbleheads()) {
        remaining += 1;
     }
-   
+    
     if (infinitePoints()) {
-       remaining += 999; 
+        remaining += 999;
     }
     
     if (remaining < 0) {
         remaining = 0;
     }
     
-    $('.points-left').text(remaining); 
+    $pointsLeft.text(remaining); 
 };
 
-const getAllocatedPoints = function () {
-    const points = $('input[type="number"]').map(function () {
-        return parseInt($(this).val(), 10);
-    }).get();
 
-    return points.reduce(function (prev, curr) {
+const getAllocatedPoints = function () {
+    return $('[data-special] input').map(function () {
+        return parseInt($(this).val());
+    }).get().reduce(function (prev, curr) {
         return prev + curr;
     });
 };
@@ -255,16 +251,11 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 12;
+    let max = 13;
 
     if (includeBobbleheads()) {
         min = 1;
-        max = 12;
-    }
-
-    if (infinitePoints()) {
-        min = 1;
-        max = 999; 
+        max = 13;
     }
 
     return {min, max};
