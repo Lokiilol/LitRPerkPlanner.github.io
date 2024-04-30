@@ -1,5 +1,3 @@
-let totalPoints = 28;
-
 const attributeShorthands = {
     "Strength": "STR",
     "Perception": "PER",
@@ -141,7 +139,7 @@ const requiredLevel = function () {
         remaining += 8;
     }
     
-    if (unlimitedSpecialPoints()) {
+    if (infinitePoints()) {
         remaining += 999;
     }
     
@@ -188,7 +186,7 @@ const calculatePoints = function () {
        remaining += 1;
     }
    
-    if (unlimitedSpecialPoints()) {
+    if (infinitePoints()) {
        remaining += 999; 
     }
     
@@ -211,14 +209,14 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $unlimitedSpecialPoints = $('.unlimited-special-points');
+const $infinitePoints = $('.infinite-points');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
 };
 
-const unlimitedSpecialPoints = function () {
-    return $unlimitedSpecialPoints.is(':checked');
+const infinitePoints = function () {
+    return $infinitePoints.is(':checked');
 };
 
 const pointsRemaining = function () {
@@ -264,7 +262,7 @@ const getSPECIALMinMax = function() {
         max = 12;
     }
 
-    if (unlimitedSpecialPoints()) {
+    if (infinitePoints()) {
         min = 1;
         max = 999; 
     }
@@ -316,7 +314,7 @@ $(function () {
         renderAll();
     });
 
-    $unlimitedSpecialPoints.on('click', function () {
+    $infinitePoints.on('click', function () {
         const isChecked = $(this).is(':checked');
         let valShift = isChecked ? 999 : 0; // Update valShift to 999 when checkbox is checked
         
