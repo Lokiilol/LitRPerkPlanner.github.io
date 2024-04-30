@@ -183,10 +183,6 @@ const calculatePoints = function () {
        remaining += 1;
     }
     
-    if (infinitePoints()) {
-        remaining += 999;
-    }
-    
     if (remaining < 0) {
         remaining = 0;
     }
@@ -205,14 +201,9 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $infinitePoints = $('.infinite-Points');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
-};
-
-const infinitePoints = function () {
-    return $infinitePoints.is(':checked');
 };
 
 const pointsRemaining = function () {
@@ -304,23 +295,6 @@ $(function () {
 
         renderAll();
     });
-
-  $infinitePoints.on('change', function () {
-    const isChecked = $(this).is(':checked');
-    
-    const $inputs = $(".list-special>li>span>input");
-    
-    $inputs.prop('disabled', isChecked);
-    
-    if (isChecked) {
-        $inputs.val(999);
-    } else {
-        $inputs.val(1);
-    }
-
-    renderAll();
-});
-
 
     $('.btn-inc').on('click', function () {
         const remainingPoints = pointsRemaining();
