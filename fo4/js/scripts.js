@@ -118,15 +118,6 @@ const getSPECIALShort = function () {
     return specs;
 };
 
-const getSPECIAL = function () {
-    return $('[data-special]').map(function () {
-        return {
-            special: $(this).data('special'),
-            value: $(this).find('input').val()
-        };
-    });
-};
-
 const requiredLevel = function () {
     let total = 0;
     for (let i = 0; i < perks.length; ++i) {
@@ -327,4 +318,10 @@ const infinitePoints = function () {
 // Define the includeBobbleheads function
 const includeBobbleheads = function () {
     return $('.include-bobbleheads').prop('checked');
+};
+
+// Define the pointsRemaining function
+const pointsRemaining = function () {
+    const allocatedPoints = getAllocatedPoints();
+    return totalPoints - allocatedPoints;
 };
