@@ -252,9 +252,9 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 13;
+    let max = 12;
 
-    return {min, max};
+    return { min, max };
 };
 
 $(function () {
