@@ -305,17 +305,19 @@ $(function () {
         renderAll();
     });
 
-    $infinitePoints.on('click', function () {
-        const isChecked = $(this).is(':checked');
-        let valShift = isChecked ? 999 : 0; // Update valShift to 999 when checkbox is checked
-        
-        const $inputs = $(".list-special>li>span>input");
-        
-        $inputs.attr(getSPECIALMinMax());
-        $inputs.val(valShift);
-
-        renderAll();
+   $infinitePoints.on('change', function () {
+    const isChecked = $(this).is(':checked');
+    const valShift = isChecked ? 999 : 0; 
+    
+    const $inputs = $(".list-special>li>span>input");
+    
+    $inputs.each(function() {
+        $(this).val(valShift);
     });
+
+    renderAll();
+});
+
 
     $('.btn-inc').on('click', function () {
         const remainingPoints = pointsRemaining();
