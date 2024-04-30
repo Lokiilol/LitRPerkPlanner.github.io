@@ -137,7 +137,7 @@ const requiredLevel = function () {
 
     let remaining = totalPoints - getAllocatedPoints();
 
-    if (includeBobbleheads()) {
+    if (infinitePoints()) {
         remaining += 8;
     }
 
@@ -179,7 +179,7 @@ const renderAll = function () {
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
-    if (includeBobbleheads()) {
+    if (infinitePoints()) {
        remaining += 1;
     }
     
@@ -201,9 +201,14 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
+const $infinitePoints = $('.infinite-points');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
+};
+
+const infinitePoints = function () {
+    return $infinitePoints.is(':checked');
 };
 
 const pointsRemaining = function () {
@@ -244,7 +249,7 @@ const getSPECIALMinMax = function() {
     let min = 1;
     let max = 13;
 
-    if (includeBobbleheads()) {
+    if (infinitePoints()) {
         min = 1;
         max = 13;
     }
@@ -283,6 +288,23 @@ $(function () {
         let valShift = -0;
         
         if (includeBobbleheads()) {
+            valShift = 0;
+        }
+        
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val( function(i, val) {
+            return parseInt(val, 10) + valShift;
+        });
+
+        renderAll();
+    });
+
+    $infinitePoints.on('click', function () {
+        let valShift = -0;
+        
+        if (infinitePoints()) {
             valShift = 0;
         }
         
