@@ -182,11 +182,8 @@ const calculatePoints = function () {
     if (infinitePoints()) {
         remaining = 999; // Set remaining points to 999
     } else {
-        remaining = totalPoints - getAllocatedPoints();
-        
-        if (includeBobbleheads()) {
-            remaining += 1;
-        }
+        let basePoints = includeBobbleheads() ? 22 : 21;
+        remaining = basePoints - getAllocatedPoints();
         
         if (remaining < 0) {
             remaining = 0;
@@ -207,6 +204,13 @@ const getAllocatedPoints = function () {
 const updateSpecialInputs = function() {
     const { min, max } = getSPECIALMinMax();
     $(".list-special>li>span>input").attr({ "min": min, "max": max });
+};
+
+const getSPECIALMinMax = function() {
+    let min = 1;
+    let max = 12;
+
+    return { min, max };
 };
 
 $(function () {
@@ -242,12 +246,16 @@ $(function () {
     // Add event handlers for includeBobbleheads and infinitePoints checkboxes
     $includeBobbleheads.on('click', function () {
         updateSpecialInputs(); // Update special inputs min/max attributes
-        // Other code...
+        calculatePoints(); // Recalculate points
+        renderRequiredLevel(); // Render required level
+        renderSummary(); // Render summary
     });
 
     $infinitePoints.on('click', function () {
         updateSpecialInputs(); // Update special inputs min/max attributes
-        // Other code...
+        calculatePoints(); // Recalculate points
+        renderRequiredLevel(); // Render required level
+        renderSummary(); // Render summary
     });
 
     $('.btn-inc').on('click', function () {
