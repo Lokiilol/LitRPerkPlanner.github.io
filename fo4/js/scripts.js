@@ -177,18 +177,25 @@ const renderAll = function () {
 };
 
 const calculatePoints = function () {
-    let remaining = totalPoints - getAllocatedPoints();
+    let remaining;
     
-    if (includeBobbleheads()) {
-       remaining += 1;
+    if ($('.infinite-Points').is(':checked')) {
+        remaining = 999;
+    } else {
+        remaining = totalPoints - getAllocatedPoints();
+        
+        if (includeBobbleheads()) {
+            remaining += 1;
+        }
+        
+        if (remaining < 0) {
+            remaining = 0;
+        }
     }
     
-    if (remaining < 0) {
-        remaining = 0;
-    }
-    
-    $pointsLeft.text(remaining); 
+    $pointsLeft.text(remaining);
 };
+
 
 
 const getAllocatedPoints = function () {
