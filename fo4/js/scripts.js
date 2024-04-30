@@ -180,11 +180,17 @@ const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
     if (includeBobbleheads()) {
-       remaining += 1;
+       remaining += 1; // Increment by 1 if bobbleheads are included
     }
     
-    if (remaining < 0) {
-        remaining = 0;
+    if ($extraPointsCheckbox.is(':checked')) {
+        remaining = 999; // Set remaining points to 999 if "Unlimited" is checked
+    } else if (remaining < 0) {
+        remaining = 0; // Set remaining points to 0 if negative
+    } else if (remaining > 22 && includeBobbleheads()) {
+        remaining = 22; // Set remaining points to 22 if SPECIAL is enabled and over 22
+    } else if (remaining > 21) {
+        remaining = 21; // Set remaining points to 21 if not SPECIAL
     }
     
     $pointsLeft.text(remaining); 
