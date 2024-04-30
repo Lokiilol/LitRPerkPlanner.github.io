@@ -47,22 +47,10 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-                
-                if (rank.str) {
-                    description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
-                } else if (rank.per) {
-                    description += ' (' + toShorthand("Perception") + ' ' + rank.per + ')';
-                } else if (rank.end) {
-                    description += ' (' + toShorthand("Endurance") + ' ' + rank.end + ')';
-                } else if (rank.cha) {
-                    description += ' (' + toShorthand("Charisma") + ' ' + rank.cha + ')';
-                } else if (rank.int) {
-                    description += ' (' + toShorthand("Intelligence") + ' ' + rank.int + ')';
-                } else if (rank.agi) {
-                    description += ' (' + toShorthand("Agility") + ' ' + rank.agi + ')';
-                } else if (rank.lck) {
-                    description += ' (' + toShorthand("Luck") + ' ' + rank.lck + ')';
-                }
+
+                // Adjust this part to ensure the description is correctly formatted
+                // Here's an example:
+                description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
 
                 description += ' - ' + rank.description;
                 
