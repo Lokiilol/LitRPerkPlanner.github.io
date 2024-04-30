@@ -137,7 +137,7 @@ const requiredLevel = function () {
 
     let remaining = totalPoints - getAllocatedPoints();
 
-    if (infinitePoints()) {
+    if (includeBobbleheads()) {
         remaining += 8;
     }
 
@@ -179,7 +179,7 @@ const renderAll = function () {
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
     
-    if (infinitePoints()) {
+    if (includeBobbleheads()) {
        remaining += 1;
     }
     
