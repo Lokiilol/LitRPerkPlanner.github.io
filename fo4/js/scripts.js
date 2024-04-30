@@ -179,7 +179,7 @@ const renderAll = function () {
 const calculatePoints = function () {
     let remaining;
     
-    if ($('.infinite-Points').is(':checked')) {
+    if (infinitePoints()) {
         remaining = 999; // Set remaining points to 999
     } else {
         remaining = totalPoints - getAllocatedPoints();
