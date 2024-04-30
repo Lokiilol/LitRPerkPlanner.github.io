@@ -206,7 +206,7 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
-const $infinitePoints = $('.infinite-points');
+const $infinitePoints = $('.infinite-Points');
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
