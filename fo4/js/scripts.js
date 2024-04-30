@@ -193,9 +193,6 @@ const calculatePoints = function () {
         }
     }
     
-    // Ensure remaining points do not exceed 999
-    remaining = Math.min(remaining, 999);
-    
     $('.points-left').text(remaining);
 };
 
