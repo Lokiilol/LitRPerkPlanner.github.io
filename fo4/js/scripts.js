@@ -256,11 +256,6 @@ const getSPECIALMinMax = function() {
     let min = 1;
     let max = 13;
 
-    if (infinitePoints()) {
-        min = 1;
-        max = 13;
-    }
-
     return {min, max};
 };
 
