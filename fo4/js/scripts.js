@@ -191,9 +191,11 @@ const calculatePoints = function () {
 };
 
 const getAllocatedPoints = function () {
-    return $('[data-special] input').map(function () {
-        return parseInt($(this).val());
-    }).get().reduce(function (prev, curr) {
+    const points = $('input[type="number"]').map(function () {
+        return parseInt($(this).val(), 10);
+    }).get();
+
+    return points.reduce(function (prev, curr) {
         return prev + curr;
     });
 };
