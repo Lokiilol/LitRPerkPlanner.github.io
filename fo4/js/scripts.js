@@ -141,6 +141,11 @@ const requiredLevel = function () {
         remaining += 8;
     }
 
+    if (includeinfinite()) {
+        remaining += 999;      
+    }
+
+
     if (remaining <= 0) {
         total += 1 + remaining * -1;
     }
@@ -183,6 +188,10 @@ const calculatePoints = function () {
        remaining += 1;
     }
     
+    if (includeinfinite()) {
+        remaining += 999;     
+    }
+
     if (remaining < 0) {
         remaining = 0;
     }
@@ -201,9 +210,14 @@ const getAllocatedPoints = function () {
 
 const $pointsLeft = $('.points-left');
 const $includeBobbleheads = $('.include-bobbleheads');
+const $includeinfinite = $('.infinite-Points');    
 
 const includeBobbleheads = function () {
     return $includeBobbleheads.is(':checked');
+};
+
+const includeinfinite = function (){
+    return $includeinfinite.is(':checked');  
 };
 
 const pointsRemaining = function () {
@@ -223,7 +237,7 @@ const renderSummary = function () {
                 for (let k = 0; k < perk.currentRank; ++k) {
                     let description = perk.ranked[k].description;
                     
-                    // Add attribute requirements to the description
+                    
                     if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
                         description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
                     }
@@ -242,13 +256,18 @@ const renderSummary = function () {
 
 const getSPECIALMinMax = function() {
     let min = 1;
-    let max = 13;
+    let max = 12;
 
     if (includeBobbleheads()) {
         min = 1;
-        max = 13;
+        max = 12;
+    } else if (includeinfinite) {   
+        min = 1;
+        max = 12; 
+
     }
 
+    
     return {min, max};
 };
 
@@ -295,6 +314,26 @@ $(function () {
 
         renderAll();
     });
+
+
+    $includeinfinite.on('click', function () {   
+        let valShift = -0;
+        
+        if (includeinfinite()) {
+            valShift = 0;
+        }
+        
+        const $inputs = $(".list-special>li>span>input")
+        
+        $inputs.attr(getSPECIALMinMax());
+        $inputs.val( function(i, val) {
+            return parseInt(val, 10) + valShift;
+        });
+
+        renderAll();
+    });
+
+
 
     $('.btn-inc').on('click', function () {
         const remainingPoints = pointsRemaining();
