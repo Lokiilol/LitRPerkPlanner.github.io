@@ -363,31 +363,31 @@ const perks = [
                         rank: 1,
                         level: 0,
                         per: 2,
-                        description: 'Keep your distance long and your kill-count high! You do 15% plus 0.5% per level with non-automatic rifles and shotguns.'
+                        description: 'Keep your distance long and your kill-count high! Your manual-action rifles and shotguns do 15% plus 0.5% damage per level, and degrade less frequently.'
                     },
                     {
                         rank: 2,
                         level: 12,
                         per: 3,
-                        description: 'You do 25% more damage, and have 25% more range with non-automatic rifles and shotguns.'
+                        description: 'Your manual-action rifles and shotguns do 25% more damage, have 25% more range, and degrade less frequently.'
                     },
                     {
                         rank: 3,
                         level: 30,
                         per: 4,
-                        description: 'You do 35% more damage, and have 50% more range with non-automatic rifles and shotguns.'
+                        description: 'Your manual-action rifles and shotguns do 35% more damage, have 50% more range, and degrade less frequently.'
                     },
                     {
                         rank: 4,
                         level: 50,
                         per: 5,
-                        description: 'You do 45% more damage, and have 10% armor penetration with non-automatic rifles and shotguns.'
+                        description: 'Your manual-action rifles and shotguns do 45% more damage, ignore 10% of enemy armor, and degrade less frequently.'
                     },
                     {
                         rank: 5,
                         level: 70,
                         per: 6,
-                        description: 'You do 55% more damage with non-automatic rifles and shotguns.'
+                        description: 'Your manual-action rifles and shotguns do 55% more damag, and degrade less frequently..'
                     }
                 ]
             },
@@ -1538,31 +1538,31 @@ const perks = [
                         rank: 1,
                         level: 0,
                         agi: 2,
-                        description: 'Channel the spirit of the Old West! You do 15% plus an additional 0.5% per level more damage with all pistols.'
+                        description: 'Channel the spirit of the Old West! Your pistols do 15% plus an additional 1% per level more damage, and degrade less frequently.'
                     },
                     {
                         rank: 2,
                         level: 12,
                         agi: 3,
-                        description: 'You do 25% more damage with all pistols, and pistols deal 20% more damage to limbs.'
+                        description: 'Your pistols do 25% more damage, pistols deal 20% more damage to limbs, and degrade less frequently.'
                     },
                     {
                         rank: 3,
                         level: 30,
                         agi: 4,
-                        description: 'You do 35% more damage with all pistols, and attacks with pistols on arms have a chance to disarm your target.'
+                        description: 'Your pistols do 35% more damage, degrade less frequently, attacks on arms have a chance to disarm your target.'
                     },
                     {
                         rank: 4,
                         level: 50,
                         agi: 5,
-                        description: 'You do 45% more damage with all pistols, and attacks with pistols on legs have a chance to knock your target down.'
+                        description: 'Your pistols 45% more damage, degrade less frequently, and attacks with on legs have a chance to knock your target down.'
                     },
                     {
                         rank: 5,
                         level: 70,
                         agi: 6,
-                        description: 'You do 55% more damage with all pistols.'
+                        description: 'Your pistols do 55% more damage, and degrade less frequently.'
                     }
                 ]
             },
@@ -1850,31 +1850,31 @@ const perks = [
                         rank: 1,
                         level: 0,
                         lck: 2,
-                        description: 'Rigorous combat training or just dumb luck? Either way, you do 15% more damage, plus an additional 0.5% damage per level with full and semi-auto rifles and shotguns.'
+                        description: 'Rigorous combat training or just dumb luck? Either way, your semi- and full-auto rifles and shotguns do 15% more damage, plus an additional 0.5% damage per level, and degrade less frequently.'
                     },
                     {
                         rank: 2,
                         level: 18,
                         lck: 3,
-                        description: 'You do 25% more damage, and have a 7% chance to gain a free magazine when you fire the last bullet in your magazine with full and semi-auto rifles and shotguns.'
+                        description: 'Your semi- and full-auto rifles and shotguns do 25% more damage, degrade more slowly, and have a 7% chance to gain a free magazine when you fire the last bullet in your magazine.'
                     },
                     {
                         rank: 3,
                         level: 24,
                         lck: 4,
-                        description: 'You do 35% more damage with full and semi-auto rifles and shotguns..'
+                        description: 'Your semi- and full-auto rifles and shotguns do 35% more damage and degrade less frequently.'
                     },
                     {
                         rank: 4,
                         level: 50,
                         lck: 5,
-                        description: 'You do 45% more damage, and have a 14% chance to gain a free magazine when you fire the last bullet in your magazine with full and semi-auto rifles and shotguns.'
+                        description: 'Your semi- and full-auto rifles and shotguns do 45% more damage, degrade less frequently, and have a 14% chance to gain a free magazine when you fire the last bullet in your magazine.'
                     },
                     {
                         rank: 5,
                         level: 74,
                         lck: 6,
-                        description: 'You do 55% more damage with full and semi-auto rifles and shotguns.'
+                        description: 'Your automatic weapons now do double damage, and have a greater chance to stagger opponents.'
                     }
                 ]
             },
