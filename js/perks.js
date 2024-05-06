@@ -50,31 +50,31 @@ const perks = [
                         rank: 1,
                         level: 0,
                         str: 2,
-                        description: 'Thanks to practice and conditioning, you do 15% more damage plus an additional 0.5% per level with heavy guns.'
+                        description: 'Thanks to practice and conditioning your heavy weapons do 15% more damage plus an additional 1% per level.'
                     },
                     {
                         rank: 2,
                         level: 12,
                         str: 3,
-                        description: 'You do 25% more damage with heavy guns, and each heavy gun you carry increases your carry weight by 10, up to +100 Carry weight.'
+                        description: 'Your heavy weapons do 25% more damage, degrade less frequently, and each heavy gun you carry increases your carry weight by 10, up to +100 carry weight.'
                     },
                     {
                         rank: 3,
                         level: 30,
                         str: 4,
-                        description: 'You do 35% more damage with heavy guns, and you walk 20% faster with a heavy weapon drawn.'
+                        description: 'Your heavy weapons do 35% more damage, degrade less frequently, and you walk 20% faster with a heavy weapon drawn.'
                     },
                     {
                         rank: 4,
                         level: 50,
                         str: 5,
-                        description: 'You do 45% more damage with heavy guns, and an additional 20% if you are also over-encumbered.'
+                        description: 'Your heavy weapons do 45% more damage plus an additional 20% if you are over-encumbered, and degrade less frequently.'
                     },
                     {
                         rank: 5,
                         level: 70,
                         str: 6,
-                        description: 'You do 55% more damage with heavy guns.'
+                        description: 'Your heavy weapons 55% more damage, and degrade less frequently.'
                     }
                 ]
             },
@@ -114,25 +114,25 @@ const perks = [
                         rank: 1,
                         level: 0,
                         str: 4,
-                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
+                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor mods.'
                     },
                     {
                         rank: 2,
                         level: 16,
                         str: 5,
-                        description: 'You gain access to Rank 2 power armor and melee weapon mods.'
+                        description: 'You gain access to Rank 2 power armor mods.'
                     },
                     {
                         rank: 3,
                         level: 29,
                         str: 6,
-                        description: 'You gain access to Rank 3 power armor and melee weapon mods.'
+                        description: 'You gain access to Rank 3 power armor mods.'
                     },
                     {
                         rank: 4,
                         level: 43,
                         str: 7,
-                        description: 'You gain access to rank 4 power armor mods.'
+                        description: 'You gain access to Rank 4 power armor mods.'
                     }
                 ]
             },
