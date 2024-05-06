@@ -156,7 +156,7 @@ const requiredLevel = function () {
     }
 
     let maxLevel = 0;
-    
+
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             for (let k = 0; k < perks[i].perks[j].currentRank; ++k) {
@@ -188,11 +188,11 @@ const renderAll = function () {
 
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
-    
+
     if (includeBobbleheads()) {
        remaining += 1;
     }
-    
+
     if (includeinfinite()) {
         remaining += 999;     
     }
@@ -200,7 +200,7 @@ const calculatePoints = function () {
     if (remaining < 0) {
         remaining = 0;
     }
-    
+
     $pointsLeft.text(remaining); 
 };
 
@@ -241,12 +241,11 @@ const renderSummary = function () {
 
                 for (let k = 0; k < perk.currentRank; ++k) {
                     let description = perk.ranked[k].description;
-                    
-                    
+
                     if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
                         description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
                     }
-                    
+
                     html += '<li>' + description + '</li>';
                 }
 
@@ -269,10 +268,8 @@ const getSPECIALMinMax = function() {
     } else if (includeinfinite) {   
         min = 1;
         max = 12; 
-
     }
 
-    
     return {min, max};
 };
 
@@ -390,8 +387,10 @@ $(function () {
             }
         });
 
-        if (perk.currentRank < perk.ranks && meetsRequirements) {
-            perk.currentRank += 1;
+        if (meetsRequirements) {
+            if (perk.currentRank < perk.ranks) {
+                perk.currentRank += 1;
+            }
         }
 
         renderAll();
