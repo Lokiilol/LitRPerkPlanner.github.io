@@ -383,7 +383,14 @@ $(function () {
         const perk = perks[j].perks[i];
 
         // Check if the player meets the SPECIAL requirements for the perk
-        if (perk.currentRank < perk.ranks && perk.currentRank < special[j].value) {
+        let meetsRequirements = true;
+        perk.ranked[perk.currentRank].requiredAttribute.forEach((attribute, index) => {
+            if (special[j].special !== attribute || special[j].value < perk.ranked[perk.currentRank].requiredAttributeValue[index]) {
+                meetsRequirements = false;
+            }
+        });
+
+        if (perk.currentRank < perk.ranks && meetsRequirements) {
             perk.currentRank += 1;
         }
 
