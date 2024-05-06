@@ -38,12 +38,7 @@ const renderPerks = function () {
 
         for (let j = 0; j < perks.length; ++j) {
             const perk = perks[j].perks[i];
-            let className = '';
-
-            // Check if the player meets the SPECIAL requirements for the perk
-            if (perk.currentRank > special[j].value) {
-                className = ' unavailable';
-            }
+            let className = i > special[j].value - 1 ? ' unavailable' : '';
 
             if (!perk.currentRank) {
                 perk.currentRank = 0;
@@ -52,7 +47,7 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-
+                
                 if (rank.str) {
                     description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
                 } else if (rank.per) {
@@ -70,7 +65,7 @@ const renderPerks = function () {
                 }
 
                 description += ' - ' + rank.description;
-
+                
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
@@ -98,7 +93,7 @@ const getJSON = function () {
 
 const getRanks = function () {
     const ranks = [];
-
+    
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             const perk = perks[i].perks[j];
@@ -156,7 +151,7 @@ const requiredLevel = function () {
     }
 
     let maxLevel = 0;
-
+    
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             for (let k = 0; k < perks[i].perks[j].currentRank; ++k) {
@@ -188,11 +183,11 @@ const renderAll = function () {
 
 const calculatePoints = function () {
     let remaining = totalPoints - getAllocatedPoints();
-
+    
     if (includeBobbleheads()) {
        remaining += 1;
     }
-
+    
     if (includeinfinite()) {
         remaining += 999;     
     }
@@ -200,7 +195,7 @@ const calculatePoints = function () {
     if (remaining < 0) {
         remaining = 0;
     }
-
+    
     $pointsLeft.text(remaining); 
 };
 
@@ -241,11 +236,12 @@ const renderSummary = function () {
 
                 for (let k = 0; k < perk.currentRank; ++k) {
                     let description = perk.ranked[k].description;
-
+                    
+                    
                     if (perk.ranked[k].requiredAttribute && perk.ranked[k].requiredAttributeValue) {
                         description += ' (Requires ' + toShorthand(perk.ranked[k].requiredAttribute) + ' ' + perk.ranked[k].requiredAttributeValue + ')';
                     }
-
+                    
                     html += '<li>' + description + '</li>';
                 }
 
@@ -268,8 +264,10 @@ const getSPECIALMinMax = function() {
     } else if (includeinfinite) {   
         min = 1;
         max = 12; 
+
     }
 
+    
     return {min, max};
 };
 
@@ -373,37 +371,25 @@ $(function () {
         renderAll();
     });
 
-    $('body').on('click', '.btn-inc-perk', function () {
-        const $container = $(this).parent().parent();
-        const i = parseInt($container.data('i'));
-        const j = parseInt($container.data('j'));
-        const perk = perks[j].perks[i];
+    $('body').on('click', '.btn-inc-perk, .btn-dec-perk', function () {
+        const $container = $(this).parent().parent(),
+              i = parseInt($container.data('i')),
+              j = parseInt($container.data('j')),
+              perk = perks[j].perks[i],
+              incrementing = $(this).hasClass('btn-inc-perk');
 
-        // Check if the player meets the SPECIAL requirements for the perk
-        let meetsRequirements = true;
-        perk.ranked[perk.currentRank].requiredAttribute.forEach((attribute, index) => {
-            if (special[j].special !== attribute || special[j].value < perk.ranked[perk.currentRank].requiredAttributeValue[index]) {
-                meetsRequirements = false;
-            }
-        });
+        if (!perk.currentRank) {
+            perk.currentRank = 0;
+        }
 
-        if (meetsRequirements) {
+        if (incrementing) {
             if (perk.currentRank < perk.ranks) {
                 perk.currentRank += 1;
             }
-        }
-
-        renderAll();
-    });
-
-    $('body').on('click', '.btn-dec-perk', function () {
-        const $container = $(this).parent().parent();
-        const i = parseInt($container.data('i'));
-        const j = parseInt($container.data('j'));
-        const perk = perks[j].perks[i];
-
-        if (perk.currentRank > 0) {
-            perk.currentRank -= 1;
+        } else {
+            if (perk.currentRank > 0) {
+                perk.currentRank -= 1;
+            }
         }
 
         renderAll();
