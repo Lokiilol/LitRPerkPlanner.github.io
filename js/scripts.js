@@ -38,7 +38,11 @@ const renderPerks = function () {
 
         for (let j = 0; j < perks.length; ++j) {
             const perk = perks[j].perks[i];
-            let className = i > special[j].value - 1 ? ' unavailable' : '';
+            let className = '';
+
+            if (perk.currentRank > special[j].value) {
+                className = ' unavailable';
+            }
 
             if (!perk.currentRank) {
                 perk.currentRank = 0;
@@ -47,7 +51,7 @@ const renderPerks = function () {
             const title = perk.ranked.map(function (rank) {
                 const rankClass = perk.currentRank >= rank.rank ? 'has-rank' : 'no-rank';
                 let description = 'Rank ' + rank.rank + ' (' + rank.level + '):';
-                
+
                 if (rank.str) {
                     description += ' (' + toShorthand("Strength") + ' ' + rank.str + ')';
                 } else if (rank.per) {
@@ -65,7 +69,7 @@ const renderPerks = function () {
                 }
 
                 description += ' - ' + rank.description;
-                
+
                 return '<p class=' + rankClass + '>' + description + '</p>';
             }).join('');
 
@@ -93,7 +97,7 @@ const getJSON = function () {
 
 const getRanks = function () {
     const ranks = [];
-    
+
     for (let i = 0; i < perks.length; ++i) {
         for (let j = 0; j < perks[i].perks.length; ++j) {
             const perk = perks[i].perks[j];
@@ -383,7 +387,7 @@ $(function () {
         }
 
         if (incrementing) {
-            if (perk.currentRank < perk.ranks) {
+            if (perk.currentRank < perk.ranks && perk.currentRank < special[j].value) {
                 perk.currentRank += 1;
             }
         } else {
