@@ -40,6 +40,7 @@ const renderPerks = function () {
             const perk = perks[j].perks[i];
             let className = '';
 
+            // Check if the player meets the SPECIAL requirements for the perk
             if (perk.currentRank > special[j].value) {
                 className = ' unavailable';
             }
@@ -375,25 +376,28 @@ $(function () {
         renderAll();
     });
 
-    $('body').on('click', '.btn-inc-perk, .btn-dec-perk', function () {
-        const $container = $(this).parent().parent(),
-              i = parseInt($container.data('i')),
-              j = parseInt($container.data('j')),
-              perk = perks[j].perks[i],
-              incrementing = $(this).hasClass('btn-inc-perk');
+    $('body').on('click', '.btn-inc-perk', function () {
+        const $container = $(this).parent().parent();
+        const i = parseInt($container.data('i'));
+        const j = parseInt($container.data('j'));
+        const perk = perks[j].perks[i];
 
-        if (!perk.currentRank) {
-            perk.currentRank = 0;
+        // Check if the player meets the SPECIAL requirements for the perk
+        if (perk.currentRank < perk.ranks && perk.currentRank < special[j].value) {
+            perk.currentRank += 1;
         }
 
-        if (incrementing) {
-            if (perk.currentRank < perk.ranks && perk.currentRank < special[j].value) {
-                perk.currentRank += 1;
-            }
-        } else {
-            if (perk.currentRank > 0) {
-                perk.currentRank -= 1;
-            }
+        renderAll();
+    });
+
+    $('body').on('click', '.btn-dec-perk', function () {
+        const $container = $(this).parent().parent();
+        const i = parseInt($container.data('i'));
+        const j = parseInt($container.data('j'));
+        const perk = perks[j].perks[i];
+
+        if (perk.currentRank > 0) {
+            perk.currentRank -= 1;
         }
 
         renderAll();
