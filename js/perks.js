@@ -450,7 +450,7 @@ const perks = [
                         description: 'You gain access to Rank 4 gun mods.'
                     },
                     {
-                        rank: 4,
+                        rank: 5,
                         level: 85,
                         per: 8,
                         description: 'Create Rank 5 gun mods.'
@@ -1054,7 +1054,7 @@ const perks = [
                 rank: 6,
                 name: 'Black Widow',
                 img: 'black-widow.png',
-                ranks: 5,
+                ranks: 3,
                 ranked: [
                     {
                         rank: 1,
@@ -1402,7 +1402,7 @@ const perks = [
                         description: 'You can now save 3 Critical Hits, to be used in V.A.T.S. when you need them the most. Banking a Critical has a chance to save an additional Critical.'
                     },
                     {
-                        rank: 5,
+                        rank: 4,
                         level: 50,
                         int: 10,
                         description: 'You can now save 4 Critical Hits, to be used in V.A.T.S. when you need them the most.'
@@ -1764,7 +1764,7 @@ const perks = [
             {
                 rank: 10,
                 name: 'Ninja',
-                img: 'Ninja.png',
+                img: 'ninja.png',
                 ranks: 3,
                 ranked: [
                     {
