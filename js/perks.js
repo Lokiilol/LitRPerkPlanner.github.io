@@ -4,39 +4,33 @@ const perks = [
         perks: [
             {
                 rank: 1,
-                name: 'Big Leagues',
-                img: 'big-leagues.png',
-                ranks: 5,
+                name: 'Basher',
+                img: 'basher.png',
+                ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         str: 1,
-                        description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with unarmed and blunt melee weapons.'
+                        description: 'Get up close and personal! Gun bashing sometimes knocks down enemies, and does 25% more damage to enemies below half health.'
                     },
                     {
                         rank: 2,
                         level: 12,
                         str: 2,
-                        description: 'You do 25% more damage with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
+                        description: 'Gun Bashing now deals 50% extra damage to enemies below half health and possibly cripples your opponent.'
                     },
                     {
                         rank: 3,
                         level: 30,
                         str: 3,
-                        description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
+                        description: 'Gun bashing now does 75% more damage to enemies below half health and has an increased chance to cripple your opponent.'
                     },
                     {
                         rank: 4,
                         level: 50,
                         str: 4,
-                        description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!'
-                    },
-                    {
-                        rank: 5,
-                        level: 70,
-                        str: 5,
-                        description: 'You do 55% more damage with unarmed and blunt melee weapons.'
+                        description: 'Gun bashing does double damage to enemies below half health, and has an increased chance to cripple your opponent. It may also inflict a Critical Hit.'
                     }
                 ]
             },
@@ -50,7 +44,7 @@ const perks = [
                         rank: 1,
                         level: 0,
                         str: 2,
-                        description: 'Thanks to practice and conditioning your heavy weapons do 15% more damage plus an additional 1% per level.'
+                        description: 'Thanks to practice and conditioning your heavy weapons do 15% more damage plus an additional 1% per level, and degrade less frequently.'
                     },
                     {
                         rank: 2,
@@ -77,30 +71,42 @@ const perks = [
                         description: 'Your heavy weapons 55% more damage, and degrade less frequently.'
                     }
                 ]
-            },
+            },            
             {
                 rank: 3,
-                name: 'Adamantium Skeleton',
-                img: 'adamantium-skeleton.png',
-                ranks: 3,
+                name: 'Big Leagues',
+                img: 'big-leagues.png',
+                ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         str: 3,
-                        description: 'Your skeleton has been infused with indestructible metal, reducing limb damage, fall damage, and damage from over-encumbrance by 30%.'
+                        description: 'Swing for the fences! You do 15% more damage, plus an additional 0.5% damage per level with with unarmed and blunt melee weapons.'
                     },
                     {
                         rank: 2,
-                        level: 15,
+                        level: 12,
                         str: 4,
-                        description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 60%.'
+                        description: 'You do 25% more damage with unarmed and blunt melee weapons, and you gain a chance of knocking down your target.'
                     },
                     {
                         rank: 3,
-                        level: 37,
+                        level: 30,
                         str: 5,
-                        description: 'Your limb damage, fall damage, and damage from over-encumbrance are now reduced by 90%.'
+                        description: 'You do 35% more damage with unarmed and blunt melee weapons, and your attacks will hit all targets in front of you.'
+                    },
+                    {
+                        rank: 4,
+                        level: 50,
+                        str: 6,
+                        description: 'You do 45% more damage with unarmed and blunt melee weapons, and gain a chance to cripple your opponent, or grand slam their head clean off!'
+                    },
+                    {
+                        rank: 5,
+                        level: 70,
+                        str: 7,
+                        description: 'You do 55% more damage with unarmed and blunt melee weapons.'
                     }
                 ]
             },
@@ -114,19 +120,19 @@ const perks = [
                         rank: 1,
                         level: 0,
                         str: 4,
-                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor mods.'
+                        description: 'Fire up the forge and gain access to base level and Rank 1 power armor and melee weapon mods.'
                     },
                     {
                         rank: 2,
                         level: 16,
                         str: 5,
-                        description: 'You gain access to Rank 2 power armor mods.'
+                        description: 'You gain access to Rank 2 power armor and melee weapon mods.'
                     },
                     {
                         rank: 3,
                         level: 29,
                         str: 6,
-                        description: 'You gain access to Rank 3 power armor mods.'
+                        description: 'You gain access to Rank 3 power armor and melee weapon mods.'
                     },
                     {
                         rank: 4,
@@ -138,46 +144,8 @@ const perks = [
             },
             {
                 rank: 5,
-                name: 'Pain Train',
-                img: 'pain-train.png',
-                ranks: 5,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        str: 5,
-                        description: 'Choo Choo! All aboard! While wearing Power Armor, sprinting into enemies hurts and staggers them, and your armor takes 5% less damage.'
-                    },
-                    {
-                        rank: 2,
-                        level: 13,
-                        str: 6,
-                        description: 'While wearing Power Armor, fusion cores last twice as long while running, and your armor takes 10% less damage.'
-                    },
-                    {
-                        rank: 3,
-                        level: 26,
-                        str: 7,
-                        description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger, and your power armor takes 15% less damage.'
-                    },
-                    {
-                        rank: 4,
-                        level: 39,
-                        str: 8,
-                        description: 'Your fusion cores last three times as long in Power Armor while running, and your armor takes 20% less damage.'
-                    },
-                    {
-                        rank: 5,
-                        level: 54,
-                        str: 9,
-                        description: 'Sprinting into enemies now causes massive damage and knocks them down. Landing near enemies inflicts even more damage. Your power armor takes 25% less damage.'
-                    }
-                ]
-            },
-            {
-                rank: 6,
                 name: 'Buffness',
-                img: 'toughness.png',
+                img: 'iron-fist.png',
                 ranks: 5,
                 ranked: [
                     {
@@ -200,122 +168,150 @@ const perks = [
                     },
                     {
                         rank: 4,
-                        level: 40,
+                        level: 30,
                         str: 9,
                         description: 'You gain Health equal to eight times your Strength.'
                     },
                     {
                         rank: 5,
-                        level: 60,
+                        level: 40,
                         str: 10,
                         description: 'You gain Health equal to ten times your Strength.'
                     }
                 ]
             },
             {
-                rank: 7,
-                name: 'Basher',
-                img: 'basher.png',
-                ranks: 4,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        str: 7,
-                        description: 'Get up close and personal! Gun bashing gains a 15% chance to knock down enemies, does 25% more damage to enemies below 50% health, and gun bashing executes occur more frequently.'
-                    },
-                    {
-                        rank: 2,
-                        level: 12,
-                        str: 9,
-                        description: 'Gun bashing now deals 50% extra damage to enemies below 50% health and possibly cripples your opponent.'
-                    },
-                    {
-                        rank: 3,
-                        level: 30,
-                        str: 9,
-                        description: 'Gun bashing now does 75% more damage to enemies below 50% health and has increased chance to cripple your opponent.'
-                    },
-                    {
-                        rank: 4,
-                        level: 50,
-                        str: 10,
-                        description: 'Gun bashing now does double damage to enemies below 50% health and gains a 15% chance to critically hit.'
-                    }
-                ]
-            },
-            {
-                rank: 8,
-                name: 'Iron Roots',
+                rank: 6,
+                name: 'Rooted',
                 img: 'rooted.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        str: 8,
-                        description: 'Youre part tree! While standing still, gain a damage threshold of 4, doubled while over-encumbered.'
+                        str: 6,
+                        description: 'You\'re part tree! While standing still, you gain +2 Strength.'
                     },
                     {
                         rank: 2,
                         level: 23,
-                        str: 9,
-                        description: 'While standing still, gain a damage threshold of 8, doubled while over-encumbered.'
+                        str: 7,
+                        description: 'While standing still, you gain +3 Strength.'
                     },
                     {
                         rank: 3,
                         level: 50,
-                        str: 10,
-                        description: 'While standing still, gain a damage threshold of 12, doubled while over-encumbered.'
+                        str: 8,
+                        description: 'While standing still, you gain +4 Strength.'
                     }
                 ]
             },
             {
+                rank: 7,
+                name: 'Ad victoriam!',
+                img: 'science.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        str: 7,
+                        description: 'To Victory! You deal an additional 5% damage with energy weapons, doubled while in Power Armor.'
+                    },
+                    {
+                        rank: 2,
+                        level: 17,
+                        str: 8,
+                        description: 'You deal an Addtional 10% damage with Energy weapons, doubled while in power armor.'
+                    },
+                    {
+                        rank: 3,
+                        level: 28,
+                        str: 9,
+                        description: 'You deal an Addtional 15% damage with Energy weapons, doubled while in power armor.'
+                    }
+                ]
+            },
+            {
+                rank: 8,
+                name: 'Strength of Atom',
+                img: 'adamantium-skeleton.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        str: 8,
+                        description: 'Glory to Atom! Reduce incoming limb damage by 1% for each 1% radiation damage you\'ve taken.'
+                    },
+                    {
+                        rank: 2,
+                        level: 21,
+                        str: 9,
+                        description: 'Gain 1 armor for every 1% radiation damage you\'ve taken.'
+                    },
+                    {
+                        rank: 3,
+                        level: 42,
+                        str: 10,
+                        description: 'Reduce incoming fall damage by 1% for each 1% radiation damage you\'ve taken.Glory to Atom! Reduce incoming limb damage by 1% for each 1% radiation damage you\'ve taken.'
+                    }
+                ]
+            },     
+            {
                 rank: 9,
-                name: 'Blitz',
-                img: 'blitz.png',
-                ranks: 2,
+                name: 'Toughness',
+                img: 'toughness.png',
+                ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         str: 9,
-                        description: 'Find the gap and make the tackle! While not over-encumbered sprint 15% faster. V.A.T.S. melee distance increased by 50%'
+                        description: 'If nothing else, you can take a beating! You take 5% reduced incoming damage, doubled while in Power Armor.'
                     },
                     {
                         rank: 2,
-                        level: 29,
+                        level: 25,
                         str: 10,
-                        description: 'Melee attacks while sprinting deal 20% more damage. V.A.T.S. melee attacks deal more damage based on how far away you are.'
+                        description: 'You take 10% reduced damage, doubled while in Power Armor.'
+                    },
+                    {
+                        rank: 3,
+                        level: 50,
+                        str: 11,
+                        description: 'You take 15% reduced damage, doubled while in Power Armor.'
                     }
+                    
                 ]
             },
             {
                 rank: 10,
-                name: 'Mano a Mano',
-                img: 'iron-fist.png',
+                name: 'Pain Train',
+                img: 'pain-train.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         str: 10,
-                        description: 'Force your foes to fight you face to face. You take 5% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                        description: 'Choo choo! All aboard! While wearing Power Armor, sprinting into enemies hurts and staggers them.'
                     },
                     {
                         rank: 2,
-                        level: 26,
+                        level: 24,
                         str: 11,
-                        description: 'You take 10% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                        description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger.'
                     },
                     {
                         rank: 3,
-                        level: 48,
+                        level: 50,
                         str: 12,
-                        description: 'You take 15% less damage for each enemy beyond the first while wielding a melee weapon and not sneaking.'
+                        description: 'Sprinting into enemies while wearing Power Armor now causes severe damage and a more powerful stagger.'
                     }
                 ]
-            }
+            }      
+            
         ]
     },
     {
@@ -387,7 +383,7 @@ const perks = [
                         rank: 5,
                         level: 70,
                         per: 6,
-                        description: 'Your manual-action rifles and shotguns do 55% more damag, and degrade less frequently..'
+                        description: 'Your manual-action rifles and shotguns do 55% more damage, and degrade less frequently.'
                     }
                 ]
             },
@@ -495,27 +491,27 @@ const perks = [
             },
             {
                 rank: 6,
-                name: 'Night Person',
-                img: 'night-person.png',
+                name: 'Eye for a Bargain',
+                img: 'cap-collector.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         per: 6,
-                        description: 'You are a creature of the night! Gain +2 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
+                        description: 'Nobody spots a sale like you. Gain 2% better buying prices per Perception.'
                     },
                     {
                         rank: 2,
-                        level: 25,
+                        level: 20,
                         per: 7,
-                        description: 'You now have +4 to Intelligence and Perception between the hours of 6:00 p.m. and 6:00 a.m.'
+                        description: 'Gain 4% better buying prices per Perception.'
                     },
                     {
                         rank: 3,
-                        level: 37,
+                        level: 41,
                         per: 8,
-                        description: 'You gain night vision while sneaking.'
+                        description: 'Gain 6% better buying prices per Perception.'
                     }
                 ]
             },
@@ -650,7 +646,7 @@ const perks = [
                     {
                         rank: 3,
                         level: 28,
-                        end: 2,
+                        end: 3,
                         description: 'Healing from food lasts 20% longer, and you take even less radiation from eating or drinking.'
                     }
                 ]
@@ -737,31 +733,31 @@ const perks = [
                        rank: 1,
                        level: 0,
                        end: 5,
-                       description: 'What are you, part pack mule? Gain +5 to carry weight per Endurance.'
+                       description: 'What are you, part pack mule? When overencumbered and your weapon is holstered, running drains your less action points much more slowly.'
                    },
                    {
                        rank: 2,
                        level: 10,
                        end: 6,
-                       description: 'When overencumbered, running costs 25% less action points.'
+                       description: 'Gain +5 to carry load per Endurance.'
                    },
                    {
                        rank: 3,
                        level: 20,
                        end: 7,
-                       description: 'Gain +10 to carry weight per Endurance.'
+                       description: 'When overencumbered, running doesn\'t cost action points if your weapon is holstered'
                    },
                    {
                        rank: 4,
                        level: 30,
                        end: 8,
-                       description: 'When overencumbered, running costs 50% less action points.'
+                       description: 'Gain +10 carry load per Endurance.'
                    },
                    {
                        rank: 5,
                        level: 40,
                        end: 9,
-                       description: 'Worn armor weighs 50% less, and you gain access to Rank 4 armor mods.'
+                       description: 'When overencumbered, you can fast travel, in survival you no longer take periodic fatigue.'
                 }
                 ]
             },
@@ -799,90 +795,32 @@ const perks = [
             },
             {
                 rank: 7,
-                name: 'Ricohet',
-                img: 'ricochet.png',
+                name: 'Deathclaw Hunter',
+                img: 'wasteland-whisperer.png',
                 ranks: 3,
                 ranked: [
                    {
                        rank: 1,
                        level: 0,
                        end: 7,
-                       description: 'What goes around comes around! Bullets have a 10% chance to ricochet off you harmlessly.'
+                       description: 'Crikey! With your gun, aim at any Wasteland creature below your level and gain a chance to pacify it.'
                    },
                    {
                        rank: 2,
-                       level: 25,
+                       level: 21,
                        end: 8,
-                       description: 'When a bullet ricochets it now damages the enemy!'
+                       description: 'When you successfully pacify a Wasteland creature, you can incite it to attack.'
                    },
                    {
                        rank: 3,
-                       level: 37,
+                       level: 49,
                        end: 9,
-                       description: 'Enemy bullets now have a 2% chance per Endurance to Ricochet!'
-                   }
-                ]
-            },
-            {
-                rank: 8,
-                name: 'Ghoulish',
-                img: 'ghoulish.png',
-                ranks: 4,
-                ranked: [
-                   {
-                       rank: 1,
-                       level: 0,
-                       end: 8,
-                       description: 'Sure, you\'re still human - on the outside! Gain a +2 bonus to Strength and Perception while your radiation level is above 25%.'
-                   },
-                   {
-                       rank: 2,
-                       level: 24,
-                       end: 9,
-                       description: 'You take 30% less damage while your radiation level is above 25%.'
-                   },
-                   {
-                       rank: 3,
-                       level: 48,
-                       end: 10,
-                       description: 'You gain +50 Damage and Energy resistances, and take 50% less damage from radiation based attacks while your radiation level is above 25%.'
-                   },
-                   {
-                       rank: 4,
-                       level: 50,
-                       end: 11,
-                       description: 'You do 5% more damage and take 5% less damage for every 10% of your health contaminated by radiation (up to 50% of your health).'
-                   }
-                ]
-            },
-            {
-                rank: 9,
-                name: 'Bloodthirsty Cannibal',
-                img: 'cannibal.png',
-                ranks: 3,
-                ranked: [
-                   {
-                       rank: 1,
-                       level: 0,
-                       end: 9,
-                       description: 'Feast on mortal flesh to heal your wounds! Eating human corpses restores 15% of your health, and you deal more limb damage while hungry.'
-                   },
-                   {
-                       rank: 2,
-                       level: 19,
-                       end: 10,
-                       description: 'Eating Ghoul or Super Mutant corpses restores 15% of your max health, and you deal 10% increased critical damage per rank of thirst.'
-                   },
-                   {
-                       rank: 3,
-                       level: 38,
-                       end: 11,
-                       description: 'You can feed on corpses of humanoids to restore Health, and when you do, you gain +30 to all resistances and can smell the living for a limited time.'
+                       description: 'When you successfully pacify a Wasteland creature, you can give it specific commands.'
                    } 
                 ]
             },
             {
-                rank: 10,
+                rank: 8,
                 name: 'Solar Powered',
                 img: 'solar-powered.png',
                 ranks: 3,
@@ -890,20 +828,78 @@ const perks = [
                    {
                        rank: 1,
                        level: 0,
-                       end: 10,
-                       description: 'Catch some rays! Slowly regenerate your lost health in sunlight.'
+                       end: 8,
+                       description: 'Catch some rays! While outdoors between the hours of 8am and 6pm, your Power Armor drains fusion cores 25% more slowly.'
                    },
                    {
                        rank: 2,
                        level: 27,
-                       end: 11,
-                       description: 'The health regeneration from sunlight increases based on the time of day.'
+                       end: 9,
+                       description: 'While outdoors between the hours of 9am and 5pm, your Power Armor drains fusion cores 50% more slowly.'
                    },
                    {
                        rank: 3,
                        level: 50,
+                       end: 10,
+                       description: 'While outdoors between the hours of 10am and 4pm, your Power Armor drains fusion cores 75% more slowly.'
+                   }
+                ]
+            },
+            {
+                rank: 9,
+                name: 'Ghoulish',
+                img: 'ghoulish.png',
+                ranks: 4,
+                ranked: [
+                   {
+                       rank: 1,
+                       level: 0,
+                       end: 9,
+                       description: 'Sure, you\'re still human - on the outside! Gain +2 Endurance and +50 Rad Resist, but -1 Charisma while your radiation level is above 25%.'
+                   },
+                   {
+                       rank: 2,
+                       level: 24,
+                       end: 10,
+                       description: 'Gain a total of +4 Endurance and +100 Rad Resist, but -2 Charisma while your radiation level is above 50%.'
+                   },
+                   {
+                       rank: 3,
+                       level: 48,
+                       end: 11,
+                       description: 'Gain a total of +6 Endurance and +150 Rad Resist, but -3 Charisma while your radiation level is above 75%.'
+                   },
+                   {
+                       rank: 4,
+                       level: 50,
                        end: 12,
-                       description: 'Increase the health regeneration from sunlight by 50%.'
+                       description: 'Taking radiation damage now also regenerates health.'
+                   }
+                ]
+            },
+            {
+                rank: 10,
+                name: 'Ricohet',
+                img: 'ricochet.png',
+                ranks: 3,
+                ranked: [
+                   {
+                       rank: 1,
+                       level: 0,
+                       end: 10,
+                       description: 'What goes around comes around! Bullets have a 10% chance to ricochet off you harmlessly.'
+                   },
+                   {
+                       rank: 2,
+                       level: 25,
+                       end: 11,
+                       description: 'When a bullet ricochets it now damages the enemy!'
+                   },
+                   {
+                       rank: 3,
+                       level: 37,
+                       end: 12,
+                       description: 'Enemy bullets now have a 20% chance to Ricochet!'
                    }
                 ]
             }
@@ -948,24 +944,50 @@ const perks = [
                         rank: 1,
                         level: 0,
                         cha: 2,
-                        description: 'Nobody has a good time like you! Temporarily ignore the effects of addiction withdrawal with a refreshing Nuka-Cola, and in survival quench your thirst with beer.'
+                        description: 'Nobody has a good time like you! There\'s no chance you\'ll get addicted to alcohol.'
                     },
                     {
                         rank: 2,
                         level: 15,
                         cha: 3,
-                        description: 'Each addiction you have increases the duration of all chems by 20%.'
+                        description: 'The effects of alcohol are doubled.'
                     },
                     {
                         rank: 3,
                         level: 37,
                         cha: 4,
-                        description: 'The effects of chems are doubled if you have 3 or more addictions.'
+                        description: 'Your Luck is increased by 3 while you\'re under the influence of alcohol.'
                     }
                 ]
             },
             {
                 rank: 3,
+                name: 'Night Person',
+                img: 'night-person.png',
+                ranks: 3,
+                ranked: [
+                    {
+                        rank: 1,
+                        level: 0,
+                        cha: 3,
+                        description: 'You are a creature of the night! Gain +1 to Charisma and Agility between the hours of 6:00 p.m. and 6:00 a.m.'
+                    },
+                    {
+                        rank: 2,
+                        level: 25,
+                        cha: 4,
+                        description: 'Gain +2 to Charisma and Agility between the hours of 8:00 p.m. and 4:00 a.m.'
+                    },
+                    {
+                        rank: 3,
+                        level: 37,
+                        cha: 5,
+                        description: 'Gain +3 to Charisma and Agility between the hours of 10:00 p.m. and 2:00 a.m.'
+                    }
+                ]
+            },
+            {
+                rank: 4,
                 name: 'Dressed for the Apocalypse',
                 img: 'rad-resistant.png',
                 ranks: 5,
@@ -973,37 +995,37 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        cha: 3,
-                        description: 'Dress to impress! Gain 15 Rad Resistance, double that while not wearing leg armor.'
+                        cha: 4,
+                        description: 'Dress to impress! Gain 10 Rad Resistance, plus an additional 2 Rad Resistance per Charisma while not wearing Leg Armor.'
                     },
                     {
                         rank: 2,
                         level: 8,
-                        cha: 4,
-                        description: 'Reduce incoming ballistic damage by a flat amount equal to half your Charisma, doubled if not wearing chest armor.'
+                        cha: 5,
+                        description: 'Gain 10 Damage Resistance, plus an additional 2 Damage Resistance per Charisma while not wearing Torso Armor.'
                     },
                     {
                         rank: 3,
                         level: 21,
-                        cha: 5,
-                        description: 'Reduce incoming energy damage by a flat amount equal to half your Charisma, doubled if not wearing arm armor.'
+                        cha: 6,
+                        description: 'Gain 10 Energy Resistance, plus an additional 2 Energy Resistance per Charisma while not wearing Arm Armor.'
                     },
                     {
                         rank: 4,
                         level: 36,
-                        cha: 6,
-                        description: 'While not wearing the required armor, previous ranks are tripled, instead of doubled.'
+                        cha: 7,
+                        description: 'The previous ranks improve to 3 per Charisma.'
                     },
                     {
                         rank: 5,
                         level: 48,
-                        cha: 7,
-                        description: 'While not wearing the required armor, instead add 4 times your Charisma from the previous levels.'
+                        cha: 8,
+                        description: 'The previous ranks improve to 4 per charisma.'
                     }
                 ]
             },
             {
-                rank: 4,
+                rank: 5,
                 name: 'Lady Killer',
                 img: 'lady-killer-man-hunter.png',
                 ranks: 3,
@@ -1011,63 +1033,51 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        cha: 4,
+                        cha: 5,
                         description: 'You\'re charming... and dangerous. Women suffer +1% damage per point of Charisma, and are easier to persuade in dialogue.'
                     },
                     {
                         rank: 2,
                         level: 7,
-                        cha: 5,
+                        cha: 6,
                         description: 'Gain 10% armor penetration against women. Women are even easier to persuade in dialogue. They are also easier to pacify with the Intimidation perk.'
                     },
                     {
                         rank: 3,
                         level: 16,
-                        cha: 6,
+                        cha: 7,
                         description: 'Even other men find you irresistible! Gain half the effects of this perk against men.'
                     }
                 ]
             },
             {
-                rank: 5,
-                name: 'Refractor',
-                img: 'refractor.png',
+                rank: 6,
+                name: 'Black Widow',
+                img: 'black-widow.png',
                 ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
-                        cha: 5,
-                        description: 'You must be part mirror! Instantly gain +10 Energy Resistance.'
+                        cha: 6,
+                        description: 'Come into my parlor... Men suffer +1% increased damage per point of Charisma, and are easier to persuade in dialogue.'
                     },
                     {
                         rank: 2,
                         level: 11,
-                        cha: 6,
-                        description: 'You now have +20 Energy Resistance, and lasers have a 10% chance to ricochet off you instead of damaging you, charging your Critical meter!'
+                        cha: 7,
+                        description: 'You gain 10% damage penetration against men. They are also easier to pacify with the Intimidation perk.'
                     },
                     {
                         rank: 3,
                         level: 21,
-                        cha: 7,
-                        description: 'You now have +30 Energy Resistance, and take 50% less limb damage from lasers.'
-                    },
-                    {
-                        rank: 4,
-                        level: 35,
                         cha: 8,
-                        description: 'You now have +40 Energy Resistance, and lasers charge your Critical meter twice as fast.'
-                    },
-                    {
-                        rank: 5,
-                        level: 42,
-                        cha: 9,
-                        description: 'You take 25% less energy damage, and cannot be critically hit by enemies.'
+                        description: 'Even other women find you irresistible! Gain half the effects of this perk against women.'
                     }
-                ]
+               ]
             },
             {
-                rank: 6,
+                rank: 7,
                 name: 'Animal Friend',
                 img: 'animal-friend.png',
                 ranks: 3,
@@ -1075,25 +1085,25 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        cha: 6,
+                        cha: 7,
                         description: 'Commune with beasts! With your gun, aim at any animal below your level and gain a chance to pacify it.'
                     },
                     {
                         rank: 2,
                         level: 18,
-                        cha: 7,
+                        cha: 8,
                         description: 'Wild animals will no longer attack you unprovoked.'
                     },
                     {
                         rank: 3,
                         level: 38,
-                        cha: 8,
+                        cha: 9,
                         description: 'Animals will now come to your aid, but not against other animals.'
                     }
                 ]
             },
             {
-                rank: 7,
+                rank: 8,
                 name: 'Inspirational',
                 img: 'inspiration.png',
                 ranks: 3,
@@ -1101,72 +1111,46 @@ const perks = [
                     {
                         rank: 1,
                         level: 0,
-                        cha: 7,
+                        cha: 8,
                         description: 'Because you lead by example, your companions and settlers take 3% less damage per point of your Charisma, and cannot hurt you.'
                     },
                     {
                         rank: 2,
                         level: 19,
-                        cha: 8,
-                        description: 'Your companion and settlers deals 3% more damage per point of your Charisma, and can\'t be harmed by your attacks.'
+                        cha: 9,
+                        description: 'Your companion deals 3% more damage per point of your Charisma, and can\'t be harmed by your attacks.'
                     },
                     {
                         rank: 3,
                         level: 43,
-                        cha: 9,
+                        cha: 10,
                         description: 'While traveling with a companion, you gain an additional 75 carry weight.'
                     }
                 ]
             },
             {
-                rank: 8,
-                name: 'Wasteland Whisperer',
-                img: 'wasteland-whisperer.png',
-                ranks: 3,
-                ranked: [
-                    {
-                        rank: 1,
-                        level: 0,
-                        cha: 8,
-                        description: 'Master the post-apocalypse! With your gun, aim at any Wasteland creature below your level and gain a chance to pacify it.'
-                    },
-                    {
-                        rank: 2,
-                        level: 21,
-                        cha: 9,
-                        description: 'When you successfully pacify a Wasteland creature, you can incite it to attack.'
-                    },
-                    {
-                        rank: 3,
-                        level: 49,
-                        cha: 10,
-                        description: 'When you successfully pacify a Wasteland creature, you can give it specific commands.'
-                    }
-                ]
-            },
-            {
                 rank: 9,
-                name: 'Decapitalist',
-                img: 'cap-collector.png',
+                name: 'Refractor',
+                img: 'refractor.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         cha: 9,
-                        description: 'The fewer caps you carry, the better deals you get. Gain 5% better buying prices, plus up to an additional 10% while carrying less than 5000 caps (1% per 500 less).'
+                        description: 'You must be part mirror! You now have +15 Energy Resistance, and lasers have a 10% chance to ricochet off you instead of damaging you, charging your Critical meter!'
                     },
                     {
                         rank: 2,
-                        level: 20,
+                        level: 26,
                         cha: 10,
-                        description: 'Gain 10% better buying prices, plus up to an additional 20% while carrying less than 10,000 caps (1% per 500 less). Additionally, apply half the bonus to head and limb damage.'
+                        description: 'You now have +30 Energy Resistance, and take 50% less limb damage from lasers.'
                     },
                     {
                         rank: 3,
-                        level: 41,
-                        cha: 11,
-                        description: 'Gain 15% better buying prices, plus up to an additional 30% while carrying less than 15,000 caps (1% per 500 less). Additionally, apply half the bonus to V.A.T.S. headshot accuracy.'
+                        level: 52,
+                        cha: 13,
+                        description: 'You now have +45 Energy Resistance, and lasers charge your Critical meter twice as fast.'
                     }
                 ]
             },
@@ -1307,25 +1291,25 @@ const perks = [
                         rank: 1,
                         level: 0,
                         int: 4,
-                        description: 'Your knowledge of basic chemistry allows you to craft a few basic components at the chemistry workbench.'
+                        description: 'Far Out! Any chems you take last 25% longer.'
                     },
                     {
                         rank: 2,
                         level: 16,
                         int: 5,
-                        description: 'You can now craft a few simple chems and syringer ammo. Chem I recipes yield an additional product.'
+                        description: 'Any chems you take last 50% longer.'
                     },
                     {
                         rank: 3,
                         level: 36,
                         int: 6,
-                        description: 'You can now craft more advanced wasteland chems, and your Chem I and II recipes yield an additional product.'
+                        description: 'Any chems you take last 75% longer.'
                     },
                     {
                         rank: 4,
                         level: 54,
                         int: 7,
-                        description: 'You can now craft pre-war chems, and your Chem I, II, and III recipes yield an additional product.'
+                        description: 'Any chems you take now last twice as long.'
                     }
                 ]
             },
@@ -1395,27 +1379,33 @@ const perks = [
             },
             {
                 rank: 7,
-                name: 'Ad victoriam!',
-                img: 'science.png',
-                ranks: 3,
+                name: 'Calculated Critical',
+                img: 'critical-banker.png',
+                ranks: 4,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         int: 7,
-                        description: 'To Victory! You deal an additional 5% damage with energy weapons, doubled while in Power Armor.'
+                        description: 'You\'re a patient battlefield tactician, and can save a Critical Hit, to be used in V.A.T.S. when you need it the most.'
                     },
                     {
                         rank: 2,
                         level: 17,
                         int: 8,
-                        description: 'You deal an Addtional 10% damage with Energy weapons, doubled while in power armor.'
+                        description: 'You can now save 2 Critical Hits, to be used in V.A.T.S. when you need them the most.'
                     },
                     {
                         rank: 3,
-                        level: 28,
+                        level: 43,
                         int: 9,
-                        description: 'You deal an Addtional 15% damage with Energy weapons, doubled while in power armor.'
+                        description: 'You can now save 3 Critical Hits, to be used in V.A.T.S. when you need them the most. Banking a Critical has a chance to save an additional Critical.'
+                    },
+                    {
+                        rank: 5,
+                        level: 50,
+                        int: 10,
+                        description: 'You can now save 4 Critical Hits, to be used in V.A.T.S. when you need them the most.'
                     }
                 ]
             },
@@ -1481,7 +1471,7 @@ const perks = [
                         rank: 1,
                         level: 0,
                         int: 10,
-                        description: 'You\'ve learned to split the atom... You can now recover and recharge your depleted fusion cores with fresh nuclear material to 50% of their normal capacity. Radiation weapons do 50% more damage.'
+                        description: 'You\'ve learned to split the atom... You can recover and recharge your depleted fusion cores with fresh nuclear material to 50% of their normal capacity. Radiation weapons do 50% more damage.'
                     },
                     {
                         rank: 2,
@@ -1493,7 +1483,7 @@ const perks = [
                         rank: 3,
                         level: 50,
                         int: 12,
-                        description: 'You can now recharge depleted fusion cores to double their original capacity.'
+                        description: 'You can recharge depleted fusion cores to double their original capacity.'
                     }
                 ]
             }
@@ -1568,15 +1558,15 @@ const perks = [
             },
             {
                 rank: 3,
-                name: 'Ninja',
-                img: 'ninja.png',
+                name: 'Backstab',
+                img: 'mister-sandman.png',
                 ranks: 5,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         agi: 3,
-                        description: 'Trained as a shadow warrior, you do 15% more damage plus an additional 0.5% per level with bladed weapons.'
+                        description: 'As an agent of death itself, you do 15% more damage plus an additional 1% per level with bladed weapons.'
                     },
                     {
                         rank: 2,
@@ -1600,7 +1590,7 @@ const perks = [
                         rank: 5,
                         level: 70,
                         agi: 7,
-                        description: 'You do 55% more damage with bladed weapons.'
+                        description: 'You do 55% more damage bladed weapons.'
                     }
                 ]
             },
@@ -1676,27 +1666,27 @@ const perks = [
             },
             {
                 rank: 6,
-                name: 'Mister Sandman',
-                img: 'mister-sandman.png',
+                name: 'Moving Target',
+                img: 'moving-target.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         agi: 6,
-                        description: 'As an agent of death itself, your melee weapons do an additional 25% sneak attack damage.'
+                        description: 'They can\'t hurt what they can\'t hit! While sprinting, you dodge a percent of damage equal to your agility.'
                     },
                     {
                         rank: 2,
-                        level: 26,
+                        level: 28,
                         agi: 7,
-                        description: 'Your melee weapons do an additional 50% sneak attack damage.'
+                        description: 'While sprinting, you dodge a percent of damage equal to your twice your agility.'
                     },
                     {
                         rank: 3,
-                        level: 50,
+                        level: 52,
                         agi: 8,
-                        description: 'You can instantly kill a sleeping person, and your melee weapons now do 75% more sneak attack damage'
+                        description: 'While sprinting, you dodge a percent of damage equal to your three times your agility.'
                     }
                 ]
             },
@@ -1710,50 +1700,38 @@ const perks = [
                         rank: 1,
                         level: 0,
                         agi: 7,
-                        description: 'There\'s no time to waste! While not over-encumbered, your Action Points regenerate faster based on how fast you\'re moving.'
+                        description: 'There\'s no time to waste! Your Action Points regenerate 25% faster.'
                     },
                     {
                         rank: 2,
                         level: 18,
                         agi: 8,
-                        description: 'While moving and in combat, your Action Points regenerate even faster while not over-encumbered.'
+                        description: 'Your Action Points now regenerate 50% faster.'
                     },
                     {
                         rank: 3,
                         level: 38,
-                        description: 'Sprinting drains your Action Points half as fast.'
+                        description: 'Your Action Points now regenerate 75% faster.'
                     }
                 ]
             },
             {
                 rank: 8,
-                name: 'Deadly Rush',
-                img: 'critical-banker.png',
-                ranks: 4,
+                name: 'Blitz',
+                img: 'blitz.png',
+                ranks: 2,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         agi: 8,
-                        description: 'Feel the Adrenaline! Each rank of reduces the effects of fatigue, and decreases the chance you\'ll be staggered.'
+                        description: 'RUN! While sprinting, you move even faster.'
                     },
                     {
                         rank: 2,
-                        level: 17,
+                        level: 28,
                         agi: 9,
-                        description: 'Each rank of Adrenaline grants you increased AP and AP Regeneration.'
-                    },
-                    {
-                        rank: 3,
-                        level: 43,
-                        agi: 10,
-                        description: 'Gain a 3% dodge chance per rank of Adrenaline.'
-                    },
-                    {
-                        rank: 4,
-                        level: 50,
-                        agi: 11,
-                        description: 'Your Critical Hits deal an extra 10% damage per rank of Adrenaline.'
+                        description: 'Sprinting drains your AP half as fast.'
                     }
                 ]
             },
@@ -1785,27 +1763,27 @@ const perks = [
             },
             {
                 rank: 10,
-                name: 'Arobatics',
-                img: 'moving-target.png',
+                name: 'Ninja',
+                img: 'Ninja.png',
                 ranks: 3,
                 ranked: [
                     {
                         rank: 1,
                         level: 0,
                         agi: 10,
-                        description: 'While unencumbered and not wearing Power Armor, you have a 5% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                        description: 'Trained as a shadow warrior, your V.A.T.S. melee distance is increased by 25% while sneaking.'
                     },
                     {
                         rank: 2,
-                        level: 28,
+                        level: 30,
                         agi: 11,
-                        description: 'While unencumbered, moving, and not wearing Power Armor, you now have a 10% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                        description: 'Your V.A.T.S. melee distance is increased by 50% while sneaking.'
                     },
                     {
                         rank: 3,
-                        level: 52,
+                        level: 50,
                         agi: 12,
-                        description: 'While unencumbered, moving, and not wearing Power Armor, you now have a 15% chance to dodge any incoming attack. Doubled while running. Tripled while sprinting.'
+                        description: 'Your V.A.T.S. melee distance is increased by 75% while sneaking.'
                     }
                 ]
             }
@@ -1894,13 +1872,13 @@ const perks = [
                         rank: 2,
                         level: 23,
                         lck: 4,
-                        description: 'Powerful weapons grant more scrap, and you can salvage rare components like circuitry, nuclear material, and fiberoptics when scrapping weapons and armor. Favorited components are highlighted.'
+                        description: 'Powerful weapons grant more scrap, and you can salvage rare components when scrapping weapons and armor.'
                     },
                     {
                         rank: 3,
                         level: 40,
                         lck: 5,
-                        description: 'Advanced weapons grant more scrap, and you get more from salvaging.'
+                        description: 'Advanced weapons grant more scrap, and you get more from salvaging. Items with favorited components are highlighted while your weapon is wielded.'
                     }
                 ]
             },
@@ -1978,19 +1956,19 @@ const perks = [
                         rank: 1,
                         level: 0,
                         lck: 6,
-                        description: 'Advanced training for enhanced combat effectiveness! Gain a 5% Critical Hit chance outside of V.A.T.S., and you can save a Critical Hit, to be used in V.A.T.S. when you need it the most.'
+                        description: 'Advanced training for enhanced combat effectiveness! Gain a 5% Critical Hit chance outside of V.A.T.S.'
                     },
                     {
                         rank: 2,
                         level: 15,
                         lck: 7,
-                        description: 'Add half your Luck to your Critical Hit chance outside V.A.T.S., and you can now save 2 Critical Hits, to be used in V.A.T.S. when you need them the most.'
+                        description: 'Add half your Luck to your Critical Hit chance outside V.A.T.S.'
                     },
                     {
                         rank: 3,
                         level: 40,
                         lck: 8,
-                        description: 'Add your Luck to your Critical Hit chance outside V.A.T.S., and banking a Critical has a chance to save an additional Critical.'
+                        description: 'Add your Luck to your Critical Hit chance outside V.A.T.S.'
                     }
                 ]
             },
